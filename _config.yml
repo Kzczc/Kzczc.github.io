@@ -6,7 +6,7 @@
 # `jekyll serve`. If you change this file, please restart the server process.
 
 # Site Settings
-title                    : "Liu Tianchi (柳天驰)"
+title                    : "qiwei liang (梁棋炜)"
 description              : "PhD Candidate @ National University of Singapore  Senior Research Engineer  @ A*STAR, Singapore"
 repository               : "Liu-Tianchi.github.io"
 google_scholar_stats_use_cdn : true
@@ -21,7 +21,7 @@ baidu_site_verification  :  # get baidu_site_verification from https://ziyuan.ba
 
 # Site Author
 author:
-  name             : "Liu Tianchi"
+  name             : "Qiwei Liang"
   avatar           : "images/android-chrome-512x512.png"
   bio              : 
   location         : "Singapore"
@@ -37,7 +37,7 @@ author:
   flickr           :
   facebook         :
   foursquare       :
-  github           : "Liu-Tianchi"
+  github           : "Qiwei Liang"
   google_plus      :
   keybase          :
   instagram        :

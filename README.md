@@ -1,7 +1,7 @@
 
 ### Hi there 👋
 
-Personal Web: https://Liu-Tianchi.github.io
+Personal Web: https://qiwei liang.github.io
 
 <!--
 **jinyeying/jinyeying** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
@@ -19,4 +19,4 @@ Here are some ideas to get you started:
 -->
 
 
-![](https://komarev.com/ghpvc/?username=Liu-Tianchi&style=plastic&color=green)
+![](https://komarev.com/ghpvc/?username=qiweiliang&style=plastic&color=green)
