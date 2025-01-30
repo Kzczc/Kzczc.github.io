@@ -7,8 +7,8 @@
 
 # Site Settings
 title                    : "qiwei liang (梁棋炜)"
-description              : "PhD Candidate @ National University of Singapore  Senior Research Engineer  @ A*STAR, Singapore"
-repository               : "Liu-Tianchi.github.io"
+description              : "Undergraduate Student @ Shenzhen University, Shenzhen"
+repository               : "kolakivy.github.io"
 google_scholar_stats_use_cdn : true
 
 # google analytics
@@ -24,11 +24,11 @@ author:
   name             : "Qiwei Liang"
   avatar           : "images/kivy.png"
   bio              : 
-  location         : "Singapore"
+  location         : "Shenzhen, China"
   employer         :
   pubmed           : 
   googlescholar    : "https://scholar.google.com.sg/citations?user=1W24GsQAAAAJ&hl=en"
-  email            : "tianchi_liu@u.nus.edu"
+  email            : "Kola337599@gmail.com"
   researchgate     : 
   uri              :
   bitbucket        :
@@ -37,7 +37,7 @@ author:
   flickr           :
   facebook         :
   foursquare       :
-  github           : "Qiwei Liang"
+  github           : "KolaKivy"
   google_plus      :
   keybase          :
   instagram        :
