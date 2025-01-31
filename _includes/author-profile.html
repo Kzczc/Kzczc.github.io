@@ -1,4 +1,42 @@
 {% if page.author and site.data.authors[page.author] %}
+  {% assign author = site.data.authors[page.author] %}
+{% else %}
+  {% assign author = site.author %}
+{% endif %}
+
+<div itemscope itemtype="http://schema.org/Person" class="profile_box">
+
+  <div class="author__avatar">
+    <img src="{{ author.avatar }}" class="author__avatar" alt="{{ author.name }}">
+  </div>
+
+  <div class="author__content">
+    <h3 class="author__name">{{ author.name }}</h3>
+    {% if author.bio %}<a href="https://drive.google.com/file/d/1Ly0o_I_LFDBW7wogRwid1JfFYjHdG1wh/view?usp=sharing"><p class="author__bio">{{ author.bio }}</p></a>{% endif %}
+  </div>
+
+  <div class="author__urls-wrapper">
+    <!-- <button class="btn btn--inverse">More Info & Contact</button> -->
+    <ul class="author__urls social-icons">
+      <li><div style="white-space: normal; margin-bottom: 1em;">{{ site.description }}</div></li>
+      <li><a href="mailto:{{ author.email }}"><i class="fas fa-fw fa-envelope" aria-hidden="true"></i> kola337599@gmail.com</a></li>
+      <li><a href="../images/wechat.jpg" target="_blank"><i class="fas fa-fw fa-weixin" aria-hidden="true"></i> WeChat</a></li>
+      <li><a href="https://github.com/{{ author.github }}"><i class="fab fa-fw fa-github" aria-hidden="true"></i> Github</a></li>
+      <li><a href="https://www.xiaohongshu.com/user/profile/609fe5db00000000010071d6" target="_blank"><img src="../images/rednote.png" alt="Red Note" style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;"> Red Note</a></li>
+    </ul>
+    <div class="author__urls_sm">
+      <a href="{{ author.uri }}"><i class="fas fa-fw fa-link" aria-hidden="true"></i></a>
+      <a href="mailto:{{ author.email }}"><i class="fas fa-fw fa-envelope" aria-hidden="true"></i></a>
+      <a href="../images/wechat.jpg" target="_blank"><i class="fas fa-fw fa-comments" aria-hidden="true"></i></a>
+      <a href="https://github.com/{{ author.github }}"><i class="fab fa-fw fa-github" aria-hidden="true"></i></a>
+      <a href="https://www.xiaohongshu.com/user/profile/609fe5db00000000010071d6" target="_blank"><i class="fab fa-fw fa-redo-alt" aria-hidden="true"></i></a>
+    </div>
+  </div>
+</div>
+
+
+
+{% comment %} {% if page.author and site.data.authors[page.author] %}
   {% assign author = site.data.authors[page.author] %}{% else %}{% assign author = site.author %}
 {% endif %}
 
@@ -17,7 +55,7 @@
     <!-- <button class="btn btn--inverse">More Info & Contact</button> -->
     <ul class="author__urls social-icons">
       <li><div style="white-space: normal; margin-bottom: 1em;">{{ site.description }}</div></li>
-      <li><a href="mailto:{{ author.email }}"><i class="fas fa-fw fa-envelope" aria-hidden="true"></i> tianchi_liu@u.nus.edu</a></li>
+      <li><a href="mailto:{{ author.email }}"><i class="fas fa-fw fa-envelope" aria-hidden="true"></i> kola337599@gmail.com</a></li>
       <li><a href="{{ author.googlescholar }}"><i class="fas fa-fw fa-graduation-cap"></i> Google Scholar</a></li>
       <li><a href="https://github.com/{{ author.github }}"><i class="fab fa-fw fa-github" aria-hidden="true"></i> Github</a></li>
       <li><a href="https://www.linkedin.com/in/{{ author.linkedin }}"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i> LinkedIn</a></li>
@@ -32,4 +70,4 @@
       
     </div>
   </div>
-</div>
+</div> {% endcomment %}
