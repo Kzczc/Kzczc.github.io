@@ -25,14 +25,6 @@ Before diving into research, I was an IoT enthusiast dedicated to developing IoT
 
 My research interests lie in **Embodied AI**, particularly in **Robotic Manipulation** (VLA, LLM, RL), **3D Scene Understanding**, and **Whole-Body Control**. Fundamentally, my work revolves around **infusing intelligence into machines**.  
 
-<!-- # 🔍 Research Area
-
-**Speech Processing**: Speaker Recognition, Speech Foundation Model, Anti-spoofing, Target Speaker Extraction
-
-**Multi-modal Processing**: Speech-LLM, Audio-visual Deception Detection
-
-**Algorithm**: Self-supervised Learning, Disentanglement Learning -->
-
 # 🎓 Education
 
 - *2022.09 - Now*, B.Eng. in Robotics Engineering, Shenzhen University (SZU), Shenzhen.
@@ -71,7 +63,34 @@ My research interests lie in **Embodied AI**, particularly in **Robotic Manipula
   
 📝 **Reviewer**
 - lEEE International conference on Multimedia&Expo 2025 (IEEE ICME) - *'25*
-![My Image](../images/kivy.png)
 
-<!-- 奖学金 leadership 工程项目 俱乐部 Talk（物联网培训+专业年级分享） -->
+💸 **Scholarships**
+- **Second Prize in the Public Welfare Star Competition**, (2024), [2000 CNY] 
+- **Huawei Cup Grand Championship Prize**, (2023), [<span style="color:red;">**20000 CNY**</span>]
+- **Huawei Scholarship**, (2023), [5000 CNY]
+- **First Prize in the Innovation and Entrepreneurship Star**, (2023), [3000 CNY] 
+- **Third Prize in the Academic Star Competition**, (2023), [1000 CNY] 
+
+🧙‍♂️ **Leadership Experience**
+- **Vice President**, **AutoLeaders Club, Shenzhen University** (深圳大学AutoLeaders俱乐部 副会长), 2023-2024
+- **Leader**, **Baidu PaddlePaddle Pioneer Group**, (百度飞桨领航团团长), 2023-2024
+- **Leader**, **Cultural and Entertainment Department, Student Union**, (学生会文娱部部长), 2023-2024
+- **Project Leader**, **Basic Experimental Project of the Student Innovation and Development Fund**, (创新基金项目负责人), 2023-2024
+- **Project Leader**, **University Students' Innovation and Entrepreneurship Training Project**, (大创负责人), 2023-2024
+
+📚 **Club**
+- **Shenzhen University AutoLeaders Club**, (AutoLeaders俱乐部), 2022.10 - Present
+- **Huawei AIeducationbase Association** (华为智能基座社团),2023.9 - Present
+- **Embodied AI Club (ROS Club)**, (ROS俱乐部), 2022.10 - Present
+
+🎤 **Public Talk**
+- Speaker, invited by the **institute**, **sharing experiences on engineering studies, competitions, and research with all first-year students transitioning to their second year**, 30 min, 2024.8
+
+- Speaker, invited by the **club**, **providing training for all students participating in the IoT competition, analyzing the competition problems, and sharing experiences**, 1 hour, 2024.3
+
+🤺 **Hobby**
+- **Fencing**. I have a strong passion for fencing, and I practice sabre. I once achieved a remarkable **fourth place in the National Challenge Tournament**.
+- **Hiphop**. I am particularly fond of hip-hop music, and I love Beatbox and Rap. I enjoy creating music.
+
+
 
