@@ -3,20 +3,14 @@ main:
   - title: "About Me"
     url: "/#about-me"
 
-  - title: "Research"
-    url: "/#-research-area"
-
   - title: "Education"
     url: "/#-education"
 
-  - title: "Work"
-    url: "/#-work-experience"
+  - title: "Research Experience"
+    url: "/#-research-experience"
 
   - title: "Publication"
     url: "/#-publication"
-    
-  - title: "Code"
-    url: "/#-open-source-contributions"
 
   - title: "Others"
     url: "/#-others"
