@@ -71,4 +71,7 @@ My research interests lie in **Embodied AI**, particularly in **Robotic Manipula
   
 📝 **Reviewer**
 - lEEE International conference on Multimedia&Expo 2025 (IEEE ICME) - *'25*
+![My Image](../images/kivy.png)
+
+<!-- 奖学金 leadership 工程项目 俱乐部 Talk（物联网培训+专业年级分享） -->
 
