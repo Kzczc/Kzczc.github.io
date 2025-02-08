@@ -92,5 +92,9 @@ My research interests lie in **Embodied AI**, particularly in **Robotic Manipula
 - **Fencing**. I have a strong passion for fencing, and I practice sabre. I once achieved a remarkable **fourth place in the National Challenge Tournament**.
 - **Hiphop**. I am particularly fond of hip-hop music, and I love Beatbox and Rap. I enjoy creating music.
 
+🌐 **related report**
+[2023年全国大学生物联网设计竞赛全国总决赛在南京大学举行](https://www.nju.edu.cn/info/3341/337591.htm)
+
+[点赞！他们一个暑期悄悄拿了这么多奖](https://mp.weixin.qq.com/s/z2NMzX9Zm_z40wsDLPaDZg)
 
 
