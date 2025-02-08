@@ -31,9 +31,9 @@ My research interests lie in **Embodied AI**, particularly in **Robotic Manipula
 
 # 💼 Research Experience
 
-- *2024.04 - Now*, Research Intern, The Institute of Artificial Intelligence, Shenzhen MSU-BIT University.
-- *2025.01 - Now*, Research Intern, MMLab@HKU (Multimedia Laboratory, The University of Hong Kong).
-- *2023.10 - Now*, Research Intern, National Engineering Laboratory for Big Data System Computing Technology, Shenzhen University.
+- *2024.04 - Now*, Research Intern, The Institute of Artificial Intelligence, **Shenzhen MSU-BIT University**.
+- *2025.01 - Now*, Research Intern, **MMLab@HKU** (Multimedia Laboratory, The University of Hong Kong).
+- *2023.10 - Now*, Research Intern, **National Engineering Laboratory for Big Data System Computing Technology**, Shenzhen University.
 
 # 📜 Publication
 
