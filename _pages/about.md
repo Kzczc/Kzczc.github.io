@@ -46,6 +46,7 @@ My research interests lie in **Embodied AI**, particularly in **Robotic Manipula
 - **Qiwei Liang**, Rulin Zhou, Yijing Zhou, Guankun Wang, XiaopinZhong, **STAR: Empowering Semi-Supervised Medical Image Segmentation with SAM-based Teacher-Student Architecture and Contrastive Consistency Regularization**, (under review, 中科院一区TOP, IF>7.5)
 - Changxin Huang, **Qiwei Liang**, Jingzhao Xu, Hui Li, Xiping Hu, Runhao Zeng, Victor C. M. Leung, Junfa Mao, Jianqiang Li, **Video2Reward++: Advancing Robot Skill Acquisition via Video-guided Reward Generation**, (under review, 中科院一区TOP, IF>20)
 - Runhao Zeng, Dingjie Zhou, **Qiwei Liang**, Junlin Liu, Hui Li, Changxin Huang, Jianqiang Li, Xiping Hu, Fuchun Sun, **Video2Reward: Generating Reward Function from Videos for Legged Robot Behavior Learning**(**ECAI 2024**)(<span style="color:red;">**Spotlight**</span>), [[paper]](https://arxiv.org/abs/2412.05515)
+- **FASR-Net: Unsupervised Shadow Removal Leveraging Inherent Frequency Priors**, (under review, CCF B)
 - **Qiwei Liang**, Yikeng Chen, Wenbiao Li, Minghao Lai, Wenjian Ni Hong Qiu, **iKnowiSee: AR Glasses with Language Learning Translation System and Identity Recognition System Built Based on Large Pre-trained Models of Language and Vision and Internet of Things Technology**(CINT 2024), [[paper]](https://link.springer.com/chapter/10.1007/978-981-97-3948-6_2)
 
 
