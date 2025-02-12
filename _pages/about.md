@@ -39,7 +39,7 @@ My research interests lie in **Embodied AI**, particularly in **Robotic Manipula
 
 **2025**
 
-- **Text2World: Benchmarking World Modeling Capabilities of Large Language Models via Program Synthesis**, (under review)
+- **PDDL World Model**, (under review)
 
 **2024**
 
