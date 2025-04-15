@@ -110,7 +110,7 @@ Here are some of the entrepreneurial projects I have initiated. These projects r
 - **Website**: [project-website.com](https://weshare.xin/)
 - **Xiaohongshu**: [View on Xiaohongshu](https://www.xiaohongshu.com/user/profile/65cdf2de0000000005033e2b)
 - **Logo**:  
-  <img src="../images/weshare_logo.png" alt="Project Logo" width="400"/>
+  <img src="../images/weshare_logo.png" alt="Project Logo" width="300"/>
 
 ### **七味具身**
 - **Project Introduction**:  
