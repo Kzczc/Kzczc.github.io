@@ -39,14 +39,14 @@ My research interests lie in **Embodied AI**, particularly in **Robotic Manipula
 
 **2025**
 
-- **PDDL World Model**, (under review)
+- Mengkang Hu, Tianxing Chen, Yude Zou, Yuheng Lei, Qiguang Chen, Ming Li, **Qiwei Liang**, Yao Mu, Hongyuan Zhang, Wenqi Shao, Ping Luo, (ICLR W 2025), [[paper]](https://openreview.net/pdf?id=dIQNOxuBay)
 
 **2024**
 
 - **Qiwei Liang**, Rulin Zhou, Yijing Zhou, Guankun Wang, XiaopinZhong, **STAR: Empowering Semi-Supervised Medical Image Segmentation with SAM-based Teacher-Student Architecture and Contrastive Consistency Regularization**, (under review, 中科院一区TOP, IF>7.5)
 - Changxin Huang, **Qiwei Liang**, Jingzhao Xu, Hui Li, Xiping Hu, Runhao Zeng, Victor C. M. Leung, Junfa Mao, Jianqiang Li, **Video2Reward++: Advancing Robot Skill Acquisition via Video-guided Reward Generation**, (under review, 中科院一区TOP, IF>20)
 - Runhao Zeng, Dingjie Zhou, **Qiwei Liang**, Junlin Liu, Hui Li, Changxin Huang, Jianqiang Li, Xiping Hu, Fuchun Sun, **Video2Reward: Generating Reward Function from Videos for Legged Robot Behavior Learning**(**ECAI 2024**)(<span style="color:red;">**Spotlight**</span>), [[paper]](https://arxiv.org/abs/2412.05515)
-- **FASR-Net: Unsupervised Shadow Removal Leveraging Inherent Frequency Priors**, (under review, CCFB)
+- **FASR-Net: Unsupervised Shadow Removal Leveraging Inherent Frequency Priors**, (under review, CCFB), [[paper]](https://arxiv.org/abs/2504.05779)
 - **Qiwei Liang**, Yikeng Chen, Wenbiao Li, Minghao Lai, Wenjian Ni Hong Qiu, **iKnowiSee: AR Glasses with Language Learning Translation System and Identity Recognition System Built Based on Large Pre-trained Models of Language and Vision and Internet of Things Technology**(CINT 2024), [[paper]](https://link.springer.com/chapter/10.1007/978-981-97-3948-6_2)
 
 
@@ -98,5 +98,22 @@ My research interests lie in **Embodied AI**, particularly in **Robotic Manipula
 [2023.08] [2023年全国大学生物联网设计竞赛全国总决赛在南京大学举行](https://www.nju.edu.cn/info/3341/337591.htm)
 
 [2023.08] [点赞！他们一个暑期悄悄拿了这么多奖](https://mp.weixin.qq.com/s/z2NMzX9Zm_z40wsDLPaDZg)
+
+# 🚀 Startup Projects
+
+Here are some of the entrepreneurial projects I have initiated. These projects reflect my passion with real-world applications to bring innovative ideas to life.
+
+### **Weshare**
+- **Project Introduction**:  
+  We strive to create a comprehensive competition exchange platform that breaks down information barriers through sharing experiences and solutions, helping participants resolve confusion and improve their chances of winning.
+- **Co-founders**: Qiwei Liang, [Tao Lin](https://lintao.online), Yihao Hu.
+- **Website**: [project-website.com](https://weshare.xin/)
+- **Xiaohongshu**: [View on Xiaohongshu](https://www.xiaohongshu.com/user/profile/65cdf2de0000000005033e2b)
+- **Logo**:  
+  <img src="../images/weshare_logo.png" alt="Project Logo" width="100"/>
+
+### **七味具身**
+- **Project Introduction**:  
+  The project is coming soon.
 
 
