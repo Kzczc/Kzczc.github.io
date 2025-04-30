@@ -33,7 +33,7 @@ My research interests lie in **Deep Learning and LLM**, particularly in **Explai
 # 💼 Research Experience
 
 - *2025.01 - Now*, Research Intern, **National Accounting Society**, Dongbei University of Finance and Economic.
-- *2023.11 - Now*, Research Group Leader, **Fintech Lab**, Dongbei University of Finance and Economic. Shenzhen University.
+- *2023.11 - Now*, Research Group Leader, **Fintech Lab**, Dongbei University of Finance and Economic. 
 
 # 📜 Publication
 
