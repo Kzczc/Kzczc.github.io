@@ -39,7 +39,8 @@ My research interests lie in **Deep Learning and LLM**, particularly in **Explai
 
 **2025**
 
-- Mengkang Hu, Tianxing Chen, Yude Zou, Yuheng Lei, Qiguang Chen, Ming Li, **Qiwei Liang**, Yao Mu, Hongyuan Zhang, Wenqi Shao, Ping Luo, (ICLR W 2025), [[paper]](https://openreview.net/pdf?id=dIQNOxuBay)
+- Zhuang Liu, **Yuhe Wu**, Yuran Chen(under review,UTD24), [[paper]]
+- Zhuang Liu, **Yuhe Wu**, Donghang Zheng, Yuran Chen, Shanshan Li, Yutong Zhang, Yueyao Ma , Miao Yu
 
 **2024**
 
