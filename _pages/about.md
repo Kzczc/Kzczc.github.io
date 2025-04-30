@@ -19,21 +19,21 @@ redirect_from:
 
 ### **About Me**  
 
-Hello! I'm Qiwei Liang (梁棋炜), a senior undergraduate student majoring in Robotics Engineering at Shenzhen University, expected to graduate in July 2026. Currently, I am conducting research at the Institute of Artificial Intelligence, Shenzhen MSU-BIT University, under the supervision of [Runhao Zeng](https://scholar.google.com.sg/citations?user=s3X4YHwAAAAJ&hl=en).  
+Hello！I'm  Yuhe Wu(吴宇赫), a senior undergraduate student majoring in Economic Statistics at Dongbei University of Economic and Finance, expected to graduate in July 2026.Currently,I am conducting research at the Fintech Lab, school of Fintech, under the supervision of Zhuang Liu.
 
-Before diving into research, I was an IoT enthusiast dedicated to developing IoT products with the goal of improving people's lives. I was also the **national champion**, of the China Collegiate IoT Design Competition.  
+Before diving into research, I was an Artificial Intelligence enthusiast dedicated to developing AI products and programms with the goal of improving people’s lives. I was also the **national third prize**, of the China International College Students’ Innovation Competition.
 
-My research interests lie in **Embodied AI**, particularly in **Robotic Manipulation** (VLA, LLM, RL), **3D Scene Understanding**, and **Whole-Body Control**. Fundamentally, my work revolves around **infusing intelligence into machines**.  
+My research interests lie in **Deep Learning and LLM**, particularly in **Explainability Analysis of Machine Learning and LLM, LLM reasoning, Operation Research for LLM**, and **Data Generation for Financial Datasets**. Fundamentally, my work is dedicated to **enabling explainability in AI.**
 
 # 🎓 Education
 
-- *2022.09 - Now*, B.Eng. in Robotics Engineering, Shenzhen University (SZU), Shenzhen.
+- *2022.09 - 2023.09*, Business Administration, Dongbei University of Finance and Economic (DUFE), Dalian.
+- *2023.09 - Now*, Economic Statistics, Dongbei University of Finance and Economic (DUFE), Dalian.
 
 # 💼 Research Experience
 
-- *2024.04 - Now*, Research Intern, The Institute of Artificial Intelligence, **Shenzhen MSU-BIT University**.
-- *2025.01 - Now*, Research Intern, **MMLab@HKU** (Multimedia Laboratory, The University of Hong Kong).
-- *2023.10 - Now*, Research Intern, **National Engineering Laboratory for Big Data System Computing Technology**, Shenzhen University.
+- *2025.01 - Now*, Research Intern, **National Accounting Society**, Dongbei University of Finance and Economic.
+- *2023.11 - Now*, Research Group Leader, **Fintech Lab**, Dongbei University of Finance and Economic. Shenzhen University.
 
 # 📜 Publication
 
