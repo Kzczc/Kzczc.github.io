@@ -39,8 +39,9 @@ My research interests lie in **Deep Learning and LLM**, particularly in **Explai
 
 **2025**
 
-- Zhuang Liu, **Yuhe Wu**, Yuran Chen(under review,UTD24), [[paper]]
-- Zhuang Liu, **Yuhe Wu**, Donghang Zheng, Yuran Chen, Shanshan Li, Yutong Zhang, Yueyao Ma , Miao Yu
+- Zhuang Liu, **Yuhe Wu**, Yuran Chen,**Unveiling the Dual-Edged Sword: Securing LLMs Against Data Poisoning via Multilingual and Multi-Dimensional Strategies**(under review,UTD24)
+- Zhuang Liu, **Yuhe Wu**, Donghang Zheng, Yuran Chen, Shanshan Li, Yutong Zhang, Yueyao Ma , Miao Yu(under review,UTD24)
+- 
 
 **2024**
 
