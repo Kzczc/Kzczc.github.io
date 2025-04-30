@@ -23,7 +23,7 @@ Hello！I'm  Yuhe Wu(吴宇赫), a senior undergraduate student majoring in Econ
 
 Before diving into research, I was an Artificial Intelligence enthusiast dedicated to developing AI products and programms with the goal of improving people’s lives. I was also the **national third prize**, of the China International College Students’ Innovation Competition.
 
-My research interests lie in **Deep Learning and LLM**, particularly in **Explainability Analysis of Machine Learning and LLM, LLM reasoning, Operation Research for LLM**, and **Data Generation for Financial Datasets**. Fundamentally, my work is dedicated to **enabling explainability in AI.**
+My research interests lie in **Deep Learning and LLM**, particularly in **Explainability Analysis of Machine Learning, LLM reasoning, Operation Research for LLM**, and **Data Generation for Financial Datasets**. Fundamentally, my work is dedicated to **enabling explainability in AI.**
 
 # 🎓 Education
 
