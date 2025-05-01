@@ -142,10 +142,9 @@ redirect_from:
 
 Here are some of the entrepreneurial projects I have initiated. These projects reflect my passion with real-world applications to bring innovative ideas to life.
 
+<h4 style="font-size: 1.2em; color: red;">Project Introduction</h4> 
 
-- **Project Introduction**:
-
-<h4>🌱 “远洋牧民”项目 (Ocean Herders Project)</h4>
+<h4 style="font-size: 1.2em;">🌱 “远洋牧民”项目 (Ocean Herders Project)</h4>
 
 <p>“远洋牧民”项目起源于团队成员为帮助家人解决海参养殖困境而建立的同名调研小组。由于缺乏经验，其父母的养殖事业屡次面临亏损，这促使我们启动了这次深入的调研行动。</p>
 
