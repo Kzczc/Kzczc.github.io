@@ -73,7 +73,7 @@ redirect_from:
 <p>▸ Zhuang Liu, <strong>Yuhe Wu</strong>, Yuran Chen, Yiming Chang. "Reliable Financial Fraud Detection: Bayesian-Transformer Networks with Uncertainty-Guided Hierarchical Explainability." In <strong>ECMLPKDD 2025</strong>. [Under Review, CCF B]</p>
 <p>▸ Zhuang Liu, <strong>Yuhe Wu</strong>, Yuran Chen, Jiatong Zhang. "POLARIS：面向大语言模型显隐性偏见的多维度评估基准." In <strong>CCFAI 2025</strong>. [Under Review]</p>
 
-# 🌟 Others
+# ✨ Others
 
 🥇 **Competition Awards**🥈🥉🏅🎖️
 
@@ -92,12 +92,12 @@ redirect_from:
   
 <h4 style="font-size: 1.2em; color: red;">Provincial Level</h4> 
 
-- **Second Prize (Provincial)**🥈, **10th East Money Cup National College Student Financial Challenge** (第十届东方财富杯全国大学生金融挑战赛), Team Leader, 2024
-- **Bronze Award (Provincial)**🥉, **2024 "Creating Youth" Liaoning Innovation and Entrepreneurship Competition** (2024“创青春”辽宁创新创业大赛), Team Leader, 2024
-- **Bronze Award (Provincial)**🥉, **2024 "Challenge Cup" Liaoning Innovation and Entrepreneurship Plan Competition** (2024挑战杯辽宁省创新创业计划竞赛), Team Leader, 2024
-- **Bronze Award (Provincial)**🥉, **"CCB Cup" Liaoning Provincial College Student Innovation Competition** (“建行杯”辽宁省大学生创新大赛), Team Leader, 2224
-- **Third Prize (Provincial)**🥉, **18th iCAN College Student Innovation and Entrepreneurship Competition** (第十八届iCAN大学生创新创业大赛辽宁赛区), Team Leader, 2024
-- **Third Prize (Provincial)**🥉, **2023 "ICBC Cup" National College Student FinTech Innovation Competition** (2023“工行杯”全国大学生金融科技创新大赛), Core Member (2/3), 2023
+- **Second Prize**🥈, **10th East Money Cup National College Student Financial Challenge** (第十届东方财富杯全国大学生金融挑战赛), Team Leader, 2024
+- **Bronze Award**🥉, **2024 "Creating Youth" Liaoning Innovation and Entrepreneurship Competition** (2024“创青春”辽宁创新创业大赛), Team Leader, 2024
+- **Bronze Award**🥉, **2024 "Challenge Cup" Liaoning Innovation and Entrepreneurship Plan Competition** (2024挑战杯辽宁省创新创业计划竞赛), Team Leader, 2024
+- **Bronze Award**🥉, **"CCB Cup" Liaoning Provincial College Student Innovation Competition** (“建行杯”辽宁省大学生创新大赛), Team Leader, 2224
+- **Third Prize**🥉, **18th iCAN College Student Innovation and Entrepreneurship Competition** (第十八届iCAN大学生创新创业大赛辽宁赛区), Team Leader, 2024
+- **Third Prize**🥉, **2023 "ICBC Cup" National College Student FinTech Innovation Competition** (2023“工行杯”全国大学生金融科技创新大赛), Core Member (2/3), 2023
 - **Provincial Level Completion**🎖️, **2024 Provincial College Student Innovation and Entrepreneurship Training Program Project** (2024大学生创新创业训练计划项目省级), Core Member (2/5), 2024
   
 📝 **Reviewer**
@@ -142,14 +142,34 @@ redirect_from:
 
 Here are some of the entrepreneurial projects I have initiated. These projects reflect my passion with real-world applications to bring innovative ideas to life.
 
-### **远洋牧民**
+
+- **Project Introduction**:
+- 
+<h4>🌱 “远洋牧民”项目 (Ocean Herders Project)</h4>
+
 - **Project Introduction**:  
-  We strive to create a comprehensive competition exchange platform that breaks down information barriers through sharing experiences and solutions, helping participants resolve confusion and improve their chances of winning.
+
+<p>“远洋牧民”项目起源于团队成员为帮助家人解决海参养殖困境而建立的同名调研小组。由于缺乏经验，其父母的养殖事业屡次面临亏损，这促使我们启动了这次深入的调研行动。</p>
+
+<p>🔍 **深入调研与问题发现：** 小组实地走访了长兴岛、棒棰岛等地的20余家工厂和50余户养殖户。调研揭示，传统海参养殖极度依赖经验和难以预测的环境因素，导致行业门槛高，散户和小规模养殖场经营风险大，收入提升困难。</p>
+
+<p>📊 **市场分析与挑战：** 通过发放3000余份问卷和对20余家线下门店的考察，我们发现市场上的海参产品形式单一，缺乏明确的市场细分，销售渠道狭窄。营销模式的转型迫在眉睫。</p>
+
+<p>💡 **跨学科团队与创新方案：** 团队汇集了来自财经、理工、农业、海洋等多个学科背景的成员，撰写了8份详细的调研报告。以培育新质生产力、实现技术创新为目标，我们成功获得了3项专利、5项软件著作权，并发表了2篇相关论文，还得到了高校6项发明专利的授权支持。</p>
+
+<p>💻 **技术核心与成效：** 我们以传感器和物联网技术为核心，搭建了一套智能水产养殖管理体系。该体系旨在量化养殖决策，打破对传统经验的依赖，有效降低成本、提升产量。目前已成功帮助20余位渔民突破了养殖困境，在鲍鱼肚村等地取得了显著成效 ✅。</p>
+
+<p>🛒 **营销推广与合作：** 在验证了技术方案的有效性后，团队为“辽参”的推广量身打造了完整的营销方案。我们以“看得见、吃得起、真感受、倍健康”为理念，积极开展校企合作，已与北斗公司、玖福团膳等20余家企业达成合作协议，共同开发了海参小米粥、海参盲盒、定制礼盒等创新产品 🎁。</p>
+
+<p>⚙️ **使命与愿景：** 从最初的五人调查小组发展至今，“远洋牧民”所承载的已远不止一个小渔村的希望。我们着眼于广阔的海洋和无数的消费者，以助力乡村振兴、推广辽参品牌为使命，正乘风破浪，致力于在行业内掀起变革的浪潮 🌊。</p>
+
 - **Co-founders**: Yuhe Wu, Chongyun Ma, Yingjie Shi, Hongyi Zhu, Zichen Bin.
-- **Wechat Official Account**: [project-website.com](https://weshare.xin/)
-- **Xiaohongshu**: [View on Xiaohongshu](https://www.xiaohongshu.com/user/profile/65cdf2de0000000005033e2b)
+- **Wechat Official Account**: [远洋牧民]((https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=&scene=124#wechat_redirect))
+- **Xiaohongshu**: [View on Xiaohongshu]([https://www.xiaohongshu.com/user/profile/65cdf2de0000000005033e2b](https://www.xiaohongshu.com/user/profile/65e06f99000000001700cc16?xsec_token=YBja4QKX0IL7KP_qSNZI4tj3QzWWwHLUlCWod23Au6TLQ=&xsec_source=app_share&xhsshare=CopyLink&appuid=62c02fa70000000019029c28&apptime=1746083700&share_id=3ff268cade844fcbae5c302f3681ba2c))
+- **Xiaohongshu**:Coming Soon
 - **Logo**:  
   <img src="../images/weshare_logo.png" alt="Project Logo" width="300"/>
+- **Mascot**: 
 
 
 
