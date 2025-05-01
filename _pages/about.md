@@ -107,20 +107,20 @@ redirect_from:
 - ICDE 2025(CCF A)
 
 💸 **Honorable Awards**
-- **First-Class Scholarship** (2023，2024)，[2000 CNY]
-- **Third-Class Scholarship** (2025)，[500 CNY]
-- **Merit Student (University Level)** (2023, 2024)，[500 CNY]
-- **Dormitory Leader, Model Dormitory for Academic Atmosphere** (2023), [1000 CNY]
-- **Excellent Individual in Innovation and Entrepreneurships** (2024), [1000 CNY]
-- **Excellent Innovation and Entrepreneurship Team Scholarship** (2025), [3920 CNY]
-- **Excellent Communist Youth League Member** (2023)
-- **Advanced Individual in Academic Competitions** (2025)
+- First-Class Scholarship (2023，2024)，[2000 CNY]
+- Third-Class Scholarship (2025)，[500 CNY]
+- Merit Student (University Level) (2023, 2024)，[500 CNY]
+- Dormitory Leader, Model Dormitory for Academic Atmosphere (2023), [1000 CNY]
+- Excellent Individual in Innovation and Entrepreneurships (2024), [1000 CNY]
+- Excellent Innovation and Entrepreneurship Team Scholarship (2025), [3920 CNY]
+- Excellent Communist Youth League Member (2023)
+- Advanced Individual in Academic Competitions (2025)
 
 🛠️ **Personal Skills**
 
-- **Bilingual Writing**, **Proficient in both Chinese and English academic writing, experienced with journal submissions and reviewer responses.**
-- **Econometrics, Modeling & Programming**, **Proficient with SPSS, Stata, SAS for analysis & forecasting; Skilled in Python, R for data science; Familiar with Matlab for mathematical modeling.**
-- **Software Proficiency**, **Proficient with LaTeX (Typesetting), Origin, Visio (Graphing), MS Office Suite (Word, Excel, PowerPoint), Wind, Choice (Financial Terminals).**
+- Bilingual Writing, Proficient in both Chinese and English academic writing, experienced with journal submissions and reviewer responses.
+- Econometrics, Modeling & Programming, Proficient with SPSS, Stata, SAS for analysis & forecasting; Skilled in Python, R for data science; Familiar with Matlab for mathematical modeling.
+- Software Proficiency, Proficient with LaTeX (Typesetting), Origin, Visio (Graphing), MS Office Suite (Word, Excel, PowerPoint), Wind, Choice (Financial Terminals).
 
 📚 **Club**
 - **BA Foreign Language Club**, (BA外语俱乐部), 2022.10 - Present
