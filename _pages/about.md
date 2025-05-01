@@ -118,15 +118,15 @@ redirect_from:
 - Excellent Communist Youth League Member (2023)
 - Advanced Individual in Academic Competitions (2025)
 
-🛠️ Personal Skills
+<h4>🛠️ Personal Skills</h4>
 
-<p>**Large Language Models (LLMs)** 🤖: Proficient with mainstream text & multimodal LLMs (e.g., DeepSeekV3/R1, Qwen series, Llama series). Experienced with the full pipeline of Supervised Fine-Tuning (SFT) and Reinforcement Learning Fine-Tuning (RLFT/RLHF) 🔄. Extensive experience with LLM API integration and model fine-tuning 🛠️.<p>
+<p style="text-align: justify;"><strong>Large Language Models (LLMs) 🤖:</strong> Proficient with mainstream text & multimodal LLMs (e.g., DeepSeekV3/R1, Qwen series, Llama series). Experienced with the full pipeline of Supervised Fine-Tuning (SFT) and Reinforcement Learning Fine-Tuning (RLFT/RLHF) 🔄. Extensive experience with LLM API integration and model fine-tuning 🛠️.</p>
 
-<p>**Econometrics, Programming & Modeling** 📈: Proficient with SPSS, Stata, SAS for econometric analysis & forecasting. Skilled in Python 🐍 & R 📊 for data science. Familiar with deep learning frameworks (e.g., PyTorch ), Linux development environments 🐧, Conda environment management, and mathematical model implementation in Matlab 🔢.<p>
+<p style="text-align: justify;"><strong>Econometrics, Programming & Modeling 📈:</strong> Proficient with SPSS, Stata, SAS for econometric analysis & forecasting. Skilled in Python 🐍 & R 📊 for data science. Familiar with deep learning frameworks (e.g., PyTorch ), Linux development environments 🐧, Conda environment management, and mathematical model implementation in Matlab 🔢.</p>
 
-<p>**Research & Software Proficiency**🔥: Proficient with LaTeX ✍️ (Typesetting), Origin & Visio 📊 (Graphing), MS Office Suite (Word, Excel, PowerPoint) 📄, and financial data terminals (Wind, Choice) 💹.<p>
+<p style="text-align: justify;"><strong>Research & Software Proficiency 🔥:</strong> Proficient with LaTeX ✍️ (Typesetting), Origin & Visio 📊 (Graphing), MS Office Suite (Word, Excel, PowerPoint) 📄, and financial data terminals (Wind, Choice) 💹.</p>
 
-<p>**Bilingual Writing** ✍️: Proficient in both Chinese 🇨🇳 and English 🇬🇧 academic writing; Experienced with journal submissions and reviewer responses.<p>
+<p style="text-align: justify;"><strong>Bilingual Writing ✍️:</strong> Proficient in both Chinese 🇨🇳 and English 🇬🇧 academic writing; Experienced with journal submissions and reviewer responses.</p>
 
 📚 **Club**
 - **BA Foreign Language Club**, (BA外语俱乐部), 2022.10 - Present
