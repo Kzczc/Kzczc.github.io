@@ -44,14 +44,14 @@ redirect_from:
 
 **Journal Article**
 
-- Zhuang Liu, **Yuhe Wu**, Yuran Chen,**Unveiling the Dual-Edged Sword: Securing LLMs Against Data Poisoning via Multilingual and Multi-Dimensional Strategies** (**MIS Quarterly**, Under Review,UTD24)
-- Zhuang Liu, **Yuhe Wu**, Donghang Zheng, Yuran Chen, Shanshan Li, Yutong Zhang, Yueyao Ma, Miao Yu, Wayne Lin, Xuhui Wang, **Bridging ESG Text Analysis and Global ValueChain Resilience Through Al-Driven Innovation**(**INFORMS JOURNAL ON COMPUTING**, Under Review,UTD24)
-- **Yuhe Wu**, Yuran Chen, Zhuang Liu, Wayne Lin,**Enhancing Financial Decision-Making under Cyber Threats: A Dual-Branch Framework Integrating Bayesian Deep Learning and Explainable AI**(**Annals of Operations Research**, Under Review,ABS3)
-- **Yuhe Wu**, Yutong Zhang, Yuran Chen, Zhiyan Duan, Qiyan Shi,**TMOR: A Counterfactual and Chain-of-thought Framework for Operation Research Fine-tuning** (**Journal of the Operational Research Society**, Under Review,ABS3)
-- Zhuang Liu, **Yuhe Wu**, Yuran Chen, Ruitong Liu, Yanning Dong, Jun Zhao, **通信-感知-计算融合：关键技术、挑战与未来趋势**, (**计算机科学与探索**, Accepted, CCFT2, 北大中文核心)
-- Zhuang Liu, **Yuhe Wu**, Yuran Chen, Yujing Jiang, Yutong Zhang, Jiani Liu, Xuanrui Zhang, Jun Zhao, **面向低空经济的低空网络技术创新与应用：架构、挑战与发展趋势**,(**中国科学：信息科学**, Under Review,CCFT1, 北大中文核心)
-- Zhuang Liu, **Yuhe Wu**, Yuran Chen, Xinyue Su, **PolluVCCT模型：多源数据与混合深度学习的空气污染预测研究**, (**运筹与管理**, Under Review,中国管理科学A类, CSSCI)
-- Zhuang Liu, **Yuhe Wu**, Yuran Chen, Xinyue Su, Ruitong Liu, Yanning Dong, Wayne Lin, **贝叶斯机器学习的最新进展：经济学和金融学中的应用**(**计算机学报**, Under Review,CCFT1, 北大中文核心)
+- Zhuang Liu, **Yuhe Wu**, Yuran Chen,**Unveiling the Dual-Edged Sword: Securing LLMs Against Data Poisoning via Multilingual and Multi-Dimensional Strategies*，**《MIS Quarterly》**, （**Under Review,UTD24**)
+- Zhuang Liu, **Yuhe Wu**, Donghang Zheng, Yuran Chen, Shanshan Li, Yutong Zhang, Yueyao Ma, Miao Yu, Wayne Lin, Xuhui Wang, **Bridging ESG Text Analysis and Global ValueChain Resilience Through Al-Driven Innovation*，**《INFORMS JOURNAL ON COMPUTING》**, （**Under Review,UTD24**)
+- **Yuhe Wu**, Yuran Chen, Zhuang Liu, Wayne Lin,**Enhancing Financial Decision-Making under Cyber Threats: A Dual-Branch Framework Integrating Bayesian Deep Learning and Explainable AI*，**《Annals of Operations Research》**, （**Under Review,ABS3**)
+- **Yuhe Wu**, Yutong Zhang, Yuran Chen, Zhiyan Duan, Qiyan Shi,*TMOR: A Counterfactual and Chain-of-thought Framework for Operation Research Fine-tuning*，**《Journal of the Operational Research Society》**,（**Under Review,ABS3**)
+- Zhuang Liu, **Yuhe Wu**, Yuran Chen, Ruitong Liu, Yanning Dong, Jun Zhao, *通信-感知-计算融合：关键技术、挑战与未来趋势*, **《计算机科学与探索》**,（**Accepted, CCFT2, 北大中文核心**)
+- Zhuang Liu, **Yuhe Wu**, Yuran Chen, Yujing Jiang, Yutong Zhang, Jiani Liu, Xuanrui Zhang, Jun Zhao, **面向低空经济的低空网络技术创新与应用：架构、挑战与发展趋势*,**《中国科学：信息科学》**, （**Under Review,CCFT1, 北大中文核心**)
+- Zhuang Liu, **Yuhe Wu**, Yuran Chen, Xinyue Su, **PolluVCCT模型：多源数据与混合深度学习的空气污染预测研究*, **《运筹与管理》**, （**Under Review,中国管理科学A类, CSSCI**)
+- Zhuang Liu, **Yuhe Wu**, Yuran Chen, Xinyue Su, Ruitong Liu, Yanning Dong, Wayne Lin, **贝叶斯机器学习的最新进展：经济学和金融学中的应用*，**《计算机学报》**, (**Under Review,CCFT1, 北大中文核心**)
 
 **Conference Paper**
 
