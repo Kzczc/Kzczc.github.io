@@ -42,9 +42,6 @@ redirect_from:
 
 # 📜 Publication
 
-**Journal Article**
-
-### Publications
 
 <div style="text-align: justify;">
 
