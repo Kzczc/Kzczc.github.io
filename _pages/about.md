@@ -21,13 +21,14 @@ redirect_from:
 
 <div style="text-align: justify;">
 
-<p>Hello！I'm Yuhe Wu(吴宇赫), a senior undergraduate student majoring in Economic Statistics at Dongbei University of Economic and Finance, expected to graduate in July 2026. Currently, I am conducting research at the Fintech Lab, school of Fintech, under the supervision of Zhuang Liu.</p>
+<p>Hello! I'm Yuhe Wu (吴宇赫), an undergraduate student majoring in Economic Statistics at Dongbei University of Economic and Finance, expecting to graduate in July 2026. Currently, I am conducting research at the Fintech Lab within the School of Fintech, under the supervision of Zhuang Liu.</p>
 
-<p>Before diving into research, I was an Artificial Intelligence enthusiast dedicated to developing AI products and programms with the goal of improving people’s lives. I was also the <strong>national third prize</strong>, of the China International College Students’ Innovation Competition.</p>
+<p>Before focusing on research, I was an Artificial Intelligence enthusiast dedicated to developing AI products and programs aimed at improving people's lives. My work in this area was recognized with the <strong>National Third Prize</strong> in the China International College Students’ Innovation Competition.</p>
 
-<p>My research interests lie in <strong>Deep Learning and LLM</strong>, particularly in <strong>Explainability Analysis of Machine Learning, LLM reasoning, Operation Research for LLM</strong>, and <strong>Data Generation for Financial Datasets</strong>. Fundamentally, my work is dedicated to <strong>enabling explainability in AI.</strong></p>
+<p>My research interests primarily involve <strong>Deep Learning</strong> and <strong>Large Language Models (LLMs)</strong>, specifically focusing on areas such as <strong>Explainability Analysis</strong> of Machine Learning, <strong>LLM Reasoning</strong>, applying <strong>Operation Research</strong> techniques to LLMs, and <strong>Data Generation for Financial Datasets</strong>. Fundamentally, my work is dedicated to advancing <strong>explainability in AI</strong>.</p>
 
 </div>
+
 
 # 🎓 Education
 
