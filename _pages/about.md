@@ -86,14 +86,20 @@ redirect_from:
 - **Second Prize**🥈, **National College E-Commerce "Innovation, Creativity, and Entrepreneurship" Challenge** (三创赛), 2023
   
 📝 **Reviewer**
-- lEEE International conference on Multimedia&Expo 2025 (IEEE ICME) - *'25*
+- Journal of Business Research (Q1,中科院一区TOP，ABS3)
+- ACL ARR 2025(CCF A)
+- KDD 2025(CCF A)
+- ICDE 2025(CCF A)
 
 💸 **Scholarships**
-- **Second Prize in the Public Welfare Star Competition**, (2024), [2000 CNY] 
-- **Huawei Cup Grand Championship Prize**, (2023), [<span style="color:red;">**20000 CNY**</span>]
-- **Huawei Scholarship**, (2023), [5000 CNY]
-- **First Prize in the Innovation and Entrepreneurship Star**, (2023), [3000 CNY] 
-- **Third Prize in the Academic Star Competition**, (2023), [1000 CNY] 
+- **First-Class Scholarship** (2023，2024)，[2000 CNY]
+- **Third-Class Scholarship** (2025)，[500 CNY]
+- **Merit Student (University Level)** (2023, 2024)，[500 CNY]
+- **Dormitory Leader, Model Dormitory for Academic Atmosphere** (2023), [1000 CNY]
+- **Excellent Individual in Innovation and Entrepreneurships** (2024), [1000 CNY]
+- **Excellent Innovation and Entrepreneurship Team Scholarship** (2025), [3920 CNY]
+- **Excellent Communist Youth League Member** (2023)
+- **Advanced Individual in Academic Competitions** (2025)
 
 🧙‍♂️ **Leadership Experience**
 - **Vice President**, **AutoLeaders Club, Shenzhen University** (深圳大学AutoLeaders俱乐部 副会长), 2023-2024
