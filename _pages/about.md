@@ -128,7 +128,7 @@ redirect_from:
 
 🌟 **Hobbies**
 - 🎸 **Guitar**. I have a strong passion for playing the guitar, enjoying both learning songs.
-- 🎤 **Rap**. I am particularly fond of hip-hop music, and I love Rap.
+- 🎤 **Music**. I am particularly fond of Hip-hop、R&B and J-POP music.
 - 🏸 **Badminton**. I enjoy playing badminton; it's a great way to stay active and have fun.
   
 🌐 **related report**
