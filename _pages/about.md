@@ -47,31 +47,31 @@ redirect_from:
 
 <h4 style="font-size: 1.2em; color: red;">Journal Article</h4> 
 
-<p>▸ Zhuang Liu, <strong>Yuhe Wu</strong>, Yuran Chen. "Unveiling the Dual-Edged Sword: Securing LLMs Against Data Poisoning via Multilingual and Multi-Dimensional Strategies." In <strong>MIS Quarterly</strong>. [Under Review, UTD24]</p>
+<p>▸ Zhuang Liu*, <strong>Yuhe Wu</strong>, Yuran Chen. "Unveiling the Dual-Edged Sword: Securing LLMs Against Data Poisoning via Multilingual and Multi-Dimensional Strategies." In <strong>MIS Quarterly</strong>. [Under Review, UTD24]</p>
 
-<p>▸ Zhuang Liu, <strong>Yuhe Wu</strong>, Donghang Zheng, Yuran Chen, Shanshan Li, Yutong Zhang, Yueyao Ma, Miao Yu, Wayne Lin, Xuhui Wang. "Bridging ESG Text Analysis and Global Value Chain Resilience Through AI-Driven Innovation." In <strong>INFORMS Journal on Computing</strong>. [Under Review, UTD24]</p>
+<p>▸ Zhuang Liu, <strong>Yuhe Wu</strong>, Donghang Zheng, Yuran Chen, Shanshan Li, Yutong Zhang, Yueyao Ma, Miao Yu, Wayne Lin, Xuhui Wang*. "Bridging ESG Text Analysis and Global Value Chain Resilience Through AI-Driven Innovation." In <strong>INFORMS Journal on Computing</strong>. [Under Review, UTD24]</p>
 
-<p>▸ <strong>Yuhe Wu</strong>, Yuran Chen, Zhuang Liu, Wayne Lin. "Enhancing Financial Decision-Making under Cyber Threats: A Dual-Branch Framework Integrating Bayesian Deep Learning and Explainable AI." In <strong>Annals of Operations Research</strong>. [Under Review, ABS3]</p>
+<p>▸ <strong>Yuhe Wu</strong>, Yuran Chen, Zhuang Liu*, Wayne Lin. "Enhancing Financial Decision-Making under Cyber Threats: A Dual-Branch Framework Integrating Bayesian Deep Learning and Explainable AI." In <strong>Annals of Operations Research</strong>. [Under Review, ABS3]</p>
 
-<p>▸ <strong>Yuhe Wu</strong>, Yutong Zhang, Yuran Chen, Zhiyan Duan, Qiyan Shi. "TMOR: A Counterfactual and Chain-of-thought Framework for Operation Research Fine-tuning." In <strong>Journal of the Operational Research Society</strong>. [Under Review, ABS3]</p>
+<p>▸ <strong>Yuhe Wu</strong>, Yutong Zhang, Yuran Chen, Zhiyan Duan, Qiyan Shi, Zhuang Liu*. "TMOR: A Counterfactual and Chain-of-thought Framework for Operation Research Fine-tuning." In <strong>Journal of the Operational Research Society</strong>. [Under Review, ABS3]</p>
 
-<p>▸ Zhuang Liu, <strong>Yuhe Wu</strong>, Yuran Chen, Ruitong Liu, Yanning Dong, Jun Zhao. "通信-感知-计算融合：关键技术、挑战与未来趋势." In <strong>计算机科学与探索</strong>. [Accepted, CCF T2, 北大中文核心]</p>
+<p>▸ Zhuang Liu*, <strong>Yuhe Wu</strong>, Yuran Chen, Ruitong Liu, Yanning Dong, Jun Zhao. "通信-感知-计算融合：关键技术、挑战与未来趋势." In <strong>计算机科学与探索</strong>. [Accepted, CCF T2, 北大中文核心]</p>
 
-<p>▸ Zhuang Liu, <strong>Yuhe Wu</strong>, Yuran Chen, Yujing Jiang, Yutong Zhang, Jiani Liu, Xuanrui Zhang, Jun Zhao. "面向低空经济的低空网络技术创新与应用：架构、挑战与发展趋势." In <strong>中国科学：信息科学</strong>. [Under Review, CCF T1, 北大中文核心]</p>
+<p>▸ Zhuang Liu*, <strong>Yuhe Wu</strong>, Yuran Chen, Yujing Jiang, Yutong Zhang, Jiani Liu, Xuanrui Zhang, Jun Zhao. "面向低空经济的低空网络技术创新与应用：架构、挑战与发展趋势." In <strong>中国科学：信息科学</strong>. [Under Review, CCF T1, 北大中文核心]</p>
 
-<p>▸ Zhuang Liu, <strong>Yuhe Wu</strong>, Yuran Chen, Xinyue Su. "PolluVCCT模型：多源数据与混合深度学习的空气污染预测研究." In <strong>运筹与管理</strong>. [Under Review, 中国管理科学A类, CSSCI]</p>
+<p>▸ Zhuang Liu*, <strong>Yuhe Wu</strong>, Yuran Chen, Xinyue Su. "PolluVCCT模型：多源数据与混合深度学习的空气污染预测研究." In <strong>运筹与管理</strong>. [Under Review, 中国管理科学A类, CSSCI]</p>
 
-<p>▸ Zhuang Liu, <strong>Yuhe Wu</strong>, Yuran Chen, Xinyue Su, Ruitong Liu, Yanning Dong, Wayne Lin. "贝叶斯机器学习的最新进展：经济学和金融学中的应用." In <strong>计算机学报</strong>. [Under Review, CCF T1, 北大中文核心]</p>
+<p>▸ Zhuang Liu*, <strong>Yuhe Wu</strong>, Yuran Chen, Xinyue Su, Ruitong Liu, Yanning Dong, Wayne Lin. "贝叶斯机器学习的最新进展：经济学和金融学中的应用." In <strong>计算机学报</strong>. [Under Review, CCF T1, 北大中文核心]</p>
 
 </div>
 
 <h4 style="font-size: 1.2em; color: red;">Conference Paper</h4> 
 
-<p>▸ Zhuang Liu, RuitongLiu, Yuran Chen, <strong>Yuhe Wu</strong>, Zhiyan Duan, Qiyan Shi. "Alternative Option: Beyond Left-Right: A Multilingual and Multidimensional Dataset for Decoding Ideology in Social Media." In <strong>ACL ARR 2025</strong>. [Under Review, CCF A]</p>
-<p>▸ Zhuang Liu, Shuang Tian, Ruitong Liu, <strong>Yuhe Wu</strong>, Yuran Chen, Yueyao Ma. "FinGLUE: A Comprehensive Benchmark for Evaluating Financial Large Language Models." In <strong>KDD 2025</strong>. [Under Review, CCF A]</p>
-<p>▸ Zhuang Liu, <strong>Yuhe Wu</strong>, Yuran Chen. "BnetX: A Dual-Branch Risk Detection Framework with Bayesian Uncertainty and XAI." In <strong>UAI 2025</strong>. [Under Review, CCF B]</p>
-<p>▸ Zhuang Liu, <strong>Yuhe Wu</strong>, Yuran Chen, Yiming Chang. "Reliable Financial Fraud Detection: Bayesian-Transformer Networks with Uncertainty-Guided Hierarchical Explainability." In <strong>ECMLPKDD 2025</strong>. [Under Review, CCF B]</p>
-<p>▸ Zhuang Liu, <strong>Yuhe Wu</strong>, Yuran Chen, Jiatong Zhang. "POLARIS：面向大语言模型显隐性偏见的多维度评估基准." In <strong>CCFAI 2025</strong>. [Under Review]</p>
+<p>▸ Zhuang Liu*, RuitongLiu, Yuran Chen, <strong>Yuhe Wu</strong>, Zhiyan Duan, Qiyan Shi. "Alternative Option: Beyond Left-Right: A Multilingual and Multidimensional Dataset for Decoding Ideology in Social Media." In <strong>ACL 2025</strong>. [Under Review, CCF A]</p>
+<p>▸ Zhuang Liu*, Shuang Tian, Ruitong Liu, <strong>Yuhe Wu</strong>, Yuran Chen, Yueyao Ma. "FinGLUE: A Comprehensive Benchmark for Evaluating Financial Large Language Models." In <strong>KDD 2025</strong>. [Under Review, CCF A]</p>
+<p>▸ Zhuang Liu*, <strong>Yuhe Wu</strong>, Yuran Chen. "BnetX: A Dual-Branch Risk Detection Framework with Bayesian Uncertainty and XAI." In <strong>UAI 2025</strong>. [Under Review, CCF B]</p>
+<p>▸ Zhuang Liu*, <strong>Yuhe Wu</strong>, Yuran Chen, Yiming Chang. "Reliable Financial Fraud Detection: Bayesian-Transformer Networks with Uncertainty-Guided Hierarchical Explainability." In <strong>ECMLPKDD 2025</strong>. [Under Review, CCF B]</p>
+<p>▸ Zhuang Liu*, <strong>Yuhe Wu</strong>, Yuran Chen, Jiatong Zhang. "POLARIS：面向大语言模型显隐性偏见的多维度评估基准." In <strong>CCFAI 2025</strong>. [Under Review]</p>
 
 # ✨ Others
 
@@ -101,8 +101,10 @@ redirect_from:
 - **Provincial Level Completion**🎖️, **2024 Provincial College Student Innovation and Entrepreneurship Training Program Project** (2024大学生创新创业训练计划项目省级), Core Member (2/5), 2024
   
 📝 **Reviewer**
+- INFORMS Journal on Computing (UTD24)
+- IEEE Transactions on Neural Networks and Learning Systems (Q1,中科院一区TOP)
 - Journal of Business Research (Q1,中科院一区TOP，ABS3)
-- ACL ARR 2025(CCF A)
+- ACL 2025(CCF A)
 - KDD 2025(CCF A)
 - ICDE 2025(CCF A)
 
