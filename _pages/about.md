@@ -133,11 +133,11 @@ redirect_from:
   
 🌐 **related report**
 
-[2024.10] [国创赛，点亮上海！]((https://mp.weixin.qq.com/s/KJB5Vp7P_2t2fpfDNZeCeg))
+[2024.10] [国创赛，点亮上海！](https://mp.weixin.qq.com/s/KJB5Vp7P_2t2fpfDNZeCeg)
 
-[2025.01] [东北财经大学师生参加全国财经院院校创新创业联盟2024年年会暨第九届全国财经院校创新创业大赛并获奖]((https://mp.weixin.qq.com/s/pLgP7S5XFyFv0l8EI0Gxpg))
+[2025.01] [东北财经大学师生参加全国财经院院校创新创业联盟2024年年会暨第九届全国财经院校创新创业大赛并获奖](https://mp.weixin.qq.com/s/pLgP7S5XFyFv0l8EI0Gxpg)
 
-[2025.04] [2025年辽宁省普通高等学校本科大学生市场调查与分析大赛暨“正大杯”第十五届全国大学生市场调查与分析大赛辽宁赛区选拔赛成功举办]((https://mp.weixin.qq.com/s/x5oWQ3uGy37ac8klV-a6Xw))
+[2025.04] [2025年辽宁省普通高等学校本科大学生市场调查与分析大赛暨“正大杯”第十五届全国大学生市场调查与分析大赛辽宁赛区选拔赛成功举办](https://mp.weixin.qq.com/s/x5oWQ3uGy37ac8klV-a6Xw)
 # 🚀 Startup Projects
 
 Here are some of the entrepreneurial projects I have initiated. These projects reflect my passion with real-world applications to bring innovative ideas to life.
@@ -161,8 +161,8 @@ Here are some of the entrepreneurial projects I have initiated. These projects r
 <p>⚙️ <strong>使命与愿景：</strong> 从最初的五人调查小组发展至今，“远洋牧民”所承载的已远不止一个小渔村的希望。我们着眼于广阔的海洋和无数的消费者，以助力乡村振兴、推广辽参品牌为使命，正乘风破浪，致力于在行业内掀起变革的浪潮 🌊。</p>
 
 - **Co-founders**: Yuhe Wu, Chongyun Ma, Yingjie Shi, Hongyi Zhu, Zichen Bin.
-- **Wechat Official Account**: [远洋牧民]((https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=&scene=124#wechat_redirect))
-- **Xiaohongshu**: [View on Xiaohongshu]([https://www.xiaohongshu.com/user/profile/65cdf2de0000000005033e2b](https://www.xiaohongshu.com/user/profile/65e06f99000000001700cc16?xsec_token=YBja4QKX0IL7KP_qSNZI4tj3QzWWwHLUlCWod23Au6TLQ=&xsec_source=app_share&xhsshare=CopyLink&appuid=62c02fa70000000019029c28&apptime=1746083700&share_id=3ff268cade844fcbae5c302f3681ba2c))
+- **Wechat Official Account**: [远洋牧民](https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=&scene=124#wechat_redirect)
+- **Xiaohongshu**: [View on Xiaohongshu](https://www.xiaohongshu.com/user/profile/65e06f99000000001700cc16?xsec_token=YBja4QKX0IL7KP_qSNZI4tj3QzWWwHLUlCWod23Au6TLQ=&xsec_source=app_share&xhsshare=CopyLink&appuid=62c02fa70000000019029c28&apptime=1746083700&share_id=3ff268cade844fcbae5c302f3681ba2c)
 - **Logo**:
   <img src="../images/logo.png" alt="Ocean Herders Project Logo" width="250"/>
 - **Mascot**:
