@@ -50,23 +50,23 @@ redirect_from:
 
 <h4>English Journal Articles</h4>
 
-<p>Zhuang Liu, <strong>Yuhe Wu</strong>, Yuran Chen. "Unveiling the Dual-Edged Sword: Securing LLMs Against Data Poisoning via Multilingual and Multi-Dimensional Strategies." In <strong>MIS Quarterly</strong>. [Under Review, UTD24]</p>
+<p>-Zhuang Liu, <strong>Yuhe Wu</strong>, Yuran Chen. "Unveiling the Dual-Edged Sword: Securing LLMs Against Data Poisoning via Multilingual and Multi-Dimensional Strategies." In <strong>MIS Quarterly</strong>. [Under Review, UTD24]</p>
 
-<p>Zhuang Liu, <strong>Yuhe Wu</strong>, Donghang Zheng, Yuran Chen, Shanshan Li, Yutong Zhang, Yueyao Ma, Miao Yu, Wayne Lin, Xuhui Wang. "Bridging ESG Text Analysis and Global Value Chain Resilience Through AI-Driven Innovation." In <strong>INFORMS Journal on Computing</strong>. [Under Review, UTD24]</p>
+<p>-Zhuang Liu, <strong>Yuhe Wu</strong>, Donghang Zheng, Yuran Chen, Shanshan Li, Yutong Zhang, Yueyao Ma, Miao Yu, Wayne Lin, Xuhui Wang. "Bridging ESG Text Analysis and Global Value Chain Resilience Through AI-Driven Innovation." In <strong>INFORMS Journal on Computing</strong>. [Under Review, UTD24]</p>
 
-<p><strong>Yuhe Wu</strong>, Yuran Chen, Zhuang Liu, Wayne Lin. "Enhancing Financial Decision-Making under Cyber Threats: A Dual-Branch Framework Integrating Bayesian Deep Learning and Explainable AI." In <strong>Annals of Operations Research</strong>. [Under Review, ABS3]</p>
+<p>-<strong>Yuhe Wu</strong>, Yuran Chen, Zhuang Liu, Wayne Lin. "Enhancing Financial Decision-Making under Cyber Threats: A Dual-Branch Framework Integrating Bayesian Deep Learning and Explainable AI." In <strong>Annals of Operations Research</strong>. [Under Review, ABS3]</p>
 
-<p><strong>Yuhe Wu</strong>, Yutong Zhang, Yuran Chen, Zhiyan Duan, Qiyan Shi. "TMOR: A Counterfactual and Chain-of-thought Framework for Operation Research Fine-tuning." In <strong>Journal of the Operational Research Society</strong>. [Under Review, ABS3]</p>
+<p>-<strong>Yuhe Wu</strong>, Yutong Zhang, Yuran Chen, Zhiyan Duan, Qiyan Shi. "TMOR: A Counterfactual and Chain-of-thought Framework for Operation Research Fine-tuning." In <strong>Journal of the Operational Research Society</strong>. [Under Review, ABS3]</p>
 
 <h4>Chinese Journal Articles</h4>
 
-<p>Zhuang Liu, <strong>Yuhe Wu</strong>, Yuran Chen, Ruitong Liu, Yanning Dong, Jun Zhao. "通信-感知-计算融合：关键技术、挑战与未来趋势." In <strong>计算机科学与探索</strong>. [Accepted, CCFT2, 北大中文核心]</p>
+<p>-Zhuang Liu, <strong>Yuhe Wu</strong>, Yuran Chen, Ruitong Liu, Yanning Dong, Jun Zhao. "通信-感知-计算融合：关键技术、挑战与未来趋势." In <strong>计算机科学与探索</strong>. [Accepted, CCFT2, 北大中文核心]</p>
 
-<p>Zhuang Liu, <strong>Yuhe Wu</strong>, Yuran Chen, Yujing Jiang, Yutong Zhang, Jiani Liu, Xuanrui Zhang, Jun Zhao. "面向低空经济的低空网络技术创新与应用：架构、挑战与发展趋势." In <strong>中国科学：信息科学</strong>. [Under Review, CCFT1, 北大中文核心]</p>
+<p>-Zhuang Liu, <strong>Yuhe Wu</strong>, Yuran Chen, Yujing Jiang, Yutong Zhang, Jiani Liu, Xuanrui Zhang, Jun Zhao. "面向低空经济的低空网络技术创新与应用：架构、挑战与发展趋势." In <strong>中国科学：信息科学</strong>. [Under Review, CCFT1, 北大中文核心]</p>
 
-<p>Zhuang Liu, <strong>Yuhe Wu</strong>, Yuran Chen, Xinyue Su. "PolluVCCT模型：多源数据与混合深度学习的空气污染预测研究." In <strong>运筹与管理</strong>. [Under Review, 中国管理科学A类, CSSCI]</p>
+<p>-Zhuang Liu, <strong>Yuhe Wu</strong>, Yuran Chen, Xinyue Su. "PolluVCCT模型：多源数据与混合深度学习的空气污染预测研究." In <strong>运筹与管理</strong>. [Under Review, 中国管理科学A类, CSSCI]</p>
 
-<p>Zhuang Liu, <strong>Yuhe Wu</strong>, Yuran Chen, Xinyue Su, Ruitong Liu, Yanning Dong, Wayne Lin. "贝叶斯机器学习的最新进展：经济学和金融学中的应用." In <strong>计算机学报</strong>. [Under Review, CCFT1, 北大中文核心]</p>
+<p>-Zhuang Liu, <strong>Yuhe Wu</strong>, Yuran Chen, Xinyue Su, Ruitong Liu, Yanning Dong, Wayne Lin. "贝叶斯机器学习的最新进展：经济学和金融学中的应用." In <strong>计算机学报</strong>. [Under Review, CCFT1, 北大中文核心]</p>
 
 </div>
 
