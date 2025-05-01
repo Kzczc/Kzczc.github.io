@@ -72,12 +72,11 @@ redirect_from:
 
 **Conference Paper**
 
-- **Qiwei Liang**, Rulin Zhou, Yijing Zhou, Guankun Wang, XiaopinZhong, **STAR: Empowering Semi-Supervised Medical Image Segmentation with SAM-based Teacher-Student Architecture and Contrastive Consistency Regularization**, (under review, 中科院一区TOP, IF>7.5)
-- Changxin Huang, **Qiwei Liang**, Jingzhao Xu, Hui Li, Xiping Hu, Runhao Zeng, Victor C. M. Leung, Junfa Mao, Jianqiang Li, **Video2Reward++: Advancing Robot Skill Acquisition via Video-guided Reward Generation**, (under review, 中科院一区TOP, IF>20)
-- Runhao Zeng, Dingjie Zhou, **Qiwei Liang**, Junlin Liu, Hui Li, Changxin Huang, Jianqiang Li, Xiping Hu, Fuchun Sun, **Video2Reward: Generating Reward Function from Videos for Legged Robot Behavior Learning**(**ECAI 2024**)(<span style="color:red;">**Spotlight**</span>), [[paper]](https://arxiv.org/abs/2412.05515)
-- **FASR-Net: Unsupervised Shadow Removal Leveraging Inherent Frequency Priors**, (under review, CCFB), [[paper]](https://arxiv.org/abs/2504.05779)
-- **Qiwei Liang**, Yikeng Chen, Wenbiao Li, Minghao Lai, Wenjian Ni Hong Qiu, **iKnowiSee: AR Glasses with Language Learning Translation System and Identity Recognition System Built Based on Large Pre-trained Models of Language and Vision and Internet of Things Technology**(CINT 2024), [[paper]](https://link.springer.com/chapter/10.1007/978-981-97-3948-6_2)
-
+<p>▸ Zhuang Liu, RuitongLiu, Yuran Chen, <strong>Yuhe Wu</strong>, Zhiyan Duan, Qiyan Shi. "Alternative Option: Beyond Left-Right: A Multilingual and Multidimensional Dataset for Decoding Ideology in Social Media." In <strong>ACL ARR 2025</strong>. [Under Review, CCFA]</p>
+<p>▸ Zhuang Liu, Shuang Tian, Ruitong Liu, <strong>Yuhe Wu</strong>, Yuran Chen, Yueyao Ma. "FinGLUE: A Comprehensive Benchmark for Evaluating Financial Large Language Models." In <strong>KDD 2025</strong>. [Under Review, CCFA]</p>
+<p>▸ Zhuang Liu, <strong>Yuhe Wu</strong>, Yuran Chen. "BnetX: A Dual-Branch Risk Detection Framework with Bayesian Uncertainty and XAI." In <strong>UAI 2025</strong>. [Under Review, CCFB]</p>
+<p>▸ Zhuang Liu, <strong>Yuhe Wu</strong>, Yuran Chen, Yiming Chang. "Reliable Financial Fraud Detection: Bayesian-Transformer Networks with Uncertainty-Guided Hierarchical Explainability." In <strong>ECMLPKDD 2025</strong>. [Under Review, CCFB]</p>
+<p>▸ Zhuang Liu, <strong>Yuhe Wu</strong>, Yuran Chen, Jiatong Zhang. "POLARIS：面向大语言模型显隐性偏见的多维度评估基准." In <strong>CCFAI 2025</strong>. [Under Review]</p>
 
 # 🌟 Others
 
