@@ -75,7 +75,7 @@ redirect_from:
 
 # 🌟 Others
 
-🥇 **Awards**🥈🥉🏅🎖️
+🥇 **Competition Awards**🥈🥉🏅🎖️
 
 **National Level**
 
@@ -106,7 +106,7 @@ redirect_from:
 - KDD 2025(CCF A)
 - ICDE 2025(CCF A)
 
-💸 **Scholarships**
+💸 **Honorable Awards**
 - **First-Class Scholarship** (2023，2024)，[2000 CNY]
 - **Third-Class Scholarship** (2025)，[500 CNY]
 - **Merit Student (University Level)** (2023, 2024)，[500 CNY]
@@ -116,33 +116,32 @@ redirect_from:
 - **Excellent Communist Youth League Member** (2023)
 - **Advanced Individual in Academic Competitions** (2025)
 
-🧙‍♂️ **Leadership Experience**
-- **Vice President**, **AutoLeaders Club, Shenzhen University** (深圳大学AutoLeaders俱乐部 副会长), 2023-2024
-- **Leader**, **Baidu PaddlePaddle Pioneer Group**, (百度飞桨领航团团长), 2023-2024
-- **Leader**, **Cultural and Entertainment Department, Student Union**, (学生会文娱部部长), 2023-2024
-- **Project Leader**, **Basic Experimental Project of the Student Innovation and Development Fund**, (创新基金项目负责人), 2023-2024
-- **Project Leader**, **University Students' Innovation and Entrepreneurship Training Project**, (大创负责人), 2023-2024
+🛠️ **Personal Skills**
+
+- **Bilingual Writing**, **Proficient in both Chinese and English academic writing, experienced with journal submissions and reviewer responses.**
+- **Econometrics, Modeling & Programming**, **Proficient with SPSS, Stata, SAS for analysis & forecasting; Skilled in Python, R for data science; Familiar with Matlab for mathematical modeling.**
+- **Software Proficiency**, **Proficient with LaTeX (Typesetting), Origin, Visio (Graphing), MS Office Suite (Word, Excel, PowerPoint), Wind, Choice (Financial Terminals).**
 
 📚 **Club**
-- **Shenzhen University AutoLeaders Club**, (AutoLeaders俱乐部), 2022.10 - Present
-- **Huawei AIeducationbase Association** (华为智能基座社团),2023.9 - Present
-- **Embodied AI Club (ROS Club)**, (ROS俱乐部), 2022.10 - Present
+- **BA Foreign Language Club**, (BA外语俱乐部), 2022.10 - Present
+- **Economics Society**, (经济学会), 2022.10 - Present
 
 🎤 **Public Talk**
 - Speaker, invited by the **institute**, **sharing experiences on engineering studies, competitions, and research with all first-year students transitioning to their second year**, 30 min, 2024.8
 
 - Speaker, invited by the **club**, **providing training for all students participating in the IoT competition, analyzing the competition problems, and sharing experiences**, 1 hour, 2024.3
 
-🤺 **Hobby**
-- **Fencing**. I have a strong passion for fencing, and I practice sabre. I once achieved a remarkable **fourth place in the National Challenge Tournament**.
-- **Hiphop**. I am particularly fond of hip-hop music, and I love Beatbox and Rap. I enjoy creating music.
-
+🌟 **Hobbies**
+- 🎸 **Guitar**. I have a strong passion for playing the guitar, enjoying both learning songs.
+- 🎤 **Rap**. I am particularly fond of hip-hop music, and I love Rap.
+- 🏸 **Badminton**. I enjoy playing badminton; it's a great way to stay active and have fun.
+  
 🌐 **related report**
+[2024.10] [国创赛，点亮上海！]((https://mp.weixin.qq.com/s/KJB5Vp7P_2t2fpfDNZeCeg))
 
-[2023.08] [2023年全国大学生物联网设计竞赛全国总决赛在南京大学举行](https://www.nju.edu.cn/info/3341/337591.htm)
+[2025.01] [东北财经大学师生参加全国财经院院校创新创业联盟2024年年会暨第九届全国财经院校创新创业大赛并获奖]((https://mp.weixin.qq.com/s/pLgP7S5XFyFv0l8EI0Gxpg))
 
-[2023.08] [点赞！他们一个暑期悄悄拿了这么多奖](https://mp.weixin.qq.com/s/z2NMzX9Zm_z40wsDLPaDZg)
-
+[2025.04] [2025年辽宁省普通高等学校本科大学生市场调查与分析大赛暨“正大杯”第十五届全国大学生市场调查与分析大赛辽宁赛区选拔赛成功举办]((https://mp.weixin.qq.com/s/x5oWQ3uGy37ac8klV-a6Xw))
 # 🚀 Startup Projects
 
 Here are some of the entrepreneurial projects I have initiated. These projects reflect my passion with real-world applications to bring innovative ideas to life.
