@@ -76,14 +76,29 @@ redirect_from:
 # 🌟 Others
 
 🥇 **Awards**🥈🥉🏅🎖️
-- **Second Prize in South China Region**🥈, **National College Embedded Chip Design Competition** (全国大学生嵌入式芯片设计竞赛), Vice Team Leader, 2024
-- **Third Prize in South China Region**🥉, **National College Intelligent Vehicle Competition** (全国大学生智能车竞赛), Vice Team Leader, 2024
-- (<span style="color:red;">**National Grand Champion**</span>)🏆, **National College IoT Design Competition** (全国大学生物联网设计竞赛), Ranked 1st out of 1,992 teams, Team leader, 2023
-- **National First Prize**🥇, **National College IoT Design Competition**, Team leader, 2023
-- **First Prize in South China Region**🥇, **National College IoT Design Competition**, Team leader, 2023
-- **First Prize in South China Region**🥇, **iCAN College Innovation and Entrepreneurship Competition** (iCAN大学生创新创业大赛), Team leader, 2023
-- **Bronze Award**🥉, **"Liyuan Challenge" Entrepreneurship Track**, Team leader, 2023
-- **Second Prize**🥈, **National College E-Commerce "Innovation, Creativity, and Entrepreneurship" Challenge** (三创赛), 2023
+
+**National Level**
+
+- **Second Prize**🥈, **9th Finance and Economics Innovation and Entrepreneurship Competition** (第九届财经创新创业大赛), Team Leader, 2024
+- **Second Prize**🥈, **2024 Asia Pacific Mathematical Contest in Modeling for College Students** (2024年亚太地区大学生数学建模竞赛), Team Leader, 2024
+- **Second Prize**🥈, **2024 ShuWei Cup International College Student Mathematical Contest in Modeling** (2024数维杯国际大学生数学建模竞赛), Team Leader, 2024
+- **Silver Award**🥈, **4th National College Student Organization and Management Skills Competition** (第四届全国大学生组织管理能力大赛), Team Leader, 2023
+- **Third Prize**🥉, **2024 10th National College Student Statistics Modeling Competition** (2024第十届全国大学生统计建模大赛), Team Leader, 2024
+- **Third Prize**🥉, **3rd National ETF Elite Challenge** (第三届全国ETF菁英挑战赛), Team Leader, YYYY
+- **National Level Completion**🎖️, **2024 National College Student Innovation and Entrepreneurship Training Program Project** (2024大学生创新创业训练计划项目国家级), Project Leader, 2024
+- **Bronze Award**🥉, **2024 China International College Students' Innovation Competition** (2024中国国际大学生创新大赛), Core Member (2/15), 2024
+- **Third Prize**🥉, **"Zheng Da Cup" 15th National College Student Market Research and Analysis Competition** (“正大杯”第十五届全国大学生市场调查与分析大赛), Core Member (2/5), 2025
+- **National Top 100**🎖️, **2024 "ICBC Cup" National College Student FinTech Innovation Competition** (2024“工行杯”全国大学生金融科技创新大赛), Core Member (2/3), 2024
+
+**Provincial Level**
+
+- **Second Prize (Provincial)**🥈, **10th East Money Cup National College Student Financial Challenge** (第十届东方财富杯全国大学生金融挑战赛), Team Leader, 2024
+- **Bronze Award (Provincial)**🥉, **2024 "Creating Youth" Liaoning Innovation and Entrepreneurship Competition** (2024“创青春”辽宁创新创业大赛), Team Leader, 2024
+- **Bronze Award (Provincial)**🥉, **2024 "Challenge Cup" Liaoning Innovation and Entrepreneurship Plan Competition** (2024挑战杯辽宁省创新创业计划竞赛), Team Leader, 2024
+- **Bronze Award (Provincial)**🥉, **"CCB Cup" Liaoning Provincial College Student Innovation Competition** (“建行杯”辽宁省大学生创新大赛), Team Leader, 2224
+- **Third Prize (Provincial)**🥉, **18th iCAN College Student Innovation and Entrepreneurship Competition** (第十八届iCAN大学生创新创业大赛辽宁赛区), Team Leader, 2024
+- **Third Prize (Provincial)**🥉, **2023 "ICBC Cup" National College Student FinTech Innovation Competition** (2023“工行杯”全国大学生金融科技创新大赛), Core Member (2/3), 2023
+- **Provincial Level Completion**🎖️, **2024 Provincial College Student Innovation and Entrepreneurship Training Program Project** (2024大学生创新创业训练计划项目省级), Core Member (2/5), 2024
   
 📝 **Reviewer**
 - Journal of Business Research (Q1,中科院一区TOP，ABS3)
