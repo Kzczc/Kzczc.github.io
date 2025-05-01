@@ -84,7 +84,7 @@ redirect_from:
 - **Second Prize**🥈, **2024 ShuWei Cup International College Student Mathematical Contest in Modeling** (2024数维杯国际大学生数学建模竞赛), Team Leader, 2024
 - **Silver Award**🥈, **4th National College Student Organization and Management Skills Competition** (第四届全国大学生组织管理能力大赛), Team Leader, 2023
 - **Third Prize**🥉, **2024 10th National College Student Statistics Modeling Competition** (2024第十届全国大学生统计建模大赛), Team Leader, 2024
-- **Third Prize**🥉, **3rd National ETF Elite Challenge** (第三届全国ETF菁英挑战赛), Team Leader, YYYY
+- **Third Prize**🥉, **3rd National ETF Elite Challenge** (第三届全国ETF菁英挑战赛), Team Leader, 2025
 - **National Level Completion**🎖️, **2024 National College Student Innovation and Entrepreneurship Training Program Project** (2024大学生创新创业训练计划项目国家级), Project Leader, 2024
 - **Bronze Award**🥉, **2024 China International College Students' Innovation Competition** (2024中国国际大学生创新大赛), Core Member (2/15), 2024
 - **Third Prize**🥉, **"Zheng Da Cup" 15th National College Student Market Research and Analysis Competition** (“正大杯”第十五届全国大学生市场调查与分析大赛), Core Member (2/5), 2025
