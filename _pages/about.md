@@ -17,13 +17,17 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-### **About Me**  
+### **About Me**
 
-Hello！I'm  Yuhe Wu(吴宇赫), a senior undergraduate student majoring in Economic Statistics at Dongbei University of Economic and Finance, expected to graduate in July 2026.Currently,I am conducting research at the Fintech Lab, school of Fintech, under the supervision of Zhuang Liu.
+<div style="text-align: justify;">
 
-Before diving into research, I was an Artificial Intelligence enthusiast dedicated to developing AI products and programms with the goal of improving people’s lives. I was also the **national third prize**, of the China International College Students’ Innovation Competition.
+<p>Hello！I'm Yuhe Wu(吴宇赫), a senior undergraduate student majoring in Economic Statistics at Dongbei University of Economic and Finance, expected to graduate in July 2026. Currently, I am conducting research at the Fintech Lab, school of Fintech, under the supervision of Zhuang Liu.</p>
 
-My research interests lie in **Deep Learning and LLM**, particularly in **Explainability Analysis of Machine Learning, LLM reasoning, Operation Research for LLM**, and **Data Generation for Financial Datasets**. Fundamentally, my work is dedicated to **enabling explainability in AI.**
+<p>Before diving into research, I was an Artificial Intelligence enthusiast dedicated to developing AI products and programms with the goal of improving people’s lives. I was also the <strong>national third prize</strong>, of the China International College Students’ Innovation Competition.</p>
+
+<p>My research interests lie in <strong>Deep Learning and LLM</strong>, particularly in <strong>Explainability Analysis of Machine Learning, LLM reasoning, Operation Research for LLM</strong>, and <strong>Data Generation for Financial Datasets</strong>. Fundamentally, my work is dedicated to <strong>enabling explainability in AI.</strong></p>
+
+</div>
 
 # 🎓 Education
 
