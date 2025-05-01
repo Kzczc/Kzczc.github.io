@@ -77,7 +77,7 @@ redirect_from:
 
 🥇 **Competition Awards**🥈🥉🏅🎖️
 
-**National Level**
+<h4 style="font-size: 1.2em; color: red;">National Level</h4> 
 
 - **Second Prize**🥈, **9th Finance and Economics Innovation and Entrepreneurship Competition** (第九届财经创新创业大赛), Team Leader, 2024
 - **Second Prize**🥈, **2024 Asia Pacific Mathematical Contest in Modeling for College Students** (2024年亚太地区大学生数学建模竞赛), Team Leader, 2024
@@ -89,8 +89,8 @@ redirect_from:
 - **Bronze Award**🥉, **2024 China International College Students' Innovation Competition** (2024中国国际大学生创新大赛), Core Member (2/15), 2024
 - **Third Prize**🥉, **"Zheng Da Cup" 15th National College Student Market Research and Analysis Competition** (“正大杯”第十五届全国大学生市场调查与分析大赛), Core Member (2/5), 2025
 - **National Top 100**🎖️, **2024 "ICBC Cup" National College Student FinTech Innovation Competition** (2024“工行杯”全国大学生金融科技创新大赛), Core Member (2/3), 2024
-
-**Provincial Level**
+  
+<h4 style="font-size: 1.2em; color: red;">Provincial Level</h4> 
 
 - **Second Prize (Provincial)**🥈, **10th East Money Cup National College Student Financial Challenge** (第十届东方财富杯全国大学生金融挑战赛), Team Leader, 2024
 - **Bronze Award (Provincial)**🥉, **2024 "Creating Youth" Liaoning Innovation and Entrepreneurship Competition** (2024“创青春”辽宁创新创业大赛), Team Leader, 2024
@@ -126,17 +126,13 @@ redirect_from:
 - **BA Foreign Language Club**, (BA外语俱乐部), 2022.10 - Present
 - **Economics Society**, (经济学会), 2022.10 - Present
 
-🎤 **Public Talk**
-- Speaker, invited by the **institute**, **sharing experiences on engineering studies, competitions, and research with all first-year students transitioning to their second year**, 30 min, 2024.8
-
-- Speaker, invited by the **club**, **providing training for all students participating in the IoT competition, analyzing the competition problems, and sharing experiences**, 1 hour, 2024.3
-
 🌟 **Hobbies**
 - 🎸 **Guitar**. I have a strong passion for playing the guitar, enjoying both learning songs.
 - 🎤 **Rap**. I am particularly fond of hip-hop music, and I love Rap.
 - 🏸 **Badminton**. I enjoy playing badminton; it's a great way to stay active and have fun.
   
 🌐 **related report**
+
 [2024.10] [国创赛，点亮上海！]((https://mp.weixin.qq.com/s/KJB5Vp7P_2t2fpfDNZeCeg))
 
 [2025.01] [东北财经大学师生参加全国财经院院校创新创业联盟2024年年会暨第九届全国财经院校创新创业大赛并获奖]((https://mp.weixin.qq.com/s/pLgP7S5XFyFv0l8EI0Gxpg))
@@ -146,17 +142,15 @@ redirect_from:
 
 Here are some of the entrepreneurial projects I have initiated. These projects reflect my passion with real-world applications to bring innovative ideas to life.
 
-### **Weshare**
+### **远洋牧民**
 - **Project Introduction**:  
   We strive to create a comprehensive competition exchange platform that breaks down information barriers through sharing experiences and solutions, helping participants resolve confusion and improve their chances of winning.
-- **Co-founders**: Qiwei Liang, [Tao Lin](https://lintao.online), Yihao Hu.
-- **Website**: [project-website.com](https://weshare.xin/)
+- **Co-founders**: Yuhe Wu, Chongyun Ma, Yingjie Shi, Hongyi Zhu, Zichen Bin.
+- **Wechat Official Account**: [project-website.com](https://weshare.xin/)
 - **Xiaohongshu**: [View on Xiaohongshu](https://www.xiaohongshu.com/user/profile/65cdf2de0000000005033e2b)
 - **Logo**:  
   <img src="../images/weshare_logo.png" alt="Project Logo" width="300"/>
 
-### **七味具身**
-- **Project Introduction**:  
-  The project is coming soon.
+
 
 
