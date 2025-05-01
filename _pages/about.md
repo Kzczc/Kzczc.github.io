@@ -48,7 +48,7 @@ redirect_from:
 
 <div style="text-align: justify;">
 
-<h4>English Journal Articles</h4>
+<h4 style="font-size: 1.2em; color: red;">Journal Articles</h4> 
 
 <p>▸ Zhuang Liu, <strong>Yuhe Wu</strong>, Yuran Chen. "Unveiling the Dual-Edged Sword: Securing LLMs Against Data Poisoning via Multilingual and Multi-Dimensional Strategies." In <strong>MIS Quarterly</strong>. [Under Review, UTD24]</p>
 
@@ -57,8 +57,6 @@ redirect_from:
 <p>▸ <strong>Yuhe Wu</strong>, Yuran Chen, Zhuang Liu, Wayne Lin. "Enhancing Financial Decision-Making under Cyber Threats: A Dual-Branch Framework Integrating Bayesian Deep Learning and Explainable AI." In <strong>Annals of Operations Research</strong>. [Under Review, ABS3]</p>
 
 <p>▸ <strong>Yuhe Wu</strong>, Yutong Zhang, Yuran Chen, Zhiyan Duan, Qiyan Shi. "TMOR: A Counterfactual and Chain-of-thought Framework for Operation Research Fine-tuning." In <strong>Journal of the Operational Research Society</strong>. [Under Review, ABS3]</p>
-
-<h4>Chinese Journal Articles</h4>
 
 <p>▸ Zhuang Liu, <strong>Yuhe Wu</strong>, Yuran Chen, Ruitong Liu, Yanning Dong, Jun Zhao. "通信-感知-计算融合：关键技术、挑战与未来趋势." In <strong>计算机科学与探索</strong>. [Accepted, CCFT2, 北大中文核心]</p>
 
@@ -70,7 +68,7 @@ redirect_from:
 
 </div>
 
-**Conference Paper**
+<h4 style="font-size: 1.2em; color: red;">Conference Paper</h4> 
 
 <p>▸ Zhuang Liu, RuitongLiu, Yuran Chen, <strong>Yuhe Wu</strong>, Zhiyan Duan, Qiyan Shi. "Alternative Option: Beyond Left-Right: A Multilingual and Multidimensional Dataset for Decoding Ideology in Social Media." In <strong>ACL ARR 2025</strong>. [Under Review, CCFA]</p>
 <p>▸ Zhuang Liu, Shuang Tian, Ruitong Liu, <strong>Yuhe Wu</strong>, Yuran Chen, Yueyao Ma. "FinGLUE: A Comprehensive Benchmark for Evaluating Financial Large Language Models." In <strong>KDD 2025</strong>. [Under Review, CCFA]</p>
