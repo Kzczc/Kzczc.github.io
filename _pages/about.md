@@ -95,7 +95,7 @@ redirect_from:
 - **Second Prize**🥈, **10th East Money Cup National College Student Financial Challenge** (第十届东方财富杯全国大学生金融挑战赛), Team Leader, 2024
 - **Bronze Award**🥉, **2024 "Creating Youth" Liaoning Innovation and Entrepreneurship Competition** (2024“创青春”辽宁创新创业大赛), Team Leader, 2024
 - **Bronze Award**🥉, **2024 "Challenge Cup" Liaoning Innovation and Entrepreneurship Plan Competition** (2024挑战杯辽宁省创新创业计划竞赛), Team Leader, 2024
-- **Bronze Award**🥉, **"CCB Cup" Liaoning Provincial College Student Innovation Competition** (“建行杯”辽宁省大学生创新大赛), Team Leader, 2224
+- **Bronze Award**🥉, **"CCB Cup" Liaoning Provincial College Student Innovation Competition** (“建行杯”辽宁省大学生创新大赛), Team Leader, 2024
 - **Third Prize**🥉, **18th iCAN College Student Innovation and Entrepreneurship Competition** (第十八届iCAN大学生创新创业大赛辽宁赛区), Team Leader, 2024
 - **Third Prize**🥉, **2023 "ICBC Cup" National College Student FinTech Innovation Competition** (2023“工行杯”全国大学生金融科技创新大赛), Core Member (2/3), 2023
 - **Provincial Level Completion**🎖️, **2024 Provincial College Student Innovation and Entrepreneurship Training Program Project** (2024大学生创新创业训练计划项目省级), Core Member (2/5), 2024
