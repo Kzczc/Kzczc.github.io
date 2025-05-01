@@ -144,7 +144,7 @@ Here are some of the entrepreneurial projects I have initiated. These projects r
 
 <h4 style="font-size: 1.2em; color: red;">Project Introduction</h4> 
 
-<h4 style="font-size: 1.2em;">🌱 “远洋牧民”项目 (Ocean Herders Project)</h4>
+<h4 style="font-size: 1.2em;">🌱 “远洋牧民”项目 (Ocean Pastocal)</h4>
 
 <p>“远洋牧民”项目起源于团队成员为帮助家人解决海参养殖困境而建立的同名调研小组。由于缺乏经验，其父母的养殖事业屡次面临亏损，这促使我们启动了这次深入的调研行动。</p>
 
@@ -163,11 +163,11 @@ Here are some of the entrepreneurial projects I have initiated. These projects r
 - **Co-founders**: Yuhe Wu, Chongyun Ma, Yingjie Shi, Hongyi Zhu, Zichen Bin.
 - **Wechat Official Account**: [远洋牧民]((https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=&scene=124#wechat_redirect))
 - **Xiaohongshu**: [View on Xiaohongshu]([https://www.xiaohongshu.com/user/profile/65cdf2de0000000005033e2b](https://www.xiaohongshu.com/user/profile/65e06f99000000001700cc16?xsec_token=YBja4QKX0IL7KP_qSNZI4tj3QzWWwHLUlCWod23Au6TLQ=&xsec_source=app_share&xhsshare=CopyLink&appuid=62c02fa70000000019029c28&apptime=1746083700&share_id=3ff268cade844fcbae5c302f3681ba2c))
-- **Xiaohongshu**:Coming Soon
 - **Logo**:
   <img src="../images/logo.png" alt="Ocean Herders Project Logo" width="250"/>
 - **Mascot**:
   <img src="../images/mascot.jpg" alt="Ocean Herders Project Mascot" width="250"/>
 
+<h4 style="font-size: 1.2em;">💪 Upcoming Project</h4>
 
 
