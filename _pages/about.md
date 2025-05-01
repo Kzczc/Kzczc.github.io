@@ -45,7 +45,7 @@ redirect_from:
 
 <div style="text-align: justify;">
 
-<h4 style="font-size: 1.2em; color: red;">Journal Articles</h4> 
+<h4 style="font-size: 1.2em; color: red;">Journal Article</h4> 
 
 <p>▸ Zhuang Liu, <strong>Yuhe Wu</strong>, Yuran Chen. "Unveiling the Dual-Edged Sword: Securing LLMs Against Data Poisoning via Multilingual and Multi-Dimensional Strategies." In <strong>MIS Quarterly</strong>. [Under Review, UTD24]</p>
 
