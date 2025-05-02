@@ -104,6 +104,7 @@ redirect_from:
 - INFORMS Journal on Computing (UTD24)
 - IEEE Transactions on Neural Networks and Learning Systems (Q1,中科院一区TOP)
 - Journal of Business Research (Q1,中科院一区TOP，ABS3)
+- Data Mining and Knowledge Discovery(Q2)
 - ACL 2025(CCF A)
 - KDD 2025(CCF A)
 - ICDE 2025(CCF A)
