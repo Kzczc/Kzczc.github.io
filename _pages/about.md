@@ -21,7 +21,7 @@ redirect_from:
 
 <div style="text-align: justify;">
 
-<p>Hello! I'm Yuhe Wu (吴宇赫), an undergraduate student majoring in Economic Statistics at Dongbei University of Economic and Finance, expecting to graduate in July 2026. Currently, I am conducting research at the Fintech Lab within the School of Fintech, under the supervision of Zhuang Liu.</p>
+<p>Hello! I'm Yuhe Wu (吴宇赫), an undergraduate student majoring in Economic Statistics at Dongbei University of Economic and Finance, expecting to graduate in July 2026. Currently, I am conducting research at the Fintech Lab within the School of Fintech, under the supervision of <a href="https://sft.dufe.edu.cn/content_26950.html">Zhuang Liu</a>.</p>
 
 <p>Before focusing on research, I was an Artificial Intelligence enthusiast dedicated to developing AI products and programs aimed at improving people's lives. My work in this area was recognized with the <strong>National Third Prize</strong> in the China International College Students’ Innovation Competition.</p>
 
