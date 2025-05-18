@@ -69,8 +69,8 @@ redirect_from:
 
 <p>▸ Zhuang Liu*, RuitongLiu, Yuran Chen, <strong>Yuhe Wu</strong>, Zhiyan Duan, Qiyan Shi. "Alternative Option: Beyond Left-Right: A Multilingual and Multidimensional Dataset for Decoding Ideology in Social Media." In <strong>ACL 2025</strong>. [Under Review, CCF A]</p>
 <p>▸ Zhuang Liu*, Shuang Tian, Ruitong Liu, <strong>Yuhe Wu</strong>, Yuran Chen, Yueyao Ma. "FinGLUE: A Comprehensive Benchmark for Evaluating Financial Large Language Models." In <strong>KDD 2025</strong>. [Under Review, CCF A]</p>
-<p>▸ Zhuang Liu*, <strong>Yuhe Wu</strong>, Yuran Chen. "BnetX: A Dual-Branch Risk Detection Framework with Bayesian Uncertainty and XAI." In <strong>CIKM 2025</strong>. [Under Review, CCF B]</p>
-<p>▸ Zhuang Liu*, <strong>Yuhe Wu</strong>, Yuran Chen, Yiming Chang. "Reliable Financial Fraud Detection: Bayesian-Transformer Networks with Uncertainty-Guided Hierarchical Explainability." In <strong>ECMLPKDD 2025</strong>. [Under Review, CCF B]</p>
+<p>▸ <strong>Yuhe Wu</strong>, Yuran Chen,Zhuang Liu*. "BnetX: A Dual-Branch Risk Detection Framework with Bayesian Uncertainty and XAI." In <strong>CIKM 2025</strong>. [Under Review, CCF B]</p>
+<p>▸ <strong>Yuhe Wu</strong>, Yuran Chen, Yiming Chang,Zhuang Liu*. "Reliable Financial Fraud Detection: Bayesian-Transformer Networks with Uncertainty-Guided Hierarchical Explainability." In <strong>ECMLPKDD 2025</strong>. [Under Review, CCF B]</p>
 <p>▸ Zhuang Liu*, <strong>Yuhe Wu</strong>, Yuran Chen, Jiatong Zhang. "POLARIS：面向大语言模型显隐性偏见的多维度评估基准." In <strong>CCFAI 2025</strong>. [Accepted]</p>
 
 # ✨ Others
