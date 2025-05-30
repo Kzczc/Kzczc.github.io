@@ -145,7 +145,7 @@ redirect_from:
 [2025.01] [东北财经大学师生参加全国财经院院校创新创业联盟2024年年会暨第九届全国财经院校创新创业大赛并获奖](https://mp.weixin.qq.com/s/pLgP7S5XFyFv0l8EI0Gxpg)
 
 [2025.04] [2025年辽宁省普通高等学校本科大学生市场调查与分析大赛暨“正大杯”第十五届全国大学生市场调查与分析大赛辽宁赛区选拔赛成功举办](https://mp.weixin.qq.com/s/x5oWQ3uGy37ac8klV-a6Xw)
-# 🚀 Startup Projects
+# 🚀 Startup Project
 
 Here are some of the entrepreneurial projects I have initiated. These projects reflect my passion with real-world applications to bring innovative ideas to life.
 
