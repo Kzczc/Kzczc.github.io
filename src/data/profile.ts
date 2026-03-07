@@ -174,7 +174,7 @@ export const recentUpdates = [
     hex: "0x0005",
     status: "accepted",
     venue: "Annals of Operations Research",
-    title: "Enhancing Financial Decision-Making under Cyber Threats",
+    title: "Enhancing financial decision-making under cyber threats: a dual-branch framework integrating bayesian deep learning and explainable AI",
     linkIcons: ["paper", "github"] as string[],
   },
   {
@@ -266,7 +266,7 @@ export const selectedPublications = [
     venueType: "journal" as const,
     rating: "ABS 3, JCR Q1",
     title: "Enhancing Financial Decision-Making under Cyber Threats: A Dual-Branch Framework Integrating Bayesian Deep Learning and Explainable AI",
-    authors: "Yuhe Wu, Yuran Chen, Zhuang Liu*, Wayne Lin",
+    authors: "Yuhe Wu, Yuran Chen, Zhuang Liu, Wayne Lin",
     badges: ["First Author"],
     extraBadges: [] as string[],
     status: "Accepted",
