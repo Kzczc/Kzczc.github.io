@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     "Machine Learning",
   ],
   authors: [{ name: "Yuhe Wu" }],
-  icons: { icon: "/images/favicon.ico" },
+  icons: { icon: "/images/paint.png" },
 };
 
 export default function RootLayout({
