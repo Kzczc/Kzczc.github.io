@@ -108,9 +108,9 @@ export const socialLinks = [
     icon: "Github",
   },
   {
-    label: "CV",
-    href: "/images/CV.pdf",
-    icon: "FileText",
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/yuhe-wu",
+    icon: "Linkedin",
   },
   {
     label: "Google Scholar",
