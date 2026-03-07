@@ -3,7 +3,7 @@
 > **LLM × Finance Researcher**  
 > Ph.D. Student (Incoming) @ HKUST(GZ) · B.S. in Economic Statistics @ DUFE
 
-🌐 **Visit my homepage**: [https://kzczc-github-io.vercel.app](https://kzczc-github-io.vercel.app) *(update this after Vercel deployment)*
+🌐 **Visit my homepage**: [https://kzczc-github-io.vercel.app](https://kzczc-github-io.vercel.app)
 
 ---
 
