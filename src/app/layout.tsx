@@ -56,7 +56,14 @@ export const metadata: Metadata = {
     title: "Yuhe Wu (Kc.) — LLM × Finance Researcher",
     description:
       "HKUST(GZ) Fintech PhD Incoming. Research on LLM evaluation, agent cognition, and AI for financial decision-making.",
-    /* OG image 由 src/app/opengraph-image.tsx 自动生成 1200×630 */
+    images: [
+      {
+        url: "/images/my_picture.png",
+        width: 800,
+        height: 800,
+        alt: "Yuhe Wu (Kc.)",
+      },
+    ],
   },
   twitter: {
     card: "summary",
