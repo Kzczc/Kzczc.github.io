@@ -50,12 +50,8 @@ export const metadata: Metadata = {
   icons: { icon: "/images/paint.png" },
   openGraph: {
     type: "website",
-    locale: "en_US",
     url: "https://kzczc-github-io.vercel.app",
-    siteName: "Yuhe Wu (Kc.)",
-    title: "Yuhe Wu (Kc.) — LLM × Finance Researcher",
-    description:
-      "HKUST(GZ) Fintech PhD Incoming. Research on LLM evaluation, agent cognition, and AI for financial decision-making.",
+    title: "Yuhe Wu (Kc.)",
   },
   robots: {
     index: true,
