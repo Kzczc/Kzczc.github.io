@@ -29,7 +29,7 @@ const zenOldMincho = Zen_Old_Mincho({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://kzczc.github.io"),
+  metadataBase: new URL("https://kzczc-github-io.vercel.app"),
   title: "Yuhe Wu (Kc.) | Homepage",
   description:
     "Personal homepage of Yuhe Wu (Kc.). Research on Large Language Models in Finance, LLM evaluation, agent cognition, and applied AI. HKUST(GZ) Fintech PhD Incoming.",
@@ -51,19 +51,12 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://kzczc.github.io",
+    url: "https://kzczc-github-io.vercel.app",
     siteName: "Yuhe Wu (Kc.)",
     title: "Yuhe Wu (Kc.) — LLM × Finance Researcher",
     description:
       "HKUST(GZ) Fintech PhD Incoming. Research on LLM evaluation, agent cognition, and AI for financial decision-making.",
-    images: [
-      {
-        url: "/images/my_picture.png",
-        width: 800,
-        height: 800,
-        alt: "Yuhe Wu (Kc.)",
-      },
-    ],
+    /* OG image 由 src/app/opengraph-image.tsx 自动生成 1200×630 */
   },
   twitter: {
     card: "summary",
