@@ -12,12 +12,12 @@ export default function Footer() {
       <div className="mx-auto max-w-[1280px] px-8 lg:px-12">
         {/* ── 上排：Credit + 兴趣 + 版权 ── */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-          {/* left: credit */}
+          {/* left: credit — ☮️ = peace & love (hip-hop) */}
           <div className="flex items-center gap-2 text-[13px]" style={{ color: "var(--muted)" }}>
             <span>Built with</span>
             <span>❤️</span>
             <span>and</span>
-            <span>🕊️</span>
+            <span title="Peace & Love ☮️">☮️</span>
             <span>by</span>
             <a
               href={`https://github.com/${personalInfo.github}`}
@@ -59,12 +59,12 @@ export default function Footer() {
             私だけは目を開けていたい。
           </p>
 
-          {/* 署名 */}
+          {/* 出处 — 咒术回战 */}
           <span
-            className="font-mono text-[11px] tracking-[0.12em]"
-            style={{ color: "var(--accent)", opacity: 0.4 }}
+            className="text-[11px] tracking-[0.08em]"
+            style={{ color: "var(--muted)", opacity: 0.35, fontFamily: "var(--font-zen), serif" }}
           >
-            — Kc.
+            —— 呪術廻戦
           </span>
         </div>
       </div>

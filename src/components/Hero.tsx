@@ -360,25 +360,25 @@ export default function Hero() {
             className="lg:col-span-2 rounded-xl border px-6 py-5"
             style={{ borderColor: "var(--card-border)", background: "var(--card-bg)" }}
           >
-            <div className="flex items-center gap-2.5 mb-3 flex-wrap">
-              <span className="font-mono text-[0.65rem] font-semibold uppercase tracking-[0.18em]" style={{ color: "var(--accent)" }}>
+            <div className="flex items-center gap-3 mb-4 flex-wrap">
+              <span className="font-mono text-[13px] font-bold uppercase tracking-[0.15em]" style={{ color: "var(--accent)" }}>
                 &gt; who am i
               </span>
               <span
-                className="text-[11px] font-medium px-2.5 py-0.5 rounded-full"
-                style={{ color: "var(--accent-warm)", background: "rgba(249,115,22,0.12)" }}
+                className="text-[12px] font-semibold px-3 py-1 rounded-full"
+                style={{ color: "var(--accent-warm)", background: "rgba(249,115,22,0.12)", border: "1px solid rgba(249,115,22,0.2)" }}
               >
                 Researcher
               </span>
               <span
-                className="text-[11px] font-medium px-2.5 py-0.5 rounded-full"
-                style={{ color: "#a855f7", background: "rgba(168,85,247,0.12)" }}
+                className="text-[12px] font-semibold px-3 py-1 rounded-full"
+                style={{ color: "#a855f7", background: "rgba(168,85,247,0.12)", border: "1px solid rgba(168,85,247,0.2)" }}
               >
                 Anime Fan
               </span>
               <span
-                className="text-[11px] font-medium px-2.5 py-0.5 rounded-full"
-                style={{ color: "var(--accent)", background: "rgba(6,182,212,0.12)" }}
+                className="text-[12px] font-semibold px-3 py-1 rounded-full"
+                style={{ color: "var(--accent)", background: "rgba(6,182,212,0.12)", border: "1px solid rgba(6,182,212,0.2)" }}
               >
                 Hip-hop Head
               </span>
