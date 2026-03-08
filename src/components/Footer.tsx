@@ -36,7 +36,7 @@ export default function Footer() {
             <span>·</span>
             <span>🎤 Hip-hop</span>
             <span>·</span>
-            <span>🏸 Badminton</span>
+            <span>🎌 Anime</span>
           </div>
 
           {/* right: copyright */}
@@ -59,12 +59,15 @@ export default function Footer() {
             私だけは目を開けていたい。
           </p>
 
-          {/* 出处 — 咒术回战 */}
+          {/* 出处 — 咒术回战 + 个人感言 */}
           <span
             className="text-[11px] tracking-[0.08em]"
             style={{ color: "var(--muted)", opacity: 0.35, fontFamily: "var(--font-zen), serif" }}
           >
             —— 呪術廻戦
+            <span className="ml-2" style={{ opacity: 0.7 }}>
+              one of my all-time favorites
+            </span>
           </span>
         </div>
       </div>
