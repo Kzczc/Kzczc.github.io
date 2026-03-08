@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { FileText, Github, ExternalLink } from "lucide-react";
 import { recentUpdates } from "@/data/profile";
 
 /* ── type config ── */
@@ -24,20 +25,11 @@ const statusConfig: Record<string, { label: string; bg: string }> = {
   released:     { label: "Released",     bg: "#34d39915" },
 };
 
-/* ── link icon SVGs ── */
-const linkIconSVGs: Record<string, { svg: string; title: string }> = {
-  paper: {
-    title: "Paper",
-    svg: `<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>`,
-  },
-  github: {
-    title: "Code",
-    svg: `<svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.73.083-.73 1.205.085 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23a11.5 11.5 0 013.003-.404c1.02.005 2.047.138 3.006.404 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22v3.293c0 .319.218.694.825.576C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z"/></svg>`,
-  },
-  site: {
-    title: "Website",
-    svg: `<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>`,
-  },
+/* ── link icon components (replacing dangerouslySetInnerHTML) ── */
+const linkIconComponents: Record<string, { Icon: React.ComponentType<{ size?: number }>; title: string }> = {
+  paper:  { Icon: FileText,     title: "Paper" },
+  github: { Icon: Github,       title: "Code" },
+  site:   { Icon: ExternalLink, title: "Website" },
 };
 
 /* ── live clock ── */
@@ -204,18 +196,20 @@ export default function RecentUpdates() {
                       )}
                     </span>
                   </div>
-                  {/* ── Right-side link icons ── */}
+                  {/* ── Right-side link icons (React components) ── */}
                   <div className="flex items-center gap-1.5 min-w-[80px] justify-end">
                     {item.linkIcons.map((iconKey) => {
-                      const ic = linkIconSVGs[iconKey];
+                      const ic = linkIconComponents[iconKey];
                       if (!ic) return null;
+                      const { Icon, title } = ic;
                       return (
                         <span
                           key={iconKey}
-                          title={ic.title}
+                          title={title}
                           className="terminal-link-icon inline-flex items-center justify-center w-6 h-6 rounded border"
-                          dangerouslySetInnerHTML={{ __html: ic.svg }}
-                        />
+                        >
+                          <Icon size={14} />
+                        </span>
                       );
                     })}
                     {/* expand */}

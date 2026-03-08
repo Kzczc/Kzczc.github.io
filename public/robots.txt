@@ -1,0 +1,5 @@
+# Robots.txt — Yuhe Wu (Kc.) Homepage
+User-agent: *
+Allow: /
+
+Sitemap: https://kzczc.github.io/sitemap.xml

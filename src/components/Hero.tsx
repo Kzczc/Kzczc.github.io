@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { motion } from "framer-motion";
 import { Mail, FileText } from "lucide-react";
 import Image from "next/image";
@@ -110,6 +110,48 @@ function renderBold(text: string, keyOffset: number): React.ReactNode[] {
 export default function Hero() {
   const typed = useTypewriter(personalInfo.typewriterTexts);
   const [hoveredMascot, setHoveredMascot] = useState<number | null>(null);
+
+  /* ── 延时关闭 mascot bio：鼠标离开后 400ms 才隐藏 ── */
+  const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const handleMascotEnter = useCallback((idx: number) => {
+    /* 如果有待关闭的 timer，取消它 */
+    if (closeTimerRef.current) {
+      clearTimeout(closeTimerRef.current);
+      closeTimerRef.current = null;
+    }
+    setHoveredMascot(idx);
+  }, []);
+
+  const handleMascotLeave = useCallback(() => {
+    closeTimerRef.current = setTimeout(() => {
+      setHoveredMascot(null);
+      closeTimerRef.current = null;
+    }, 400);
+  }, []);
+
+  /* 进入 bio 卡片时，也取消关闭 timer */
+  const handleBioEnter = useCallback(() => {
+    if (closeTimerRef.current) {
+      clearTimeout(closeTimerRef.current);
+      closeTimerRef.current = null;
+    }
+  }, []);
+
+  /* 离开 bio 卡片时，启动延时关闭 */
+  const handleBioLeave = useCallback(() => {
+    closeTimerRef.current = setTimeout(() => {
+      setHoveredMascot(null);
+      closeTimerRef.current = null;
+    }, 400);
+  }, []);
+
+  /* 组件卸载时清理 timer */
+  useEffect(() => {
+    return () => {
+      if (closeTimerRef.current) clearTimeout(closeTimerRef.current);
+    };
+  }, []);
 
   const container = {
     hidden: { opacity: 0 },
@@ -267,8 +309,8 @@ export default function Hero() {
                     <div
                       className="relative h-20 w-20 overflow-hidden rounded-full border-2 sm:h-[88px] sm:w-[88px] transition-all duration-200"
                       style={{ borderColor: hoveredMascot === i ? m.roleColor : "var(--card-border)" }}
-                      onMouseEnter={() => setHoveredMascot(i)}
-                      onMouseLeave={() => setHoveredMascot(null)}
+                      onMouseEnter={() => handleMascotEnter(i)}
+                      onMouseLeave={handleMascotLeave}
                     >
                       <Image src={m.image} alt={m.name} fill className="object-cover" unoptimized />
                     </div>
@@ -297,6 +339,8 @@ export default function Hero() {
               transition={{ duration: 0.15 }}
               className="lg:col-span-2 rounded-xl border px-6 py-5"
               style={{ borderColor: "var(--card-border)", background: "var(--card-bg)" }}
+              onMouseEnter={handleBioEnter}
+              onMouseLeave={handleBioLeave}
             >
               <span
                 className="font-mono text-[10px] font-bold uppercase tracking-[0.15em] px-2.5 py-1 rounded inline-block mb-2.5"

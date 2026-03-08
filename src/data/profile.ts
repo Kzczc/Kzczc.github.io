@@ -293,6 +293,7 @@ export const journeyItems = [
   {
     period: "2026 ~ Present",
     org: "HKUST(GZ) · Fintech Thrust",
+    icon: "/images/hkust_logo.png",
     title: "Ph.D. Student (Incoming)",
     description:
       "Starting Ph.D. journey in Fintech at Hong Kong University of Science and Technology (Guangzhou), focusing on LLM Agents, evaluation, and finance applications.",
@@ -301,6 +302,7 @@ export const journeyItems = [
   {
     period: "2025 ~ Present",
     org: "HKUST(GZ) · Fintech Thrust & Society Hub",
+    icon: "/images/hkust_logo.png",
     title: "Research Assistant at Fintech Thrust",
     description:
       "Joined HKUST(GZ) as Research Assistant under Prof. Guang Zhang. Co-submitted to ACL 2026 and received all positive reviews. Upcoming work on multi-agent systems for general business analysis tasks!",
@@ -309,6 +311,7 @@ export const journeyItems = [
   {
     period: "2024 ~ Present",
     org: "Fintech Lab, DUFE",
+    icon: "/images/dufe_logo.png",
     title: "Research Group Leader",
     description:
       "Led the Fintech Lab research group under Prof. Zhuang Liu. Published first paper in DUFE Journal Catalog A and CCF-A paper, with submissions to ACL 2026, KDD 2026, Management Science, and IJOC.",
@@ -317,6 +320,7 @@ export const journeyItems = [
   {
     period: "2022 – 2026",
     org: "Dongbei University of Finance and Economics",
+    icon: "/images/dufe_logo.png",
     title: "Business Admin → Economic Statistics",
     description:
       "Transferred from Business Administration to Economic Statistics. Started exploring data science, statistical modeling, and quantitative methods.",

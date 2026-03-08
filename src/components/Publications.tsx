@@ -64,7 +64,7 @@ export default function Publications() {
                   {/* ── Left: thumbnail — click to zoom ── */}
                   <div
                     className="relative w-full md:w-[300px] lg:w-[340px] flex-shrink-0 overflow-hidden cursor-zoom-in group"
-                    style={{ minHeight: "200px", background: "#fff" }}
+                    style={{ minHeight: "200px", background: "var(--card-bg)" }}
                     onClick={() => setLightboxSrc(pub.thumbnail)}
                   >
                     <Image

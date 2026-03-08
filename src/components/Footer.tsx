@@ -1,13 +1,16 @@
-"use client";
-
 import { personalInfo } from "@/data/profile";
 
+/**
+ * Footer — Server Component（无客户端 JS）
+ * 包含：Credits / 兴趣 / 签名引用 / 版权
+ */
 export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
     <footer className="relative py-10 mt-6" style={{ borderTop: "1px solid var(--card-border)" }}>
       <div className="mx-auto max-w-[1280px] px-8 lg:px-12">
+        {/* ── 上排：Credit + 兴趣 + 版权 ── */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
           {/* left: credit */}
           <div className="flex items-center gap-2 text-[13px]" style={{ color: "var(--muted)" }}>
@@ -40,6 +43,29 @@ export default function Footer() {
           <p className="text-[12px] font-mono" style={{ color: "var(--muted)", opacity: 0.6 }}>
             © {year} {personalInfo.name}. All rights reserved.
           </p>
+        </div>
+
+        {/* ── 签名引用 ── */}
+        <div className="mt-8 flex flex-col items-center gap-3">
+          {/* 渐变分隔线 */}
+          <div className="signature-divider" />
+
+          {/* 日文座右铭 — Zen Old Mincho 书法字体 */}
+          <p className="signature-quote text-center max-w-2xl px-4">
+            正義の女神は法の下の平等のために目を塞ぎ、
+            <br className="hidden sm:inline" />
+            人々は保身のためなら、あらゆることに目を瞑る。
+            <br className="hidden sm:inline" />
+            私だけは目を開けていたい。
+          </p>
+
+          {/* 署名 */}
+          <span
+            className="font-mono text-[11px] tracking-[0.12em]"
+            style={{ color: "var(--accent)", opacity: 0.4 }}
+          >
+            — Kc.
+          </span>
         </div>
       </div>
     </footer>

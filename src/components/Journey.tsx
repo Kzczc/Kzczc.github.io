@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { journeyItems } from "@/data/profile";
 
 export default function Journey() {
@@ -48,8 +49,14 @@ export default function Journey() {
                   )}
                 </div>
 
-                {/* period + org */}
+                {/* period + org + logo */}
                 <div className="flex items-center gap-2 flex-wrap mb-1">
+                  {/* org logo */}
+                  {item.icon && (
+                    <div className="relative h-6 w-6 flex-shrink-0 overflow-hidden rounded border border-[var(--card-border)] bg-[var(--card-bg)]">
+                      <Image src={item.icon} alt={item.org} fill className="object-cover" unoptimized />
+                    </div>
+                  )}
                   <span
                     className="font-mono text-[12px] font-semibold px-2 py-0.5 rounded"
                     style={{

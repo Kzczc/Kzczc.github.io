@@ -10,6 +10,7 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-sans);
   --font-mono: var(--font-mono);
+  --font-zen: var(--font-zen);
 }
 
 :root {
@@ -27,23 +28,7 @@
   --halftone-opacity: 0.03;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #e2e8f0;
-    --card-bg: #111318;
-    --card-border: #1e293b;
-    --nav-bg: #0a0a0aee;
-    --muted: #94a3b8;
-    --accent: #22d3ee;
-    --accent-warm: #fb923c;
-    --terminal-bg: #11111b;
-    --terminal-text: #cdd6f4;
-    --halftone-opacity: 0.10;
-  }
-}
-
-/* Dark mode class override for manual toggle */
+/* Dark mode — controlled by next-themes via .dark class */
 .dark {
   --background: #0a0a0a;
   --foreground: #e2e8f0;
@@ -303,4 +288,27 @@ body {
   color: var(--accent);
   border-color: var(--accent);
   background: rgba(6,182,212,0.05);
+}
+
+/* ── Footer signature — Zen Old Mincho calligraphy ── */
+.signature-quote {
+  font-family: var(--font-zen), "Zen Old Mincho", "Noto Serif JP", "Hiragino Mincho Pro", serif;
+  font-size: 13.5px;
+  letter-spacing: 0.06em;
+  line-height: 2;
+  color: var(--muted);
+  opacity: 0.55;
+  transition: opacity 0.3s ease;
+}
+.signature-quote:hover {
+  opacity: 0.85;
+}
+
+/* ── Signature divider line ── */
+.signature-divider {
+  width: 120px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent), var(--accent-warm), transparent);
+  margin: 0 auto;
+  opacity: 0.4;
 }

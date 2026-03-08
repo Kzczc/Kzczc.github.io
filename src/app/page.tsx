@@ -5,10 +5,13 @@ import Publications from "@/components/Publications";
 import Journey from "@/components/Journey";
 import Awards from "@/components/Awards";
 import Footer from "@/components/Footer";
+import LoadingScreen from "@/components/LoadingScreen";
+import ScrollToTop from "@/components/ScrollToTop";
 
 export default function Home() {
   return (
     <>
+      <LoadingScreen />
       <Navbar />
       <main className="min-h-screen">
         <Hero />
@@ -18,6 +21,7 @@ export default function Home() {
         <Awards />
       </main>
       <Footer />
+      <ScrollToTop />
     </>
   );
 }
