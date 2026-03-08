@@ -3,10 +3,10 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { ChevronRight, FileText, Github, Globe } from "lucide-react";
+import { ChevronRight, FileText, Github, Globe, X } from "lucide-react";
 import { selectedPublications } from "@/data/profile";
 
-/* ── highlight "Yuhe Wu" in author string ── */
+/* ── highlight "Yuhe Wu" ── */
 function renderAuthors(authors: string) {
   const parts = authors.split(/(Yuhe Wu)/g);
   return parts.map((part, i) =>
@@ -26,6 +26,7 @@ const statusColors: Record<string, { text: string; bg: string }> = {
 
 export default function Publications() {
   const [expandedId, setExpandedId] = useState<string | null>(null);
+  const [lightboxSrc, setLightboxSrc] = useState<string | null>(null);
 
   return (
     <section id="publications" className="relative py-10">
@@ -60,21 +61,28 @@ export default function Publications() {
                 style={{ borderColor: "var(--card-border)", background: "var(--card-bg)" }}
               >
                 <div className="flex flex-col md:flex-row">
-                  {/* ── Left: thumbnail — object-contain + white bg for paper figures ── */}
+                  {/* ── Left: thumbnail — click to zoom ── */}
                   <div
-                    className="relative w-full md:w-[300px] lg:w-[340px] flex-shrink-0 overflow-hidden"
+                    className="relative w-full md:w-[300px] lg:w-[340px] flex-shrink-0 overflow-hidden cursor-zoom-in group"
                     style={{ minHeight: "200px", background: "#fff" }}
+                    onClick={() => setLightboxSrc(pub.thumbnail)}
                   >
                     <Image
                       src={pub.thumbnail}
                       alt={pub.title}
                       fill
-                      className="object-contain p-2"
+                      className="object-contain p-2 transition-transform duration-300 group-hover:scale-110"
                       unoptimized
                     />
+                    {/* hover overlay */}
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100">
+                      <span className="text-[11px] font-mono px-2 py-1 rounded bg-black/60 text-white">
+                        Click to zoom
+                      </span>
+                    </div>
                   </div>
 
-                  {/* ── Right: content — 新罗马体 ── */}
+                  {/* ── Right: content ── */}
                   <div className="flex-1 px-6 py-5 flex flex-col gap-2">
                     {/* venue + rating */}
                     <div className="flex items-center gap-2 flex-wrap">
@@ -91,12 +99,12 @@ export default function Publications() {
                       )}
                     </div>
 
-                    {/* title — 新罗马体 */}
+                    {/* title */}
                     <h3 className="text-[16px] font-bold leading-snug font-mono" style={{ color: "var(--foreground)" }}>
                       {pub.title}
                     </h3>
 
-                    {/* authors — sans-serif, darker color */}
+                    {/* authors */}
                     <p className="text-[13px] leading-relaxed" style={{ color: "var(--foreground)", opacity: 0.7 }}>
                       {renderAuthors(pub.authors)}
                     </p>
@@ -187,6 +195,45 @@ export default function Publications() {
           </a>
         </motion.div>
       </div>
+
+      {/* ══ Lightbox overlay ══ */}
+      <AnimatePresence>
+        {lightboxSrc && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm cursor-zoom-out p-8"
+            onClick={() => setLightboxSrc(null)}
+          >
+            {/* close button */}
+            <button
+              className="absolute top-6 right-6 text-white/70 hover:text-white transition-colors"
+              onClick={() => setLightboxSrc(null)}
+            >
+              <X size={28} />
+            </button>
+            {/* full image */}
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              transition={{ type: "spring", stiffness: 300, damping: 25 }}
+              className="relative max-w-[90vw] max-h-[85vh]"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <Image
+                src={lightboxSrc}
+                alt="Paper figure"
+                width={1600}
+                height={900}
+                className="object-contain max-h-[85vh] w-auto rounded-lg shadow-2xl"
+                unoptimized
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }

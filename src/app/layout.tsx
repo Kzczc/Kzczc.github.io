@@ -19,7 +19,7 @@ const firaCode = Fira_Code({
 });
 
 export const metadata: Metadata = {
-  title: "Yuhe Wu | LLM × Finance Researcher",
+  title: "Yuhe Wu | Homepage",
   description:
     "Personal homepage of Yuhe Wu. Research on Large Language Models in Finance, LLM evaluation, agent cognition, and applied AI.",
   keywords: [

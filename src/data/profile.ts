@@ -273,6 +273,19 @@ export const selectedPublications = [
     statusColor: "green" as const,
     thumbnail: "/images/anor.png",
   },
+  {
+    id: "polluvcct",
+    venue: "KDD-UMC 2025",
+    venueType: "conference" as const,
+    rating: "CCF A, CORE A*",
+    title: "PolluVCCT: Multi-Scale Hybrid Learning for Robust Air Pollution Forecasting Across Diverse Climate Zones",
+    authors: "Yuhe Wu, Yuran Chen, Xinyue Su, Zhuang Liu*",
+    badges: ["First Author"],
+    extraBadges: [] as string[],
+    status: "Accepted",
+    statusColor: "green" as const,
+    thumbnail: "/images/Polluvcct_framework.png",
+  },
 ];
 
 /** My Journey 时间线 (从最新到最早) */
