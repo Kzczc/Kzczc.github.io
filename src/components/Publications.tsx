@@ -225,9 +225,9 @@ export default function Publications() {
               <Image
                 src={lightboxSrc}
                 alt="Paper figure"
-                width={1600}
-                height={900}
-                className="object-contain max-h-[85vh] w-auto rounded-lg shadow-2xl"
+                width={1200}
+                height={675}
+                className="object-contain w-[85vw] h-auto max-h-[85vh] rounded-lg shadow-2xl"
                 unoptimized
               />
             </motion.div>
