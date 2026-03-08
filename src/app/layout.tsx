@@ -56,19 +56,6 @@ export const metadata: Metadata = {
     title: "Yuhe Wu (Kc.) — LLM × Finance Researcher",
     description:
       "HKUST(GZ) Fintech PhD Incoming. Research on LLM evaluation, agent cognition, and AI for financial decision-making.",
-    images: [
-      {
-        url: "/images/my_picture.png",
-        width: 800,
-        height: 800,
-        alt: "Yuhe Wu (Kc.)",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary",
-    title: "Yuhe Wu (Kc.) | Homepage",
-    description: "LLM × Finance Researcher · HKUST(GZ) PhD Incoming",
   },
   robots: {
     index: true,
