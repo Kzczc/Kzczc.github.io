@@ -116,10 +116,10 @@ export default function Publications() {
                           {/* speech bubble */}
                           <div className="relative mb-1 z-10">
                             <div
-                              className="px-3 py-1.5 rounded-2xl text-[11px] italic"
-                              style={{ background: `${m.color}15`, color: m.color }}
+                              className="px-3 py-1 rounded-2xl text-[15px]"
+                              style={{ background: `${m.color}15`, color: m.color, fontFamily: "var(--font-comic)" }}
                             >
-                              &ldquo;{m.slogan}&rdquo;
+                              {m.slogan}
                             </div>
                             <div
                               className="absolute left-1/2 -translate-x-1/2 -bottom-[5px] w-[10px] h-[10px] rotate-45"

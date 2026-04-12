@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Libre_Baskerville, Fira_Code, Zen_Old_Mincho } from "next/font/google";
+import { Libre_Baskerville, Fira_Code, Zen_Old_Mincho, Caveat } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { Providers } from "@/providers/ThemeProvider";
 import "./globals.css";
@@ -23,6 +23,14 @@ const firaCode = Fira_Code({
 /* Zen Old Mincho — 日文书法字体，用于 Footer 签名 */
 const zenOldMincho = Zen_Old_Mincho({
   variable: "--font-zen",
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  display: "swap",
+});
+
+/* Caveat — 手写风格字体，用于角色语气泡 */
+const caveat = Caveat({
+  variable: "--font-comic",
   subsets: ["latin"],
   weight: ["400", "700"],
   display: "swap",
@@ -67,7 +75,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${baskerville.variable} ${firaCode.variable} ${zenOldMincho.variable} antialiased`}
+        className={`${baskerville.variable} ${firaCode.variable} ${zenOldMincho.variable} ${caveat.variable} antialiased`}
       >
         <Providers>
           {children}
