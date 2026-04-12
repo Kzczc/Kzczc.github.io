@@ -234,7 +234,7 @@ export const selectedPublications = [
     status: "Under Review",
     statusColor: "blue" as const,
     thumbnail: "/images/kdd_quantifying.png",
-    abstract: "",
+    abstract: "**AI4Science** has produced breakthroughs like AlphaFold and AlphaEvolve in the natural sciences, but in social science, the methodology for using AI as a measurement tool remains far from mature. Quantifying latent social variables such as public value orientations and policy attitudes is a core challenge in computational social science, and text is the richest source of evidence. Yet text is inherently noisy: within the same passage, clear stance expressions coexist with rhetorical concessions, quoted opposing views, and background filler, each carrying vastly different *evidential value*. Existing LLM-based methods either compress an entire text into a single label or split it into segments and apply equal-weight voting, both discretizing continuous probability distributions too early and causing irreversible information loss. When numerous ambiguous segments outnumber a few decisive arguments, the final judgment is dominated by noise. We reformulate text-based measurement as an *uncertainty-aware evidence aggregation* problem: retaining each segment's full probability distribution, using entropy to assess evidence reliability, and aggregating through weighted pooling in log-odds space, so that a small number of high-confidence segments naturally drive the final decision.",
   },
   {
     id: "prism",
