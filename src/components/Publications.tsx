@@ -18,6 +18,20 @@ function renderAuthors(authors: string) {
   );
 }
 
+/* ── mini markdown: **bold** and *italic* ── */
+function renderMarkdown(text: string) {
+  const tokens = text.split(/(\*\*[^*]+\*\*|\*[^*]+\*)/g);
+  return tokens.map((tok, i) => {
+    if (tok.startsWith("**") && tok.endsWith("**")) {
+      return <strong key={i} style={{ color: "var(--foreground)" }}>{tok.slice(2, -2)}</strong>;
+    }
+    if (tok.startsWith("*") && tok.endsWith("*")) {
+      return <em key={i}>{tok.slice(1, -1)}</em>;
+    }
+    return <span key={i}>{tok}</span>;
+  });
+}
+
 const statusColors: Record<string, { text: string; bg: string }> = {
   green:  { text: "#16a34a", bg: "#16a34a15" },
   blue:   { text: "#2563eb", bg: "#2563eb15" },
@@ -167,12 +181,23 @@ export default function Publications() {
                           exit={{ opacity: 0, height: 0 }}
                           className="overflow-hidden"
                         >
-                          <p
+                          <div
                             className="text-[13px] leading-[1.75] mt-2 pt-3 text-justify"
                             style={{ color: "var(--muted)", borderTop: "1px dashed var(--card-border)" }}
                           >
-                            Abstract coming soon. Check back later or contact me for the preprint.
-                          </p>
+                            {pub.abstract ? (
+                              <>
+                                <p>{renderMarkdown(pub.abstract)}</p>
+                                {pub.abstractNote && (
+                                  <p className="mt-2 italic text-[12px]" style={{ color: "var(--accent)" }}>
+                                    ({pub.abstractNote})
+                                  </p>
+                                )}
+                              </>
+                            ) : (
+                              <p>Abstract coming soon. Check back later or contact me for the preprint.</p>
+                            )}
+                          </div>
                         </motion.div>
                       )}
                     </AnimatePresence>

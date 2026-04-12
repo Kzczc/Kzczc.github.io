@@ -220,6 +220,7 @@ export const selectedPublications = [
     status: "Under Review",
     statusColor: "blue" as const,
     thumbnail: "/images/bizsage_logo.png",
+    abstract: "",
   },
   {
     id: "kdd-quantifying",
@@ -233,6 +234,7 @@ export const selectedPublications = [
     status: "Under Review",
     statusColor: "blue" as const,
     thumbnail: "/images/kdd_quantifying.png",
+    abstract: "",
   },
   {
     id: "prism",
@@ -246,6 +248,7 @@ export const selectedPublications = [
     status: "Under Review",
     statusColor: "blue" as const,
     thumbnail: "/images/prism.png",
+    abstract: "",
   },
   {
     id: "acl-selective",
@@ -259,6 +262,7 @@ export const selectedPublications = [
     status: "Under Review",
     statusColor: "blue" as const,
     thumbnail: "/images/acl_selective.png",
+    abstract: "For over a decade, research on predicting market performance from news has operated under a default assumption: that the impact of news can be captured through changes in the mean of expected returns. But is this really how markets respond? By leveraging pricing information from financial derivatives to reconstruct the market's implied expectation distributions, we analyzed nearly 12,000 paired observations before and after news releases and uncovered a long-overlooked fact: what news truly changes is the *distributional shape* and *tail risk*, while the mean barely moves, with differences ranging from 3 to 85 times. This suggests that mainstream approaches may have been tracking the wrong signal all along. Building on this finding, we propose **Selective Moment Forecasting**: instead of predicting the mean, we predict the risk statistics that news actually changes, and design **ProSMF**, a prototype memory network that automatically matches news types to the appropriate predictors.",
   },
   {
     id: "bizcompass",
@@ -272,6 +276,7 @@ export const selectedPublications = [
     status: "Under Review",
     statusColor: "blue" as const,
     thumbnail: "/images/bizcompass.png",
+    abstract: "In discussions with over ten leading financial institutions, a recurring question emerged: LLMs are powerful, but which business scenarios can they reliably support, and what foundational capabilities underpin these applications? Existing benchmarks cannot answer this. They either cover narrow tasks or focus only on surface-level accuracy, consistently lacking a causal chain from foundational capability to business performance. **BizCompass** was built to address this gap: it covers four foundational disciplines at the knowledge level, including finance, economics, statistics, and operations research, and structures tasks around three business roles at the application level, including analyst, trader, and consultant, forming a dual-axis evaluation framework that not only measures *how well* models perform, but diagnoses *why* they fall short.",
   },
   {
     id: "anor",
@@ -285,6 +290,7 @@ export const selectedPublications = [
     status: "Accepted",
     statusColor: "green" as const,
     thumbnail: "/images/anor.png",
+    abstract: "In financial cybersecurity, the accuracy bar for malware detection is far higher than in general scenarios, because a single misjudgment can disrupt legitimate transactions or cause massive financial losses. Yet even when model accuracy is sufficient, the real-world deployment of AI in financial systems remains challenging. The core reason is that models are opaque and cannot quantify their own uncertainty. No one dares make critical decisions based on a black box that can neither explain itself nor assess its own confidence. This is precisely the motivation behind **BnetX**: Bayesian inference quantifies the uncertainty of every prediction, while an explainable AI module reveals the key factors driving each decision, giving security analysts not a cold label, but a complete alert with confidence scores and visual evidence.",
   },
   {
     id: "polluvcct",
@@ -297,6 +303,8 @@ export const selectedPublications = [
     extraBadges: [] as string[],
     status: "Accepted",
     statusColor: "green" as const,
+    abstract: "This was my first research project, where I quickly learned the full pipeline from problem formulation to experimental validation through time-series forecasting. The core challenge in air pollution prediction is the sheer complexity of atmospheric data: noise, trends, and seasonal fluctuations intertwined, causing models tuned for one city to fail in another climate zone. PolluVCCT takes a \"decompose then fuse\" approach: signal decomposition strips away noise and trend components, and deep learning separately captures local patterns and long-range dependencies. On our cross-regional benchmark spanning seven climate zones, MAPE variance stays below 3%.",
+    abstractNote: "Grateful to KDD-UMC 2025 for the acceptance — this recognition gave me the motivation to keep going. Though I've since moved to NLP, this experience laid the foundation for everything. 🌱",
     thumbnail: "/images/Polluvcct_framework.png",
   },
 ];
