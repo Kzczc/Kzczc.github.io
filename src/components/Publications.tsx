@@ -104,24 +104,29 @@ export default function Publications() {
                           animate={{ opacity: 1, y: 0 }}
                           exit={{ opacity: 0, y: 20 }}
                           transition={{ duration: 0.4, delay: 0.15 }}
-                          className="hidden md:flex flex-1 items-center justify-center"
-                          style={{
-                            background: "radial-gradient(ellipse at center, var(--card-bg) 40%, transparent 70%)",
-                          }}
+                          className="hidden md:flex flex-1 items-center justify-center p-3"
                         >
-                          <motion.div
-                            animate={{ y: [0, -6, 0] }}
-                            transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
+                          <div
+                            className="rounded-xl p-3 flex items-center justify-center"
+                            style={{
+                              border: "1px dashed var(--card-border)",
+                              background: "var(--card-bg)",
+                            }}
                           >
-                            <Image
-                              src={mascotImages[pub.id.charCodeAt(0) % 2]}
-                              alt="mascot"
-                              width={260}
-                              height={173}
-                              className="opacity-40 select-none pointer-events-none drop-shadow-lg"
-                              unoptimized
-                            />
-                          </motion.div>
+                            <motion.div
+                              animate={{ y: [0, -6, 0] }}
+                              transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
+                            >
+                              <Image
+                                src={mascotImages[pub.id.charCodeAt(0) % 2]}
+                                alt="mascot"
+                                width={300}
+                                height={200}
+                                className="select-none pointer-events-none opacity-80"
+                                unoptimized
+                              />
+                            </motion.div>
+                          </div>
                         </motion.div>
                       )}
                     </AnimatePresence>
