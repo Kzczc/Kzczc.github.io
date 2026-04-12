@@ -206,8 +206,21 @@ export const recentUpdates = [
   },
 ];
 
-/** Selected Publications — 首页展示 5 篇 */
+/** Selected Publications — 首页展示 */
 export const selectedPublications = [
+  {
+    id: "bizsage",
+    venue: "EMNLP 2025",
+    venueType: "conference" as const,
+    rating: "CCF B, CORE A*",
+    title: "BizSage: A Self-Evolving Multi-Agent Framework for Business Research with Efficient Knowledge Retrieval",
+    authors: "Yuhe Wu, Guangyu Wang, Jiaxin Liu, Guang Zhang",
+    badges: ["First Author"],
+    extraBadges: [] as string[],
+    status: "Under Review",
+    statusColor: "blue" as const,
+    thumbnail: "/images/bizsage_logo.png",
+  },
   {
     id: "kdd-quantifying",
     venue: "KDD 2026",
