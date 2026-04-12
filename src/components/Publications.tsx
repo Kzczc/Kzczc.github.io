@@ -111,20 +111,18 @@ export default function Publications() {
                         >
                           <div
                             className="absolute inset-0"
-                            style={{ background: `radial-gradient(ellipse at center, ${m.color}08 0%, transparent 70%)` }}
+                            style={{ background: `radial-gradient(ellipse at center, ${m.color}20 0%, transparent 65%)` }}
                           />
-                          {/* quote bubble */}
-                          <div className="relative mb-2 z-10 w-[85%]">
+                          <div className="relative mb-1.5 z-10">
                             <div
-                              className="px-4 py-2 rounded-2xl text-[16px] leading-snug"
-                              style={{ background: `${m.color}12`, color: m.color, fontFamily: "var(--font-comic)" }}
+                              className="px-3.5 py-1.5 rounded-2xl text-[15px] whitespace-nowrap"
+                              style={{ background: `${m.color}15`, color: m.color, fontFamily: "var(--font-comic)" }}
                             >
-                              {m.slogan}
-                              <div className="text-right text-[12px] mt-0.5 opacity-70">— {m.name}</div>
+                              {m.slogan} <span className="text-[11px] opacity-60">— {m.name}</span>
                             </div>
                             <div
                               className="absolute left-1/2 -translate-x-1/2 -bottom-[5px] w-[10px] h-[10px] rotate-45"
-                              style={{ background: `${m.color}12` }}
+                              style={{ background: `${m.color}15` }}
                             />
                           </div>
                           <motion.div
@@ -135,8 +133,8 @@ export default function Publications() {
                             <Image
                               src={m.image}
                               alt={m.name}
-                              width={240}
-                              height={200}
+                              width={225}
+                              height={190}
                               className="select-none pointer-events-none"
                               unoptimized
                             />
