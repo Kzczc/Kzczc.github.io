@@ -133,8 +133,8 @@ export default function Publications() {
                             <Image
                               src={m.image}
                               alt={m.name}
-                              width={225}
-                              height={190}
+                              width={210}
+                              height={178}
                               className="select-none pointer-events-none"
                               unoptimized
                             />

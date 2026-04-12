@@ -85,7 +85,7 @@ export const mascots = [
 /** Brief Introduction */
 export const briefIntro = `I am an undergraduate student in Economic Statistics at Dongbei University of Finance and Economics (DUFE), supervised by [**Prof. Zhuang Liu**](https://sft.dufe.edu.cn/content_26950.html). I will be joining the **Hong Kong University of Science and Technology (Guangzhou)** as a **Ph.D. student in Fall 2026**, supervised by [**Prof. Guang Zhang**](https://facultyprofiles.hkust-gz.edu.cn/faculty-personal-page/ZHANG-Guang/guangzhang).
 
-My research focuses on **Large Language Models(LLMs) in Finance and Social Sciences**, spanning LLM evaluation, LLM self-evolution, and agent cognition. I have published papers at venues including **KDD 2025** and **Annals of Operations Research**, with additional manuscripts under review at **ACL Rolling Review**, **INFORMS Journal on Computing**, and **Management Science**. I also serve as a reviewer for leading venues such as **ACL**, **KDD**, and **IJOC**.`;
+My research focuses on **Large Language Models(LLMs) in Finance and Social Sciences**, spanning LLM evaluation, LLM self-evolution, and agent cognition. I have published papers at venues including **ACL 2026**, **KDD 2025**, and **Annals of Operations Research**, with additional manuscripts under review at **KDD 2026**, **INFORMS Journal on Computing**, and **Management Science**. I also serve as a reviewer for leading venues such as **ACL**, **KDD**, and **IJOC**.`;
 
 /** 导航链接 */
 export const navLinks = [
@@ -244,7 +244,7 @@ export const selectedPublications = [
     title: "PRISM: Probing Reasoning, Instruction, and Source Memory in LLM Hallucinations",
     authors: "Yuhe Wu, Guangyu Wang, Yuran Chen, Jiatong Zhang, Yutong Zhang, Yujie Chen, Jiaming Shang, Guang Zhang, Zhuang Liu",
     badges: ["First Author"],
-    extraBadges: ["✓ All Positive Reviews"],
+    extraBadges: [] as string[],
     status: "Accepted",
     statusColor: "green" as const,
     thumbnail: "/images/prism.png",
@@ -272,7 +272,7 @@ export const selectedPublications = [
     title: "BizCompass: Benchmarking the Reasoning Capabilities of LLMs in Business Knowledge and Applications",
     authors: "Jianing Hao*, Yuhe Wu*, Yuanjian Xu*, Shichang Meng, Shuai Yuan, Wei Zeng, Zixuan Zhang, Guang Zhang",
     badges: ["Equal Contribution"],
-    extraBadges: ["✓ All Positive Reviews"],
+    extraBadges: [] as string[],
     status: "Accepted",
     statusColor: "green" as const,
     thumbnail: "/images/bizcompass.png",
