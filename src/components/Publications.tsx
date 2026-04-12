@@ -178,9 +178,9 @@ export default function Publications() {
                           key={badge}
                           className="text-[10px] font-semibold px-2 py-0.5 rounded"
                           style={{
-                            color: badge === "Equal Contribution" ? "var(--accent-warm)" : "var(--accent)",
-                            background: badge === "Equal Contribution" ? "rgba(249,115,22,0.1)" : "rgba(6,182,212,0.1)",
-                            border: badge === "Equal Contribution" ? "1px solid rgba(249,115,22,0.2)" : "1px solid rgba(6,182,212,0.2)",
+                            color: (badge === "Equal Contribution" || badge === "Co-First Author") ? "var(--accent-warm)" : "var(--accent)",
+                            background: (badge === "Equal Contribution" || badge === "Co-First Author") ? "rgba(249,115,22,0.1)" : "rgba(6,182,212,0.1)",
+                            border: (badge === "Equal Contribution" || badge === "Co-First Author") ? "1px solid rgba(249,115,22,0.2)" : "1px solid rgba(6,182,212,0.2)",
                           }}
                         >
                           {badge}
