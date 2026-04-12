@@ -33,8 +33,8 @@ function renderMarkdown(text: string) {
 }
 
 const mascots = [
-  { image: "/images/hiphop_action.png", name: "Kiso", role: "RIGOROUS CODER", color: "#06b6d4" },
-  { image: "/images/painter_action.png", name: "Sui", role: "IMAGINATIVE ARTIST", color: "#a855f7" },
+  { image: "/images/hiphop_action.png", name: "Kiso", color: "#06b6d4", slogan: "Let me break this down." },
+  { image: "/images/painter_action.png", name: "Sui", color: "#a855f7", slogan: "Allow me to illustrate!" },
 ];
 
 const statusColors: Record<string, { text: string; bg: string }> = {
@@ -107,54 +107,44 @@ export default function Publications() {
                           initial={{ opacity: 0, scale: 0.9 }}
                           animate={{ opacity: 1, scale: 1 }}
                           transition={{ duration: 0.35, delay: 0.2 }}
-                          className="hidden md:flex flex-1 flex-col items-center justify-center relative py-4"
+                          className="hidden md:flex flex-1 flex-col items-center justify-center relative py-3"
                         >
-                          {/* glow */}
                           <div
                             className="absolute inset-0 rounded-xl"
-                            style={{
-                              background: `radial-gradient(ellipse at center, ${m.color}12 0%, transparent 70%)`,
-                            }}
+                            style={{ background: `radial-gradient(ellipse at center, ${m.color}10 0%, transparent 70%)` }}
                           />
                           {/* speech bubble */}
-                          <div
-                            className="relative mb-2 px-3 py-1.5 rounded-full text-[11px] font-mono"
-                            style={{
-                              background: `${m.color}18`,
-                              color: m.color,
-                              border: `1px solid ${m.color}30`,
-                            }}
-                          >
-                            Let me walk you through this!
+                          <div className="relative mb-1 z-10">
                             <div
-                              className="absolute left-1/2 -translate-x-1/2 -bottom-1 w-2 h-2 rotate-45"
-                              style={{ background: `${m.color}18`, borderRight: `1px solid ${m.color}30`, borderBottom: `1px solid ${m.color}30` }}
+                              className="px-3 py-1.5 rounded-2xl text-[11px] italic"
+                              style={{ background: `${m.color}15`, color: m.color }}
+                            >
+                              &ldquo;{m.slogan}&rdquo;
+                            </div>
+                            <div
+                              className="absolute left-1/2 -translate-x-1/2 -bottom-[5px] w-[10px] h-[10px] rotate-45"
+                              style={{ background: `${m.color}15` }}
                             />
                           </div>
                           {/* character */}
                           <motion.div
                             animate={{ y: [0, -6, 0] }}
                             transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
+                            className="relative z-0"
                           >
                             <Image
                               src={m.image}
                               alt={m.name}
-                              width={260}
-                              height={173}
+                              width={300}
+                              height={260}
                               className="select-none pointer-events-none"
-                              style={{ maxWidth: "85%" }}
                               unoptimized
                             />
                           </motion.div>
-                          {/* name tag */}
-                          <div className="mt-2 text-center">
-                            <span className="text-[12px] font-bold font-mono" style={{ color: m.color }}>
-                              {m.name}
-                            </span>
-                            <span className="text-[9px] font-mono ml-1.5 opacity-50" style={{ color: "var(--muted)" }}>
-                              {m.role}
-                            </span>
-                          </div>
+                          {/* name */}
+                          <span className="text-[12px] font-semibold mt-1" style={{ color: m.color }}>
+                            — {m.name}
+                          </span>
                         </motion.div>
                       );
                     })()}
