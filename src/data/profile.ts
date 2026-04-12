@@ -220,7 +220,7 @@ export const selectedPublications = [
     status: "Under Review",
     statusColor: "blue" as const,
     thumbnail: "/images/bizsage_logo.png",
-    abstract: "",
+    abstract: "From **AI Scientist v2** passing peer review for the first time, to **EvoScientist**'s cross-task memory accumulation, to **PaperOrchestra** turning lab notes directly into submission-ready manuscripts, automated research is moving from proof of concept to usable systems. Yet these advances are almost entirely concentrated in the natural sciences. Economics and business research has a fundamentally different knowledge structure: relevant information is scattered across finance, statistics, management, and other disciplines; different sections of a single paper carry distinct informational value; and paper-level coarse-grained retrieval cannot precisely locate what is needed. At the same time, this field demands unique standards of empirical rigor. **BizSage** addresses these challenges by constructing a cross-paper *Lateral Knowledge Graph* that unifies section-level knowledge from hundreds of thousands of papers, using *Personalized PageRank* for precise fine-grained retrieval. Multiple specialized agents collaborate to complete the full workflow from literature review to research plan design, with a self-evolution mechanism that continuously learns domain-specific quality patterns from historical evaluations.",
   },
   {
     id: "kdd-quantifying",
@@ -248,7 +248,7 @@ export const selectedPublications = [
     status: "Under Review",
     statusColor: "blue" as const,
     thumbnail: "/images/prism.png",
-    abstract: "",
+    abstract: "In 2025, 2.6% of CS conference papers were found to contain suspected hallucinated citations, nearly 9 times the rate from the previous year. ICLR 2026 now treats hallucinated references as academic ethics violations, where a single instance can lead to rejection. Whether LLMs are a trustworthy tool for research has become an unavoidable question. But fixing hallucinations requires understanding where they come from. When a model gives a wrong answer, the reasons can be entirely different: it may lack the relevant knowledge altogether, it may have memorized incorrect facts, it may have the right knowledge but fail in reasoning, or it may reason correctly but ignore the user's constraints. These four types of errors originate from distinct stages of the generation pipeline, and each requires a different fix, yet existing evaluations mix all queries together and only score final outputs, making them indistinguishable. More critically, fixing one type often worsens another: strengthening instruction following can hurt reasoning, while injecting knowledge can cause forgetting. **PRISM** decomposes hallucinations along three generation stages into four independently testable dimensions, providing systematic diagnosis across 9,448 instances and 24 LLMs, making both *what to fix* and *how to fix it* actionable.",
   },
   {
     id: "acl-selective",

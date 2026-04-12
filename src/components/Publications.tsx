@@ -77,7 +77,7 @@ export default function Publications() {
                 <div className="flex flex-col md:flex-row">
                   {/* ── Left: thumbnail — click to zoom ── */}
                   <div
-                    className="relative w-full md:w-[300px] lg:w-[340px] flex-shrink-0 overflow-hidden cursor-zoom-in group"
+                    className="relative w-full md:w-[300px] lg:w-[340px] flex-shrink-0 overflow-hidden cursor-zoom-in group md:self-start"
                     style={{ minHeight: "200px", background: "var(--card-bg)" }}
                     onClick={() => setLightboxSrc(pub.thumbnail)}
                   >
