@@ -104,18 +104,21 @@ export default function Publications() {
                           animate={{ opacity: 1, y: 0 }}
                           exit={{ opacity: 0, y: 20 }}
                           transition={{ duration: 0.4, delay: 0.15 }}
-                          className="hidden md:flex flex-1 items-end justify-center p-4"
+                          className="hidden md:flex flex-1 items-center justify-center"
+                          style={{
+                            background: "radial-gradient(ellipse at center, var(--card-bg) 40%, transparent 70%)",
+                          }}
                         >
                           <motion.div
-                            animate={{ y: [0, -8, 0] }}
-                            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                            animate={{ y: [0, -6, 0] }}
+                            transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
                           >
                             <Image
                               src={mascotImages[pub.id.charCodeAt(0) % 2]}
                               alt="mascot"
-                              width={180}
-                              height={120}
-                              className="opacity-60 select-none pointer-events-none"
+                              width={260}
+                              height={173}
+                              className="opacity-40 select-none pointer-events-none drop-shadow-lg"
                               unoptimized
                             />
                           </motion.div>
