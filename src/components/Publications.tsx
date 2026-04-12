@@ -107,43 +107,43 @@ export default function Publications() {
                           initial={{ opacity: 0, scale: 0.9 }}
                           animate={{ opacity: 1, scale: 1 }}
                           transition={{ duration: 0.35, delay: 0.2 }}
-                          className="hidden md:flex flex-1 flex-col items-center justify-center relative py-3"
+                          className="hidden md:flex flex-1 flex-col items-center justify-center relative"
                         >
                           <div
-                            className="absolute inset-0 rounded-xl"
-                            style={{ background: `radial-gradient(ellipse at center, ${m.color}10 0%, transparent 70%)` }}
+                            className="absolute inset-0"
+                            style={{ background: `radial-gradient(ellipse at center, ${m.color}08 0%, transparent 70%)` }}
                           />
-                          {/* speech bubble */}
                           <div className="relative mb-1 z-10">
                             <div
-                              className="px-3 py-1 rounded-2xl text-[15px]"
-                              style={{ background: `${m.color}15`, color: m.color, fontFamily: "var(--font-comic)" }}
+                              className="px-2.5 py-1 rounded-xl text-[13px]"
+                              style={{ background: `${m.color}12`, color: m.color, fontFamily: "var(--font-comic)" }}
                             >
                               {m.slogan}
                             </div>
                             <div
-                              className="absolute left-1/2 -translate-x-1/2 -bottom-[5px] w-[10px] h-[10px] rotate-45"
-                              style={{ background: `${m.color}15` }}
+                              className="absolute left-1/2 -translate-x-1/2 -bottom-[4px] w-[8px] h-[8px] rotate-45"
+                              style={{ background: `${m.color}12` }}
                             />
                           </div>
-                          {/* character */}
                           <motion.div
-                            animate={{ y: [0, -6, 0] }}
+                            animate={{ y: [0, -5, 0] }}
                             transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
                             className="relative z-0"
                           >
                             <Image
                               src={m.image}
                               alt={m.name}
-                              width={300}
-                              height={260}
+                              width={200}
+                              height={170}
                               className="select-none pointer-events-none"
                               unoptimized
                             />
                           </motion.div>
-                          {/* name */}
-                          <span className="text-[12px] font-semibold mt-1" style={{ color: m.color }}>
-                            — {m.name}
+                          <span
+                            className="text-[10px] mt-0.5"
+                            style={{ color: m.color, fontFamily: "var(--font-comic)", opacity: 0.7 }}
+                          >
+                            {m.name}
                           </span>
                         </motion.div>
                       );
