@@ -32,6 +32,8 @@ function renderMarkdown(text: string) {
   });
 }
 
+const mascotImages = ["/images/hiphop_action.png", "/images/painter_action.png"];
+
 const statusColors: Record<string, { text: string; bg: string }> = {
   green:  { text: "#16a34a", bg: "#16a34a15" },
   blue:   { text: "#2563eb", bg: "#2563eb15" },
@@ -75,25 +77,51 @@ export default function Publications() {
                 style={{ borderColor: "var(--card-border)", background: "var(--card-bg)" }}
               >
                 <div className="flex flex-col md:flex-row">
-                  {/* ── Left: thumbnail — click to zoom ── */}
-                  <div
-                    className="relative w-full md:w-[300px] lg:w-[340px] flex-shrink-0 overflow-hidden cursor-zoom-in group md:self-start"
-                    style={{ minHeight: "200px", background: "var(--card-bg)" }}
-                    onClick={() => setLightboxSrc(pub.thumbnail)}
-                  >
-                    <Image
-                      src={pub.thumbnail}
-                      alt={pub.title}
-                      fill
-                      className="object-contain p-2 transition-transform duration-300 group-hover:scale-110"
-                      unoptimized
-                    />
-                    {/* hover overlay */}
-                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100">
-                      <span className="text-[11px] font-mono px-2 py-1 rounded bg-black/60 text-white">
-                        Click to zoom
-                      </span>
+                  {/* ── Left column: thumbnail + mascot ── */}
+                  <div className="w-full md:w-[300px] lg:w-[340px] flex-shrink-0 flex flex-col">
+                    <div
+                      className="relative overflow-hidden cursor-zoom-in group"
+                      style={{ minHeight: "200px", background: "var(--card-bg)" }}
+                      onClick={() => setLightboxSrc(pub.thumbnail)}
+                    >
+                      <Image
+                        src={pub.thumbnail}
+                        alt={pub.title}
+                        fill
+                        className="object-contain p-2 transition-transform duration-300 group-hover:scale-110"
+                        unoptimized
+                      />
+                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100">
+                        <span className="text-[11px] font-mono px-2 py-1 rounded bg-black/60 text-white">
+                          Click to zoom
+                        </span>
+                      </div>
                     </div>
+                    <AnimatePresence>
+                      {isExpanded && (
+                        <motion.div
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: 20 }}
+                          transition={{ duration: 0.4, delay: 0.15 }}
+                          className="hidden md:flex flex-1 items-end justify-center p-4"
+                        >
+                          <motion.div
+                            animate={{ y: [0, -8, 0] }}
+                            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                          >
+                            <Image
+                              src={mascotImages[pub.id.charCodeAt(0) % 2]}
+                              alt="mascot"
+                              width={180}
+                              height={120}
+                              className="opacity-60 select-none pointer-events-none"
+                              unoptimized
+                            />
+                          </motion.div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                   </div>
 
                   {/* ── Right: content ── */}
