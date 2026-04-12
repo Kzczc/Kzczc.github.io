@@ -32,7 +32,10 @@ function renderMarkdown(text: string) {
   });
 }
 
-const mascotImages = ["/images/hiphop_action.png", "/images/painter_action.png"];
+const mascots = [
+  { image: "/images/hiphop_action.png", name: "Kiso", role: "RIGOROUS CODER", color: "#06b6d4" },
+  { image: "/images/painter_action.png", name: "Sui", role: "IMAGINATIVE ARTIST", color: "#a855f7" },
+];
 
 const statusColors: Record<string, { text: string; bg: string }> = {
   green:  { text: "#16a34a", bg: "#16a34a15" },
@@ -97,30 +100,64 @@ export default function Publications() {
                         </span>
                       </div>
                     </div>
-                    {isExpanded && (
-                      <motion.div
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.35, delay: 0.2 }}
-                        className="hidden md:flex flex-1 items-center justify-center"
-                      >
+                    {isExpanded && (() => {
+                      const m = mascots[pub.id.charCodeAt(0) % 2];
+                      return (
                         <motion.div
-                          animate={{ y: [0, -6, 0] }}
-                          transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
-                          className="flex items-center justify-center w-full"
+                          initial={{ opacity: 0, scale: 0.9 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          transition={{ duration: 0.35, delay: 0.2 }}
+                          className="hidden md:flex flex-1 flex-col items-center justify-center relative py-4"
                         >
-                          <Image
-                            src={mascotImages[pub.id.charCodeAt(0) % 2]}
-                            alt="mascot"
-                            width={280}
-                            height={187}
-                            className="select-none pointer-events-none opacity-75"
-                            style={{ maxWidth: "85%" }}
-                            unoptimized
+                          {/* glow */}
+                          <div
+                            className="absolute inset-0 rounded-xl"
+                            style={{
+                              background: `radial-gradient(ellipse at center, ${m.color}12 0%, transparent 70%)`,
+                            }}
                           />
+                          {/* speech bubble */}
+                          <div
+                            className="relative mb-2 px-3 py-1.5 rounded-full text-[11px] font-mono"
+                            style={{
+                              background: `${m.color}18`,
+                              color: m.color,
+                              border: `1px solid ${m.color}30`,
+                            }}
+                          >
+                            Let me walk you through this!
+                            <div
+                              className="absolute left-1/2 -translate-x-1/2 -bottom-1 w-2 h-2 rotate-45"
+                              style={{ background: `${m.color}18`, borderRight: `1px solid ${m.color}30`, borderBottom: `1px solid ${m.color}30` }}
+                            />
+                          </div>
+                          {/* character */}
+                          <motion.div
+                            animate={{ y: [0, -6, 0] }}
+                            transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
+                          >
+                            <Image
+                              src={m.image}
+                              alt={m.name}
+                              width={260}
+                              height={173}
+                              className="select-none pointer-events-none"
+                              style={{ maxWidth: "85%" }}
+                              unoptimized
+                            />
+                          </motion.div>
+                          {/* name tag */}
+                          <div className="mt-2 text-center">
+                            <span className="text-[12px] font-bold font-mono" style={{ color: m.color }}>
+                              {m.name}
+                            </span>
+                            <span className="text-[9px] font-mono ml-1.5 opacity-50" style={{ color: "var(--muted)" }}>
+                              {m.role}
+                            </span>
+                          </div>
                         </motion.div>
-                      </motion.div>
-                    )}
+                      );
+                    })()}
                   </div>
 
                   {/* ── Right: content ── */}
