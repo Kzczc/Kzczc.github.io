@@ -107,7 +107,7 @@ export default function Publications() {
                           initial={{ opacity: 0, scale: 0.9 }}
                           animate={{ opacity: 1, scale: 1 }}
                           transition={{ duration: 0.35, delay: 0.2 }}
-                          className="hidden md:flex flex-1 flex-col items-center justify-center relative"
+                          className="hidden md:flex flex-1 flex-col items-center justify-center relative p-4"
                         >
                           <div
                             className="absolute inset-0"
