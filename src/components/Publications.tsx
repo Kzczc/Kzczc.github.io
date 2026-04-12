@@ -100,33 +100,27 @@ export default function Publications() {
                     <AnimatePresence>
                       {isExpanded && (
                         <motion.div
-                          initial={{ opacity: 0, y: 20 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          exit={{ opacity: 0, y: 20 }}
-                          transition={{ duration: 0.4, delay: 0.15 }}
-                          className="hidden md:flex flex-1 items-center justify-center p-3"
+                          initial={{ opacity: 0, scale: 0.9 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          exit={{ opacity: 0, scale: 0.9 }}
+                          transition={{ duration: 0.35, delay: 0.15 }}
+                          className="hidden md:flex flex-1 items-center justify-center"
                         >
-                          <div
-                            className="rounded-xl p-3 flex items-center justify-center"
-                            style={{
-                              border: "1px dashed var(--card-border)",
-                              background: "var(--card-bg)",
-                            }}
+                          <motion.div
+                            animate={{ y: [0, -6, 0] }}
+                            transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
+                            className="flex items-center justify-center w-full"
                           >
-                            <motion.div
-                              animate={{ y: [0, -6, 0] }}
-                              transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
-                            >
-                              <Image
-                                src={mascotImages[pub.id.charCodeAt(0) % 2]}
-                                alt="mascot"
-                                width={300}
-                                height={200}
-                                className="select-none pointer-events-none opacity-80"
-                                unoptimized
-                              />
-                            </motion.div>
-                          </div>
+                            <Image
+                              src={mascotImages[pub.id.charCodeAt(0) % 2]}
+                              alt="mascot"
+                              width={280}
+                              height={187}
+                              className="select-none pointer-events-none opacity-75"
+                              style={{ maxWidth: "85%" }}
+                              unoptimized
+                            />
+                          </motion.div>
                         </motion.div>
                       )}
                     </AnimatePresence>
