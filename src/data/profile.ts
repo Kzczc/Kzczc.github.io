@@ -339,7 +339,7 @@ export const journeyItems = [
     isCurrent: false,
   },
   {
-    period: "2022 – 2026",
+    period: "2022 – 2023",
     org: "Dongbei University of Finance and Economics",
     icon: "/images/dufe_logo.png",
     title: "Business Admin → Economic Statistics",
