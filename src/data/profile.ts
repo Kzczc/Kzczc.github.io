@@ -109,7 +109,7 @@ export const socialLinks = [
   },
   {
     label: "LinkedIn",
-    href: "https://www.linkedin.com/in/yuhe-wu",
+    href: "https://www.linkedin.com/in/yuhe-wu-a4165b370/",
     icon: "Linkedin",
   },
   {
