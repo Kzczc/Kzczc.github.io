@@ -154,7 +154,7 @@ export default function RecentUpdates() {
             <span>CAT</span>
             <span>PID</span>
             <span>MEMORY.DUMP</span>
-            <span className="text-right min-w-[80px]">LINKS</span>
+            <span className="text-right min-w-[40px]">LINKS</span>
           </div>
 
           {/* ══ Scrollable rows ══ */}
@@ -200,29 +200,29 @@ export default function RecentUpdates() {
                     </span>
                   </div>
                   {/* ── Right-side link icons (clickable) ── */}
-                  <div className="flex items-center gap-1.5 min-w-[80px] justify-end">
-                    {item.linkIcons.map((linkItem) => {
-                      const ic = linkIconComponents[linkItem.type];
-                      if (!ic) return null;
-                      const { Icon, title } = ic;
-                      return (
-                        <a
-                          key={linkItem.type}
-                          href={linkItem.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          title={title}
-                          onClick={(e) => e.stopPropagation()}
-                          className="terminal-link-icon inline-flex items-center justify-center w-6 h-6 rounded border"
-                        >
-                          <Icon size={14} />
-                        </a>
-                      );
-                    })}
-                    {/* expand */}
-                    <span className="text-[11px] opacity-0 group-hover:opacity-100 transition-opacity terminal-muted ml-1">
-                      [+]
-                    </span>
+                  <div className="flex items-center gap-1.5 min-w-[40px] justify-end">
+                    {item.linkIcons.length > 0 ? (
+                      item.linkIcons.map((linkItem) => {
+                        const ic = linkIconComponents[linkItem.type];
+                        if (!ic) return null;
+                        const { Icon, title } = ic;
+                        return (
+                          <a
+                            key={linkItem.type}
+                            href={linkItem.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            title={title}
+                            onClick={(e) => e.stopPropagation()}
+                            className="terminal-link-icon inline-flex items-center justify-center w-6 h-6 rounded border"
+                          >
+                            <Icon size={14} />
+                          </a>
+                        );
+                      })
+                    ) : (
+                      <span className="text-[11px] terminal-dim select-none">—</span>
+                    )}
                   </div>
                 </div>
               );

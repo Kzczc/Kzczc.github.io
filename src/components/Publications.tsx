@@ -204,37 +204,28 @@ export default function Publications() {
                       </span>
                     </div>
 
-                    {/* action buttons */}
+                    {/* action buttons — Paper/Code/Project 始终显示；有 link 时为真链接，无 link 时为占位 span */}
                     <div className="flex items-center gap-2 mt-2 flex-wrap">
-                      {pub.links?.paper && (
-                        <a
-                          href={pub.links.paper}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="pub-btn"
-                        >
+                      {pub.links?.paper ? (
+                        <a href={pub.links.paper} target="_blank" rel="noopener noreferrer" className="pub-btn">
                           <FileText size={13} /> Paper
                         </a>
+                      ) : (
+                        <span className="pub-btn"><FileText size={13} /> Paper</span>
                       )}
-                      {pub.links?.code && (
-                        <a
-                          href={pub.links.code}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="pub-btn"
-                        >
+                      {pub.links?.code ? (
+                        <a href={pub.links.code} target="_blank" rel="noopener noreferrer" className="pub-btn">
                           <Github size={13} /> Code
                         </a>
+                      ) : (
+                        <span className="pub-btn"><Github size={13} /> Code</span>
                       )}
-                      {pub.links?.project && (
-                        <a
-                          href={pub.links.project}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="pub-btn"
-                        >
+                      {pub.links?.project ? (
+                        <a href={pub.links.project} target="_blank" rel="noopener noreferrer" className="pub-btn">
                           <Globe size={13} /> Project
                         </a>
+                      ) : (
+                        <span className="pub-btn"><Globe size={13} /> Project</span>
                       )}
                       <button
                         onClick={() => setExpandedId(isExpanded ? null : pub.id)}
