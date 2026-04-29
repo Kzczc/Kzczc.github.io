@@ -41,6 +41,7 @@ const statusColors: Record<string, { text: string; bg: string }> = {
   green:  { text: "#16a34a", bg: "#16a34a15" },
   blue:   { text: "#2563eb", bg: "#2563eb15" },
   orange: { text: "#ea580c", bg: "#ea580c15" },
+  gray:   { text: "#64748b", bg: "#64748b15" },
 };
 
 export default function Publications() {
@@ -205,9 +206,36 @@ export default function Publications() {
 
                     {/* action buttons */}
                     <div className="flex items-center gap-2 mt-2 flex-wrap">
-                      <span className="pub-btn"><FileText size={13} /> Paper</span>
-                      <span className="pub-btn"><Github size={13} /> Code</span>
-                      <span className="pub-btn"><Globe size={13} /> Project</span>
+                      {pub.links?.paper && (
+                        <a
+                          href={pub.links.paper}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="pub-btn"
+                        >
+                          <FileText size={13} /> Paper
+                        </a>
+                      )}
+                      {pub.links?.code && (
+                        <a
+                          href={pub.links.code}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="pub-btn"
+                        >
+                          <Github size={13} /> Code
+                        </a>
+                      )}
+                      {pub.links?.project && (
+                        <a
+                          href={pub.links.project}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="pub-btn"
+                        >
+                          <Globe size={13} /> Project
+                        </a>
+                      )}
                       <button
                         onClick={() => setExpandedId(isExpanded ? null : pub.id)}
                         className="pub-btn"

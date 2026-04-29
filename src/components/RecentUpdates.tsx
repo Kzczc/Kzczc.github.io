@@ -11,6 +11,7 @@ const typeConfig: Record<string, { label: string; icon: string; bg: string; bord
   EXPERIENCE:  { label: "EXPERIENCE",  icon: "🏫", bg: "#06b6d415", border: "#06b6d433" },
   AWARD:       { label: "AWARD",       icon: "🏆", bg: "#f9731615", border: "#f9731633" },
   RELEASE:     { label: "RELEASE",     icon: "🚀", bg: "#10b98115", border: "#10b98133" },
+  MEDIA:       { label: "MEDIA",       icon: "📰", bg: "#14b8a615", border: "#14b8a633" },
   TALK:        { label: "TALK",        icon: "🎙️", bg: "#ec489915", border: "#ec489933" },
   COURSE:      { label: "COURSE",      icon: "📚", bg: "#ef444415", border: "#ef444433" },
 };
@@ -21,8 +22,10 @@ const statusConfig: Record<string, { label: string; bg: string }> = {
   accepted:     { label: "Accepted",     bg: "#4ade8015" },
   published:    { label: "Published",    bg: "#4ade8015" },
   joined:       { label: "Joined",       bg: "#22d3ee15" },
+  offered:      { label: "Offered",      bg: "#22d3ee15" },
   granted:      { label: "Awarded",      bg: "#fb923c15" },
   released:     { label: "Released",     bg: "#34d39915" },
+  upcoming:     { label: "Coming Soon",  bg: "#f9731615" },
 };
 
 /* ── link icon components (replacing dangerouslySetInnerHTML) ── */
@@ -196,20 +199,24 @@ export default function RecentUpdates() {
                       )}
                     </span>
                   </div>
-                  {/* ── Right-side link icons (React components) ── */}
+                  {/* ── Right-side link icons (clickable) ── */}
                   <div className="flex items-center gap-1.5 min-w-[80px] justify-end">
-                    {item.linkIcons.map((iconKey) => {
-                      const ic = linkIconComponents[iconKey];
+                    {item.linkIcons.map((linkItem) => {
+                      const ic = linkIconComponents[linkItem.type];
                       if (!ic) return null;
                       const { Icon, title } = ic;
                       return (
-                        <span
-                          key={iconKey}
+                        <a
+                          key={linkItem.type}
+                          href={linkItem.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
                           title={title}
+                          onClick={(e) => e.stopPropagation()}
                           className="terminal-link-icon inline-flex items-center justify-center w-6 h-6 rounded border"
                         >
                           <Icon size={14} />
-                        </span>
+                        </a>
                       );
                     })}
                     {/* expand */}
