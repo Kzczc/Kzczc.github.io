@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { FileText, Github, ExternalLink } from "lucide-react";
+import { FileText, Github, ExternalLink, Award, BookOpen } from "lucide-react";
 import { recentUpdates } from "@/data/profile";
 
 /* ── type config ── */
@@ -33,6 +33,17 @@ const linkIconComponents: Record<string, { Icon: React.ComponentType<{ size?: nu
   paper:  { Icon: FileText,     title: "Paper" },
   github: { Icon: Github,       title: "Code" },
   site:   { Icon: ExternalLink, title: "Website" },
+};
+
+/* ── fallback placeholder icon by type (when linkIcons is empty) ── */
+const placeholderByType: Record<string, { Icon: React.ComponentType<{ size?: number }>; title: string }> = {
+  PUBLICATION: { Icon: FileText,     title: "Paper coming"   },
+  RELEASE:     { Icon: FileText,     title: "Release coming" },
+  EXPERIENCE:  { Icon: ExternalLink, title: "—"               },
+  MEDIA:       { Icon: ExternalLink, title: "—"               },
+  AWARD:       { Icon: Award,        title: "—"               },
+  TALK:        { Icon: BookOpen,     title: "—"               },
+  COURSE:      { Icon: BookOpen,     title: "—"               },
 };
 
 /* ── live clock ── */
@@ -154,7 +165,7 @@ export default function RecentUpdates() {
             <span>CAT</span>
             <span>PID</span>
             <span>MEMORY.DUMP</span>
-            <span className="text-right min-w-[40px]">LINKS</span>
+            <span className="text-right min-w-[80px]">LINKS</span>
           </div>
 
           {/* ══ Scrollable rows ══ */}
@@ -199,7 +210,7 @@ export default function RecentUpdates() {
                       )}
                     </span>
                   </div>
-                  {/* ── Right-side link icons (clickable) ── */}
+                  {/* ── Right-side link icons ── */}
                   <div className="flex items-center gap-1.5 min-w-[40px] justify-end">
                     {item.linkIcons.length > 0 ? (
                       item.linkIcons.map((linkItem) => {
@@ -220,9 +231,19 @@ export default function RecentUpdates() {
                           </a>
                         );
                       })
-                    ) : (
-                      <span className="text-[11px] terminal-dim select-none">—</span>
-                    )}
+                    ) : (() => {
+                      /* 没链接：按 type 渲染同样 24x24 带边的占位 icon，不可点击 */
+                      const ph = placeholderByType[item.type] || placeholderByType.PUBLICATION;
+                      const { Icon, title } = ph;
+                      return (
+                        <span
+                          title={title}
+                          className="terminal-link-icon inline-flex items-center justify-center w-6 h-6 rounded border opacity-40 cursor-default select-none"
+                        >
+                          <Icon size={14} />
+                        </span>
+                      );
+                    })()}
                   </div>
                 </div>
               );
