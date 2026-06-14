@@ -3,15 +3,15 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { ChevronRight, FileText, Github, Globe, X } from "lucide-react";
+import { ChevronRight, FileText, Github, Globe, X, Presentation } from "lucide-react";
 import { selectedPublications } from "@/data/profile";
 
-/* ── highlight "Yuhe Wu" ── */
+/* ── highlight "Yuhe Wu" (with optional * or † suffix) ── */
 function renderAuthors(authors: string) {
-  const parts = authors.split(/(Yuhe Wu)/g);
+  const parts = authors.split(/(Yuhe Wu[*†]*)/g);
   return parts.map((part, i) =>
-    part === "Yuhe Wu" ? (
-      <span key={i} className="font-semibold" style={{ color: "var(--accent)" }}>{part}</span>
+    part.startsWith("Yuhe Wu") ? (
+      <span key={i} className="font-semibold not-italic" style={{ color: "var(--accent-warm)" }}>{part}</span>
     ) : (
       <span key={i}>{part}</span>
     )
@@ -44,9 +44,17 @@ const statusColors: Record<string, { text: string; bg: string }> = {
   gray:   { text: "#64748b", bg: "#64748b15" },
 };
 
+const FULL_ONLY_IDS = new Set(["kdd-quantifying", "joneses", "polluvcct", "anor"]);
+
 export default function Publications() {
   const [expandedId, setExpandedId] = useState<string | null>(null);
+  const [collapsedCoreIds, setCollapsedCoreIds] = useState<Set<string>>(new Set());
   const [lightboxSrc, setLightboxSrc] = useState<string | null>(null);
+  const [showAll, setShowAll] = useState(false);
+
+  const visiblePubs = showAll
+    ? selectedPublications
+    : selectedPublications.filter((p) => !FULL_ONLY_IDS.has(p.id));
 
   return (
     <section id="publications" className="relative py-10">
@@ -64,10 +72,46 @@ export default function Publications() {
           </span>
         </motion.div>
 
+        {/* Tabs */}
+        <div className="flex items-center gap-2 mb-3 -mt-3">
+          <button
+            onClick={() => setShowAll(false)}
+            className="text-[12.5px] px-4 py-1.5 rounded-full transition-all"
+            style={{
+              color: !showAll ? "#fff" : "#7c3aed",
+              fontFamily: "var(--font-sans)",
+              fontWeight: 600,
+              background: !showAll ? "#7c3aed" : "transparent",
+              border: "1px solid #7c3aed",
+            }}
+          >
+            Core Publications
+          </button>
+          <button
+            onClick={() => setShowAll(true)}
+            className="text-[12.5px] px-4 py-1.5 rounded-full transition-all"
+            style={{
+              color: showAll ? "#fff" : "#0891b2",
+              fontFamily: "var(--font-sans)",
+              fontWeight: 600,
+              background: showAll ? "#0891b2" : "transparent",
+              border: "1px solid #0891b2",
+            }}
+          >
+            Full Publications List
+          </button>
+        </div>
+        <p className="text-[12.5px] mb-5" style={{ color: "var(--foreground)", fontFamily: "var(--font-sans)" }}>
+          (* equal contribution · † corresponding author)
+        </p>
+
         {/* Cards */}
         <div className="flex flex-col gap-6">
-          {selectedPublications.map((pub, i) => {
-            const isExpanded = expandedId === pub.id;
+          {visiblePubs.map((pub, i) => {
+            const isCoreTab = !showAll;
+            const isExpanded = isCoreTab
+              ? !collapsedCoreIds.has(pub.id)
+              : expandedId === pub.id;
             const sc = statusColors[pub.statusColor] || statusColors.blue;
 
             return (
@@ -77,22 +121,22 @@ export default function Publications() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.06 }}
-                className="rounded-xl border overflow-hidden card-hover"
+                className="rounded-lg border overflow-hidden card-hover"
                 style={{ borderColor: "var(--card-border)", background: "var(--card-bg)" }}
               >
                 <div className="flex flex-col md:flex-row">
                   {/* ── Left column: thumbnail + mascot ── */}
-                  <div className="w-full md:w-[300px] lg:w-[340px] flex-shrink-0 flex flex-col">
+                  <div className="w-full md:w-[380px] lg:w-[440px] flex-shrink-0 flex flex-col">
                     <div
                       className="relative overflow-hidden cursor-zoom-in group"
-                      style={{ minHeight: "200px", background: "var(--card-bg)" }}
                       onClick={() => setLightboxSrc(pub.thumbnail)}
                     >
                       <Image
                         src={pub.thumbnail}
                         alt={pub.title}
-                        fill
-                        className="object-contain p-2 transition-transform duration-300 group-hover:scale-110"
+                        width={1200}
+                        height={600}
+                        className="w-full h-auto transition-transform duration-300 group-hover:scale-105"
                         unoptimized
                       />
                       <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100">
@@ -102,7 +146,7 @@ export default function Publications() {
                       </div>
                     </div>
                     {isExpanded && (() => {
-                      const m = mascots[pub.id.charCodeAt(0) % 2];
+                      const m = mascots[i % 2];
                       return (
                         <motion.div
                           initial={{ opacity: 0, scale: 0.9 }}
@@ -146,38 +190,23 @@ export default function Publications() {
                   </div>
 
                   {/* ── Right: content ── */}
-                  <div className="flex-1 px-6 py-5 flex flex-col gap-2">
-                    {/* venue + rating */}
-                    <div className="flex items-center gap-2 flex-wrap">
-                      <span className="font-mono text-[12.5px] font-semibold" style={{ color: "var(--accent)" }}>
-                        ── {pub.venue}
-                      </span>
-                      <span className="text-[11px]" style={{ color: "var(--muted)" }}>
-                        / {pub.venueType}
-                      </span>
-                      {pub.rating && (
-                        <span className="text-[10px] font-semibold px-2 py-0.5 rounded font-mono" style={{ color: "var(--foreground)", opacity: 0.5, background: "var(--card-border)" }}>
-                          {pub.rating}
-                        </span>
-                      )}
-                    </div>
-
+                  <div className="flex-1 px-6 py-4 flex flex-col justify-between">
                     {/* title */}
-                    <h3 className="text-[16px] font-bold leading-snug font-mono" style={{ color: "var(--foreground)" }}>
+                    <h3 className="text-[16.5px] font-bold leading-snug" style={{ color: "var(--foreground)", fontFamily: "var(--font-sans)" }}>
                       {pub.title}
                     </h3>
 
                     {/* authors */}
-                    <p className="text-[13px] leading-relaxed" style={{ color: "var(--foreground)", opacity: 0.7 }}>
+                    <p className="text-[13.5px] leading-relaxed italic" style={{ color: "var(--foreground)", opacity: 0.65, fontFamily: "var(--font-sans)" }}>
                       {renderAuthors(pub.authors)}
                     </p>
 
                     {/* badges */}
-                    <div className="flex items-center gap-2 flex-wrap mt-0.5">
+                    <div className="flex items-center gap-2 flex-wrap" style={{ fontFamily: "var(--font-sans)" }}>
                       {pub.badges.map((badge) => (
                         <span
                           key={badge}
-                          className="text-[10px] font-semibold px-2 py-0.5 rounded"
+                          className="text-[10.5px] font-semibold px-2 py-0.5 rounded"
                           style={{
                             color: (badge === "Equal Contribution" || badge === "Co-First Author") ? "var(--accent-warm)" : "var(--accent)",
                             background: (badge === "Equal Contribution" || badge === "Co-First Author") ? "rgba(249,115,22,0.1)" : "rgba(6,182,212,0.1)",
@@ -190,52 +219,76 @@ export default function Publications() {
                       {pub.extraBadges?.map((eb) => (
                         <span
                           key={eb}
-                          className="text-[10px] font-semibold px-2 py-0.5 rounded"
+                          className="text-[10.5px] font-semibold px-2 py-0.5 rounded"
                           style={{ color: "#16a34a", background: "rgba(22,163,74,0.1)", border: "1px solid rgba(22,163,74,0.2)" }}
                         >
                           {eb}
                         </span>
                       ))}
                       <span
-                        className="text-[10px] font-semibold px-2 py-0.5 rounded"
+                        className="text-[10.5px] font-semibold px-2 py-0.5 rounded"
                         style={{ color: sc.text, background: sc.bg }}
                       >
                         {pub.status}
                       </span>
                     </div>
 
-                    {/* action buttons — Paper/Code/Project 始终显示；有 link 时为真链接，无 link 时为占位 span */}
-                    <div className="flex items-center gap-2 mt-2 flex-wrap">
-                      {pub.links?.paper ? (
-                        <a href={pub.links.paper} target="_blank" rel="noopener noreferrer" className="pub-btn">
-                          <FileText size={13} /> Paper
+                    {/* venue + links */}
+                    <div className="flex items-center gap-3 flex-wrap text-[13px]" style={{ fontFamily: "var(--font-sans)" }}>
+                      <span className="italic font-semibold" style={{ color: "var(--accent)" }}>
+                        {pub.venue}
+                      </span>
+                      {pub.rating && pub.rating.split(", ").map((r, idx) => {
+                        const isTop = r.includes("A") || r.includes("Q1");
+                        return (
+                          <span key={idx} className="text-[10px] px-1.5 py-0.5 rounded-sm not-italic font-semibold"
+                            style={{
+                              color: isTop ? "#a78bfa" : "#c4b5fd",
+                              background: isTop ? "rgba(167,139,250,0.08)" : "rgba(196,181,253,0.06)",
+                              border: isTop ? "1px solid rgba(167,139,250,0.2)" : "1px solid rgba(196,181,253,0.15)",
+                            }}>
+                            {r}
+                          </span>
+                        );
+                      })}
+                      {pub.links?.paper && (
+                        <a href={pub.links.paper} target="_blank" rel="noopener noreferrer"
+                          className="hover:underline text-[12.5px]" style={{ color: "#e09040", fontFamily: "var(--font-sans)" }}>
+                          [{pub.links.paper.includes("arxiv") ? "ArXiv" : "Paper"}]
                         </a>
-                      ) : (
-                        <span className="pub-btn"><FileText size={13} /> Paper</span>
                       )}
-                      {pub.links?.code ? (
-                        <a href={pub.links.code} target="_blank" rel="noopener noreferrer" className="pub-btn">
-                          <Github size={13} /> Code
-                        </a>
-                      ) : (
-                        <span className="pub-btn"><Github size={13} /> Code</span>
+                      {pub.links?.poster && (
+                        <a href={pub.links.poster} target="_blank" rel="noopener noreferrer"
+                          className="hover:underline text-[12.5px]" style={{ color: "#e09040", fontFamily: "var(--font-sans)" }}>[Poster]</a>
                       )}
-                      {pub.links?.project ? (
-                        <a href={pub.links.project} target="_blank" rel="noopener noreferrer" className="pub-btn">
-                          <Globe size={13} /> Project
-                        </a>
-                      ) : (
-                        <span className="pub-btn"><Globe size={13} /> Project</span>
+                      {pub.links?.code && (
+                        <a href={pub.links.code} target="_blank" rel="noopener noreferrer"
+                          className="hover:underline text-[12.5px]" style={{ color: "#e09040", fontFamily: "var(--font-sans)" }}>[Code]</a>
+                      )}
+                      {pub.links?.website && (
+                        <a href={pub.links.website} target="_blank" rel="noopener noreferrer"
+                          className="hover:underline text-[12.5px]" style={{ color: "#e09040", fontFamily: "var(--font-sans)" }}>[Website]</a>
+                      )}
+                      {pub.links?.project && (
+                        <a href={pub.links.project} target="_blank" rel="noopener noreferrer"
+                          className="hover:underline text-[12.5px]" style={{ color: "#e09040", fontFamily: "var(--font-sans)" }}>[Project]</a>
                       )}
                       <button
-                        onClick={() => setExpandedId(isExpanded ? null : pub.id)}
-                        className="pub-btn"
+                        onClick={() => {
+                          if (isCoreTab) {
+                            setCollapsedCoreIds((prev) => {
+                              const next = new Set(prev);
+                              if (next.has(pub.id)) next.delete(pub.id);
+                              else next.add(pub.id);
+                              return next;
+                            });
+                          } else {
+                            setExpandedId(expandedId === pub.id ? null : pub.id);
+                          }
+                        }}
+                        className="hover:underline cursor-pointer text-[12.5px]" style={{ color: "#e09040", fontFamily: "var(--font-sans)" }}
                       >
-                        <ChevronRight
-                          size={13}
-                          className={`transition-transform duration-200 ${isExpanded ? "rotate-90" : ""}`}
-                        />
-                        Abstract
+                        [{isExpanded ? "Hide Abstract" : "Abstract"}]
                       </button>
                     </div>
 
@@ -275,17 +328,6 @@ export default function Publications() {
           })}
         </div>
 
-        {/* View all */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="text-center mt-8"
-        >
-          <a href="#" className="font-mono text-[13px] transition-colors hover:underline" style={{ color: "var(--accent)" }}>
-            View all publications →
-          </a>
-        </motion.div>
       </div>
 
       {/* ══ Lightbox overlay ══ */}

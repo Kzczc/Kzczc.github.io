@@ -19,9 +19,9 @@ export const personalInfo = {
   avatar: "/images/my_picture.png",
   /** 打字机轮播文案 — 展示个人标签 */
   typewriterTexts: [
-    "explore cognitive boundaries of LLM agents",
-    "build AI systems for financial decision-making",
-    "bridge the gap between NLP and social science",
+    "understand how large language models reason and fail",
+    "design intelligent agents that transform financial research",
+    "advance computational approaches to social science",
   ],
   /** 一段有个人风格的 greeting */
   greeting:
@@ -85,7 +85,7 @@ export const mascots = [
 /** Brief Introduction */
 export const briefIntro = `I am an undergraduate student in Economic Statistics at Dongbei University of Finance and Economics (DUFE), supervised by [**Prof. Zhuang Liu**](https://sft.dufe.edu.cn/content_26950.html). I will be joining the **Hong Kong University of Science and Technology (Guangzhou)** as a **Ph.D. student in Fall 2026**, supervised by [**Prof. Guang Zhang**](https://facultyprofiles.hkust-gz.edu.cn/faculty-personal-page/ZHANG-Guang/guangzhang).
 
-My research focuses on **Large Language Models(LLMs) in Finance and Social Sciences**, spanning LLM evaluation, LLM self-evolution, and agent cognition. I have published papers at venues including **ACL 2026**, **KDD 2025**, and **Annals of Operations Research**, with additional manuscripts under review at **KDD 2026**, **INFORMS Journal on Computing**, and **Management Science**. I also serve as a reviewer for leading venues such as **ACL**, **KDD**, and **IJOC**.`;
+My research focuses on **Large Language Models(LLMs) in Finance and Social Sciences**, spanning LLM evaluation, LLM self-evolution, and agent cognition. I have published papers at venues including **ACL 2026**, **KDD 2025**, and **Annals of Operations Research**, with additional manuscripts under review at **NeurIPS 2026**, **EMNLP 2026**, **KDD 2026**, **INFORMS Journal on Computing**, and **Management Science**. I also serve as a reviewer for leading venues such as **ACL**, **KDD**, and **IJOC**.`;
 
 /** 导航链接 */
 export const navLinks = [
@@ -135,14 +135,14 @@ export const recentUpdates = [
     linkIcons: [] as { type: string; url: string }[],
   },
   {
-    date: "Apr 2026",
-    type: "MEDIA" as const,
+    date: "May 2026",
+    type: "AWARD" as const,
     hex: "0x0001",
-    status: "released",
-    venue: "DUFE Official Press",
-    title: "Featured by DUFE official press for ACL 2026 acceptances",
+    status: "granted",
+    venue: "ACL 2026",
+    title: "Awarded ACL 2026 Diversity & Inclusion (D&I) Subsidy",
     linkIcons: [
-      { type: "site", url: "https://mp.weixin.qq.com/s/2gYUXPEPJzg9GZHIjEF8DQ" },
+      { type: "site", url: "https://2026.aclweb.org/calls/virtual_subsidies/" },
     ] as { type: string; url: string }[],
   },
   {
@@ -232,27 +232,12 @@ export const recentUpdates = [
 /** Selected Publications — 首页展示 */
 export const selectedPublications = [
   {
-    id: "bizsage",
-    venue: "Targeting EMNLP 2026",
-    venueType: "conference" as const,
-    rating: "CCF B, CORE A*",
-    title: "BizSage: A Self-Evolving Multi-Agent Framework for Business Research with Efficient Knowledge Retrieval",
-    authors: "Yuhe Wu, Guangyu Wang, Jiaxin Liu, Guang Zhang",
-    badges: ["First Author"],
-    extraBadges: [] as string[],
-    status: "In Preparation",
-    statusColor: "gray" as const,
-    thumbnail: "/images/bizsage_logo.png",
-    links: {} as { paper?: string; code?: string; project?: string },
-    abstract: "From **AI Scientist v2** passing peer review for the first time, to **EvoScientist**'s cross-task memory accumulation, to **PaperOrchestra** turning lab notes directly into submission-ready manuscripts, automated research is moving from proof of concept to usable systems. Yet these advances are almost entirely concentrated in the natural sciences. Economics and business research has a fundamentally different knowledge structure: relevant information is scattered across finance, statistics, management, and other disciplines; different sections of a single paper carry distinct informational value; and paper-level coarse-grained retrieval cannot precisely locate what is needed. At the same time, this field demands unique standards of empirical rigor. **BizSage** addresses these challenges by constructing a cross-paper *Lateral Knowledge Graph* that unifies section-level knowledge from hundreds of thousands of papers, using *Personalized PageRank* for precise fine-grained retrieval. Multiple specialized agents collaborate to complete the full workflow from literature review to research plan design, with a self-evolution mechanism that continuously learns domain-specific quality patterns from historical evaluations.",
-  },
-  {
     id: "kdd-quantifying",
     venue: "KDD 2026 (August Cycle)",
     venueType: "conference" as const,
     rating: "CCF A, CORE A*",
     title: "Quantifying Public Value Orientations: A Distribution-Aware Framework for Computational Social Science",
-    authors: "Yuhe Wu, Guangyu Wang, Guang Zhang, Zhuang Liu",
+    authors: "Yuhe Wu, Guangyu Wang, Guang Zhang†, Zhuang Liu†",
     badges: ["First Author"],
     extraBadges: [] as string[],
     status: "Under Review",
@@ -262,19 +247,64 @@ export const selectedPublications = [
     abstract: "**AI4Science** has produced breakthroughs like AlphaFold and AlphaEvolve in the natural sciences, but in social science, the methodology for using AI as a measurement tool remains far from mature. Quantifying latent social variables such as public value orientations and policy attitudes is a core challenge in computational social science, and text is the richest source of evidence. Yet text is inherently noisy: within the same passage, clear stance expressions coexist with rhetorical concessions, quoted opposing views, and background filler, each carrying vastly different *evidential value*. Existing LLM-based methods either compress an entire text into a single label or split it into segments and apply equal-weight voting, both discretizing continuous probability distributions too early and causing irreversible information loss. When numerous ambiguous segments outnumber a few decisive arguments, the final judgment is dominated by noise. We reformulate text-based measurement as an *uncertainty-aware evidence aggregation* problem: retaining each segment's full probability distribution, using entropy to assess evidence reliability, and aggregating through weighted pooling in log-odds space, so that a small number of high-confidence segments naturally drive the final decision.",
   },
   {
-    id: "prosmf",
-    venue: "Targeting EMNLP 2026",
+    id: "cast2",
+    venue: "NeurIPS 2026",
+    venueType: "conference" as const,
+    rating: "CCF A, CORE A*",
+    title: "Beyond When: How Root Content Propagates as Information Cascade Trees",
+    authors: "Guangyu Wang*, Yuhe Wu*, Zhaonan Wang†",
+    badges: ["Co-First Author"],
+    extraBadges: [] as string[],
+    status: "Under Review",
+    statusColor: "blue" as const,
+    thumbnail: "/images/nipsfig2.png",
+    links: {} as { paper?: string; code?: string; project?: string },
+    abstract: "Simulating information cascades, the traces formed as content propagates across networks, is central to understanding collective behavior online. Existing approaches either only predict aggregate cascade size or synthesize flat cascade sequences via Temporal Point Processes, which model each propagation action as an event. None can generate complete cascade structures or leverage root content. We propose **CasT\u00B2** (Cascade Simulation on Time-ordered Trees), a task that conditions on root content and jointly infers when each event occurs and how the propagation path unfolds, recovering the complete tree structure. We design a framework extending flow matching to tree space with a depth-aware probability path that first constructs the trunk and then expands peripheral branches, while a Transformer backbone iteratively refines cascades through insertions and deletions preserving tree validity. A large language model analyzes root content through established propagation theories, distilling structured semantic profiles that condition generation. We also contribute CasT\u00B2-1.4M, a benchmark comprising 1.4M cascades across commenting, reposting, and citation domains.",
+  },
+  {
+    id: "bizsage",
+    venue: "EMNLP 2026",
     venueType: "conference" as const,
     rating: "CCF B, CORE A*",
-    title: "Rethinking Risk Forecasting from Financial News: Distributional Supervision Beyond Point Predictions",
-    authors: "Yuhe Wu, Guangyu Wang, Yuanjian Xu, Jianing Hao, Changwei Xu, Guang Zhang",
+    title: "BizSage: A Self-Evolving Multi-Agent Framework for Business Research with Efficient Knowledge Retrieval",
+    authors: "Yuhe Wu, Guangyu Wang, Jiaxin Liu, Guang Zhang†",
     badges: ["First Author"],
     extraBadges: [] as string[],
-    status: "In Preparation",
-    statusColor: "gray" as const,
-    thumbnail: "/images/acl_selective.png",
+    status: "Under Review",
+    statusColor: "blue" as const,
+    thumbnail: "/images/bizsage_logo.png",
     links: {} as { paper?: string; code?: string; project?: string },
-    abstract: "For over a decade, research on predicting market performance from news has operated under a default assumption: that the impact of news can be captured through changes in the mean of expected returns. But is this really how markets respond? By leveraging pricing information from financial derivatives to reconstruct the market's implied expectation distributions, we analyzed nearly 12,000 paired observations before and after news releases and uncovered a long-overlooked fact: what news truly changes is the *distributional shape* and *tail risk*, while the mean barely moves, with differences ranging from 3 to 85 times. This suggests that mainstream approaches may have been tracking the wrong signal all along. Building on this finding, we propose **Selective Moment Forecasting**: instead of predicting the mean, we predict the risk statistics that news actually changes, and design **ProSMF**, a prototype memory network that automatically matches news types to the appropriate predictors.",
+    abstract: "While multi-agent systems based on large language models have shown promise in automating the progressive workflow of academic research, extending them to economics and business research presents two challenges. First, existing methods mostly retrieve at the paper level, yet the evidence needed for research tasks is often distributed across different sections, creating a granularity mismatch that hinders retrieval coverage and precision. Second, these fields demand strict empirical rigor, yet current systems provide limited mechanisms for learning from evaluation feedback. We present **BizSage**, a multi-agent framework combining corpus-level fine-grained retrieval with quality-driven self-evolution. We build a *Lateral Knowledge Graph* (LKG) by merging section-level knowledge graphs and apply *Personalized PageRank* (PPR) to surface semantically relevant and structurally important sections. Seven specialized agents collaborate under a *Meta-Review self-evolution* mechanism that distills failure modes from evaluation traces into reusable strategies. On a benchmark spanning four domains and three tasks, BizSage ranks first on the majority of metrics, achieves pairwise win-rates above 60% against six baselines, and produces zero hallucinated citations.",
+  },
+  {
+    id: "narrative-captivity",
+    venue: "EMNLP 2026",
+    venueType: "conference" as const,
+    rating: "CCF B, CORE A*",
+    title: "Caught in the Story: Narrative Captivity in Multi-turn LLMs Conversation",
+    authors: "Yuhe Wu, Guangyu Wang, Yujie Chen, Jiatong Zhang, Yuran Chen, Yutong Zhang, Xiyin Cheng, Wenpeng Cao, Guang Zhang†, Zhuang Liu†",
+    badges: ["First Author"],
+    extraBadges: [] as string[],
+    status: "Under Review",
+    statusColor: "blue" as const,
+    thumbnail: "/images/emnlp_caught_logo.png",
+    links: {} as { paper?: string; code?: string; project?: string },
+    abstract: "People increasingly turn to large language models for everyday advice, making ethically charged interpersonal problems a practical moral-advisory context. Most prior work has studied this through single-turn judgments or pressure-laden rebuttals, assumptions that poorly match real-world guidance seeking. We introduce **narrative captivity**, a failure mode in which a model treats an unopposed one-sided account as complete and aligns with the narrator's interpretation without seeking missing perspectives. We build a benchmark of 5,078 interpersonal-conflict scenarios spanning six moral dimensions. Across 17 LLMs, narrative captivity is widespread: end-state judgments under multi-turn narration shift by 25 percentage points on average beyond the matched single-turn baseline. Stage-level analysis identifies preference optimization as a major contributor, while four inference-time strategies provide only partial mitigation.",
+  },
+  {
+    id: "joneses",
+    venue: "EMNLP 2026",
+    venueType: "conference" as const,
+    rating: "CCF B, CORE A*",
+    title: "Keeping Up with the Joneses in Silicon: Mechanism Alignment for Socially Embedded Decision Making",
+    authors: "Jiaxin Liu*, Yuhe Wu*, Yixuan Xie, Hanzhi Xiao, Zeyu Ma, Wenqing Gu, Zeheng Xian, Guang Zhang†",
+    badges: ["Co-First Author"],
+    extraBadges: [] as string[],
+    status: "Under Review",
+    statusColor: "blue" as const,
+    thumbnail: "/images/emnlp_relational_logo.png",
+    links: {} as { paper?: string; code?: string; project?: string },
+    abstract: "LLM agents are widely used in social simulation, yet fluent social reasoning does not guarantee valid decision mechanisms. We test whether models implement socially embedded utility, where actions depend on peer-weighted references rather than isolated private preference. We introduce a theory-guided benchmark from network utility theory covering utility recovery, social-comparison gating, and structural transfer across two out-of-distribution decision forms. We find a gap between cue recognition and peer aggregation, spurious social activation when comparison should be inactive, and declining accuracy as social dependence rises. We propose **theory-supervised mechanism alignment** trained on latent utility states rather than response style. Fine-tuning yields +8.3 and +13.9 utility-recovery points on Llama-3.1-8B and Qwen3-8B, raises gating above 95%, and improves transfer to unseen structures. Multi-agent simulations show that repairing local utility shifts macro outcomes, indicating mechanism-level alignment is necessary for scientifically meaningful LLM social simulation.",
   },
   {
     id: "prism",
@@ -282,7 +312,7 @@ export const selectedPublications = [
     venueType: "conference" as const,
     rating: "CCF A, CORE A*",
     title: "PRISM: Probing Reasoning, Instruction, and Source Memory in LLM Hallucinations",
-    authors: "Yuhe Wu, Guangyu Wang, Yuran Chen, Jiatong Zhang, Yutong Zhang, Yujie Chen, Jiaming Shang, Guang Zhang, Zhuang Liu",
+    authors: "Yuhe Wu, Guangyu Wang, Yuran Chen, Jiatong Zhang, Yutong Zhang, Yujie Chen, Jiaming Shang, Guang Zhang†, Zhuang Liu†",
     badges: ["First Author"],
     extraBadges: [] as string[],
     status: "Accepted",
@@ -290,7 +320,9 @@ export const selectedPublications = [
     thumbnail: "/images/prism.png",
     links: {
       paper: "https://arxiv.org/abs/2604.16909",
-    } as { paper?: string; code?: string; project?: string },
+      poster: "/images/prism_poster.png",
+      website: "https://acl-prism.cc/",
+    } as { paper?: string; code?: string; project?: string; poster?: string; website?: string },
     abstract: "In 2025, 2.6% of CS conference papers were found to contain suspected hallucinated citations, nearly 9 times the rate from the previous year. ICLR 2026 now treats hallucinated references as academic ethics violations, where a single instance can lead to rejection. Whether LLMs are a trustworthy tool for research has become an unavoidable question. But fixing hallucinations requires understanding where they come from. When a model gives a wrong answer, the reasons can be entirely different: it may lack the relevant knowledge altogether, it may have memorized incorrect facts, it may have the right knowledge but fail in reasoning, or it may reason correctly but ignore the user's constraints. These four types of errors originate from distinct stages of the generation pipeline, and each requires a different fix, yet existing evaluations mix all queries together and only score final outputs, making them indistinguishable. More critically, fixing one type often worsens another: strengthening instruction following can hurt reasoning, while injecting knowledge can cause forgetting. **PRISM** decomposes hallucinations along three generation stages into four independently testable dimensions, providing systematic diagnosis across 9,448 instances and 24 LLMs, making both *what to fix* and *how to fix it* actionable.",
   },
   {
@@ -299,7 +331,7 @@ export const selectedPublications = [
     venueType: "conference" as const,
     rating: "CCF A, CORE A*",
     title: "BizCompass: Benchmarking the Reasoning Capabilities of LLMs in Business Knowledge and Applications",
-    authors: "Jianing Hao*, Yuhe Wu*, Yuanjian Xu*, Shichang Meng, Shuai Yuan, Wei Zeng, Zixuan Zhang, Guang Zhang",
+    authors: "Jianing Hao*, Yuhe Wu*, Yuanjian Xu*, Shichang Meng, Shuai Yuan, Wei Zeng, Zixuan Zhang, Guang Zhang†",
     badges: ["Co-First Author"],
     extraBadges: [] as string[],
     status: "Accepted",
@@ -316,7 +348,7 @@ export const selectedPublications = [
     venueType: "journal" as const,
     rating: "ABS 3, JCR Q1",
     title: "Enhancing Financial Decision-Making under Cyber Threats: A Dual-Branch Framework Integrating Bayesian Deep Learning and Explainable AI",
-    authors: "Yuhe Wu, Yuran Chen, Zhuang Liu, Wayne Lin",
+    authors: "Yuhe Wu, Yuran Chen, Zhuang Liu†, Wayne Lin",
     badges: ["First Author"],
     extraBadges: [] as string[],
     status: "Accepted",
@@ -333,7 +365,7 @@ export const selectedPublications = [
     venueType: "conference" as const,
     rating: "CCF A, CORE A*",
     title: "PolluVCCT: Multi-Scale Hybrid Learning for Robust Air Pollution Forecasting Across Diverse Climate Zones",
-    authors: "Yuhe Wu, Yuran Chen, Xinyue Su, Zhuang Liu*",
+    authors: "Yuhe Wu, Yuran Chen, Xinyue Su, Zhuang Liu†",
     badges: ["First Author"],
     extraBadges: [] as string[],
     status: "Accepted",
@@ -389,6 +421,7 @@ export const journeyItems = [
 
 /** Awards & Honors */
 export const awards = [
+  { title: "ACL 2026 Diversity & Inclusion (D&I) Subsidy", org: "ACL 2026", date: "2026", category: "GRANT" },
   { title: "KDD-25 Undergraduate Scholarship", org: "KDD 2025", date: "2025", category: "GRANT" },
   { title: "Dashang Group Academic Research Scholarship (TOP 1%)", org: "DUFE", date: "2025", category: "SCHOLARSHIP" },
   { title: "Excellent Innovation & Entrepreneurship Team Scholarship (TOP 1%)", org: "DUFE", date: "2025", category: "SCHOLARSHIP" },

@@ -93,15 +93,23 @@ export default function Awards() {
             Reviewer Service
           </span>
           <div className="flex flex-wrap gap-2.5 mt-5">
-            {reviewerService.map((venue) => (
-              <span
-                key={venue}
-                className="text-[12px] px-3 py-1.5 rounded-lg border font-mono"
-                style={{ color: "var(--muted)", borderColor: "var(--card-border)", background: "var(--card-bg)" }}
-              >
-                📝 {venue}
-              </span>
-            ))}
+            {reviewerService.map((venue) => {
+              const isTop = /UTD24|CCF A|Q1|Q2/.test(venue);
+              return (
+                <span
+                  key={venue}
+                  className="text-[12px] px-3 py-1.5 rounded-lg border"
+                  style={{
+                    fontFamily: "var(--font-sans)",
+                    color: isTop ? "#a78bfa" : "var(--muted)",
+                    borderColor: isTop ? "rgba(167,139,250,0.25)" : "var(--card-border)",
+                    background: isTop ? "rgba(167,139,250,0.06)" : "var(--card-bg)",
+                  }}
+                >
+                  {isTop ? "⭐" : "📝"} {venue}
+                </span>
+              );
+            })}
           </div>
         </motion.div>
       </div>

@@ -158,14 +158,13 @@ export default function RecentUpdates() {
 
           {/* ══ Column headers ══ */}
           <div
-            className="grid font-mono text-[10px] font-bold uppercase tracking-wider px-4 py-2 terminal-header"
-            style={{ gridTemplateColumns: "105px 120px 60px 1fr auto" }}
+            className="grid font-mono text-[9.5px] font-bold uppercase tracking-widest px-4 py-2 terminal-header"
+            style={{ gridTemplateColumns: "100px 120px 1fr auto", letterSpacing: "0.12em" }}
           >
             <span>TIME</span>
             <span>CAT</span>
-            <span>PID</span>
             <span>MEMORY.DUMP</span>
-            <span className="text-right min-w-[80px]">LINKS</span>
+            <span className="text-right min-w-[60px]">LINKS</span>
           </div>
 
           {/* ══ Scrollable rows ══ */}
@@ -178,12 +177,12 @@ export default function RecentUpdates() {
                   key={item.hex}
                   onMouseEnter={() => setHoveredIdx(i)}
                   onMouseLeave={() => setHoveredIdx(null)}
-                  className={`grid items-start px-4 py-3 font-mono text-[12.5px] terminal-row transition-colors cursor-default group ${hoveredIdx === i ? "terminal-row-selected" : ""}`}
-                  style={{ gridTemplateColumns: "105px 120px 60px 1fr auto" }}
+                  className={`grid items-start px-4 py-3.5 font-mono text-[12.5px] terminal-row transition-colors cursor-default group ${hoveredIdx === i ? "terminal-row-selected" : ""}`}
+                  style={{ gridTemplateColumns: "100px 120px 1fr auto" }}
                 >
-                  <span className="terminal-type-date">{item.date}</span>
-                  <span className="flex items-center gap-1">
-                    <span>{tc.icon}</span>
+                  <span className="terminal-type-date text-[12px]">{item.date}</span>
+                  <span className="flex items-center gap-1.5">
+                    <span className="text-[13px]">{tc.icon}</span>
                     <span
                       className="text-[9px] font-bold uppercase tracking-wider px-1.5 py-[2px] rounded terminal-type-text"
                       style={{ background: tc.bg, border: `1px solid ${tc.border}` }}
@@ -191,23 +190,20 @@ export default function RecentUpdates() {
                       {tc.label}
                     </span>
                   </span>
-                  <span className="terminal-dim">{item.hex}</span>
                   <div className="min-w-0">
-                    {sc && (
-                      <span
-                        className="text-[10px] font-semibold px-1.5 py-[2px] rounded mr-2 inline-block terminal-status-label"
-                        style={{ background: sc.bg }}
-                      >
-                        {sc.label}
-                      </span>
-                    )}
-                    <span className="font-semibold terminal-venue">{item.venue}</span>
-                    <br />
-                    <span className="terminal-desc">
-                      {item.title}
-                      {item.title.length > 50 && (
-                        <span className="ml-1 text-[10px] terminal-muted">[+more]</span>
+                    <div className="flex items-center gap-1.5 flex-wrap">
+                      {sc && (
+                        <span
+                          className="text-[9.5px] font-semibold px-1.5 py-[1px] rounded terminal-status-label"
+                          style={{ background: sc.bg }}
+                        >
+                          {sc.label}
+                        </span>
                       )}
+                      <span className="text-[12.5px] font-semibold terminal-venue">{item.venue}</span>
+                    </div>
+                    <span className="text-[11.5px] leading-snug terminal-desc mt-0.5 block" style={{ opacity: 0.75 }}>
+                      {item.title}
                     </span>
                   </div>
                   {/* ── Right-side link icons ── */}

@@ -26,6 +26,7 @@
   --terminal-bg: #1e1e2e;
   --terminal-text: #cdd6f4;
   --halftone-opacity: 0.03;
+  --thumb-bg: #f0f1f3;
 }
 
 /* Dark mode — controlled by next-themes via .dark class */
@@ -41,6 +42,7 @@
   --terminal-bg: #11111b;
   --terminal-text: #cdd6f4;
   --halftone-opacity: 0.10;
+  --thumb-bg: #1a1c24;
 }
 
 /* ── Base ── */
