@@ -469,7 +469,6 @@ export const reviewerService = [
   "Journal of Business Research (ABS3, Q1)",
   "Data Mining and Knowledge Discovery (Q2)",
   "ACL (CCF A)",
-  "EMNLP (CCF B)",
   "KDD (CCF A)",
   "NeurIPS (CCF A)",
   "AAAI (CCF A)",
