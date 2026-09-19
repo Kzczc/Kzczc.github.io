@@ -83,7 +83,7 @@ export const mascots = [
 ];
 
 /** Brief Introduction */
-export const briefIntro = `I am a **Ph.D. student** in Fintech at the **Hong Kong University of Science and Technology (Guangzhou)**, supervised by [**Prof. Guang Zhang**](https://facultyprofiles.hkust-gz.edu.cn/faculty-personal-page/ZHANG-Guang/guangzhang). I received my B.S. in Economic Statistics from Dongbei University of Finance and Economics (DUFE), where I was supervised by [**Prof. Zhuang Liu**](https://sft.dufe.edu.cn/content_26950.html) and Prof. Xu Qiang.
+export const briefIntro = `I am a **Ph.D. student** in Fintech at the **Hong Kong University of Science and Technology (Guangzhou)**, supervised by [**Prof. Guang Zhang**](https://facultyprofiles.hkust-gz.edu.cn/faculty-personal-page/ZHANG-Guang/guangzhang). I received my B.S. in Economic Statistics from Dongbei University of Finance and Economics (DUFE), where I was supervised by [**Prof. Zhuang Liu**](https://sft.dufe.edu.cn/content_26950.html) and [**Prof. Xu Qiang**](https://www.dufe.edu.cn/yxsz/tjxy/).
 
 My research focuses on **Large Language Models (LLMs) in Finance and Social Sciences**, spanning LLM evaluation, LLM self-evolution, and agent cognition. I have published papers at venues including **ACL 2026**, **EMNLP 2026**, **KDD 2025**, and **Annals of Operations Research**, with additional manuscripts under review at **NeurIPS 2026**, **ICASSP 2027**, **AAAI 2027**, and **Management Science**. I also serve as a reviewer for leading venues such as **ACL**, **KDD**, **NeurIPS**, **AAAI**, and **IJOC**.`;
 
