@@ -44,7 +44,7 @@ const statusColors: Record<string, { text: string; bg: string }> = {
   gray:   { text: "#64748b", bg: "#64748b15" },
 };
 
-const FULL_ONLY_IDS = new Set(["kdd-quantifying", "joneses", "polluvcct", "anor"]);
+const FULL_ONLY_IDS = new Set(["tef", "joneses", "polluvcct", "anor", "medgen", "nacf"]);
 
 export default function Publications() {
   const [expandedId, setExpandedId] = useState<string | null>(null);

@@ -1,6 +1,6 @@
 # Yuhe Wu | Personal Homepage
 
-> Ph.D. Student (Incoming) @ HKUST(GZ) · B.S. in Economic Statistics @ DUFE
+> Ph.D. Student @ HKUST(GZ) · B.S. in Economic Statistics @ DUFE
 
 🌐 **Visit my homepage**: [https://kzczc-github-io.vercel.app](https://kzczc-github-io.vercel.app)
 

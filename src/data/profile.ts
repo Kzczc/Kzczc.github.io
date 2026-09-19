@@ -48,7 +48,7 @@ export const currentResearch = [
 export const education = [
   {
     icon: "/images/hkust_logo.png",
-    title: "Ph.D. in Fintech (Incoming)",
+    title: "Ph.D. in Fintech",
     subtitle: "HKUST(GZ) · 2026.09 ~",
     desc: "Supervised by Prof. Guang Zhang",
   },
@@ -83,9 +83,9 @@ export const mascots = [
 ];
 
 /** Brief Introduction */
-export const briefIntro = `I am an undergraduate student in Economic Statistics at Dongbei University of Finance and Economics (DUFE), supervised by [**Prof. Zhuang Liu**](https://sft.dufe.edu.cn/content_26950.html). I will be joining the **Hong Kong University of Science and Technology (Guangzhou)** as a **Ph.D. student in Fall 2026**, supervised by [**Prof. Guang Zhang**](https://facultyprofiles.hkust-gz.edu.cn/faculty-personal-page/ZHANG-Guang/guangzhang).
+export const briefIntro = `I am a **Ph.D. student** in Fintech at the **Hong Kong University of Science and Technology (Guangzhou)**, supervised by [**Prof. Guang Zhang**](https://facultyprofiles.hkust-gz.edu.cn/faculty-personal-page/ZHANG-Guang/guangzhang). I received my B.S. in Economic Statistics from Dongbei University of Finance and Economics (DUFE), where I was supervised by [**Prof. Zhuang Liu**](https://sft.dufe.edu.cn/content_26950.html) and Prof. Xu Qiang.
 
-My research focuses on **Large Language Models (LLMs) in Finance and Social Sciences**, spanning LLM evaluation, LLM self-evolution, and agent cognition. I have published papers at venues including **ACL 2026**, **EMNLP 2026**, **KDD 2025**, and **Annals of Operations Research**, with additional manuscripts under review at **NeurIPS 2026**, **KDD 2026**, **AAAI 2027**, and **Management Science**. I also serve as a reviewer for leading venues such as **ACL**, **KDD**, **NeurIPS**, **AAAI**, and **IJOC**.`;
+My research focuses on **Large Language Models (LLMs) in Finance and Social Sciences**, spanning LLM evaluation, LLM self-evolution, and agent cognition. I have published papers at venues including **ACL 2026**, **EMNLP 2026**, **KDD 2025**, and **Annals of Operations Research**, with additional manuscripts under review at **NeurIPS 2026**, **ICASSP 2027**, **AAAI 2027**, and **Management Science**. I also serve as a reviewer for leading venues such as **ACL**, **KDD**, **NeurIPS**, **AAAI**, and **IJOC**.`;
 
 /** 导航链接 */
 export const navLinks = [
@@ -141,7 +141,9 @@ export const recentUpdates = [
     status: "accepted",
     venue: "EMNLP 2026 Findings",
     title: "BizSage: A Self-Evolving Multi-Agent Framework for Business Research",
-    linkIcons: [] as { type: string; url: string }[],
+    linkIcons: [
+      { type: "github", url: "https://github.com/Kzczc/EMNLP2026-BizSage" },
+    ] as { type: string; url: string }[],
   },
   {
     date: "Aug 2026",
@@ -150,7 +152,10 @@ export const recentUpdates = [
     status: "accepted",
     venue: "EMNLP 2026 Findings",
     title: "Caught in the Story: Narrative Captivity in Multi-turn LLMs Conversation",
-    linkIcons: [] as { type: string; url: string }[],
+    linkIcons: [
+      { type: "paper", url: "https://arxiv.org/abs/2609.03407" },
+      { type: "github", url: "https://github.com/Kzczc/EMNLP2026-Caught-in-the-Story" },
+    ] as { type: string; url: string }[],
   },
   {
     date: "May 2026",
@@ -171,7 +176,9 @@ export const recentUpdates = [
     venue: "ACL 2026 Main",
     title: "PRISM: Probing Reasoning, Instruction, and Source Memory in LLM Hallucinations",
     linkIcons: [
-      { type: "paper", url: "https://arxiv.org/abs/2604.16909" },
+      { type: "paper", url: "https://aclanthology.org/2026.acl-long.1551/" },
+      { type: "github", url: "https://github.com/Kzczc/ACL2026-PRISM" },
+      { type: "site", url: "https://acl-prism.cc/" },
     ] as { type: string; url: string }[],
   },
   {
@@ -182,7 +189,8 @@ export const recentUpdates = [
     venue: "ACL 2026 Findings",
     title: "BizCompass: Benchmarking the Reasoning Capabilities of LLMs in Business Knowledge",
     linkIcons: [
-      { type: "paper", url: "https://arxiv.org/abs/2604.17305" },
+      { type: "paper", url: "https://aclanthology.org/2026.findings-acl.1198/" },
+      { type: "github", url: "https://github.com/CatherineHao/BizCompass" },
     ] as { type: string; url: string }[],
   },
   {
@@ -262,7 +270,8 @@ export const selectedPublications = [
     statusColor: "green" as const,
     thumbnail: "/images/prism.png",
     links: {
-      paper: "https://arxiv.org/abs/2604.16909",
+      paper: "https://aclanthology.org/2026.acl-long.1551/",
+      code: "https://github.com/Kzczc/ACL2026-PRISM",
       poster: "/images/prism_poster.png",
       website: "https://acl-prism.cc/",
     } as { paper?: string; code?: string; project?: string; poster?: string; website?: string },
@@ -274,14 +283,15 @@ export const selectedPublications = [
     venueType: "conference" as const,
     rating: "CCF A, CORE A*",
     title: "BizCompass: Benchmarking the Reasoning Capabilities of LLMs in Business Knowledge and Applications",
-    authors: "Jianing Hao*, Yuhe Wu*, Yuanjian Xu*, Shichang Meng, Shuai Yuan, Wei Zeng, Zixuan Zhang, Guang Zhang†",
+    authors: "Jianing Hao*, Yuhe Wu*, Yuanjian Xu*, Shichang Meng, Shuai Yuan, Wei Zeng, Zixuan Wang, Guang Zhang†",
     badges: ["Co-First Author"],
     extraBadges: [] as string[],
     status: "Accepted",
     statusColor: "green" as const,
     thumbnail: "/images/bizcompass.png",
     links: {
-      paper: "https://arxiv.org/abs/2604.17305",
+      paper: "https://aclanthology.org/2026.findings-acl.1198/",
+      code: "https://github.com/CatherineHao/BizCompass",
     } as { paper?: string; code?: string; project?: string; poster?: string; website?: string },
     abstract: "In discussions with over ten leading financial institutions, a recurring question emerged: LLMs are powerful, but which business scenarios can they reliably support, and what foundational capabilities underpin these applications? Existing benchmarks cannot answer this. They either cover narrow tasks or focus only on surface-level accuracy, consistently lacking a causal chain from foundational capability to business performance. **BizCompass** was built to address this gap: it covers four foundational disciplines at the knowledge level, including finance, economics, statistics, and operations research, and structures tasks around three business roles at the application level, including analyst, trader, and consultant, forming a dual-axis evaluation framework that not only measures *how well* models perform, but diagnoses *why* they fall short.",
   },
@@ -312,7 +322,9 @@ export const selectedPublications = [
     status: "Accepted",
     statusColor: "green" as const,
     thumbnail: "/images/bizsage_logo.png",
-    links: {} as { paper?: string; code?: string; project?: string; poster?: string; website?: string },
+    links: {
+      code: "https://github.com/Kzczc/EMNLP2026-BizSage",
+    } as { paper?: string; code?: string; project?: string; poster?: string; website?: string },
     abstract: "While multi-agent systems based on large language models have shown promise in automating the progressive workflow of academic research, extending them to economics and business research presents two challenges. First, existing methods mostly retrieve at the paper level, yet the evidence needed for research tasks is often distributed across different sections, creating a granularity mismatch that hinders retrieval coverage and precision. Second, these fields demand strict empirical rigor, yet current systems provide limited mechanisms for learning from evaluation feedback. We present **BizSage**, a multi-agent framework combining corpus-level fine-grained retrieval with quality-driven self-evolution. We build a *Lateral Knowledge Graph* (LKG) by merging section-level knowledge graphs and apply *Personalized PageRank* (PPR) to surface semantically relevant and structurally important sections. Seven specialized agents collaborate under a *Meta-Review self-evolution* mechanism that distills failure modes from evaluation traces into reusable strategies. On a benchmark spanning four domains and three tasks, BizSage ranks first on the majority of metrics, achieves pairwise win-rates above 60% against six baselines, and produces zero hallucinated citations.",
   },
 {
@@ -327,7 +339,10 @@ export const selectedPublications = [
     status: "Accepted",
     statusColor: "green" as const,
     thumbnail: "/images/emnlp_caught_logo.png",
-    links: {} as { paper?: string; code?: string; project?: string; poster?: string; website?: string },
+    links: {
+      paper: "https://arxiv.org/abs/2609.03407",
+      code: "https://github.com/Kzczc/EMNLP2026-Caught-in-the-Story",
+    } as { paper?: string; code?: string; project?: string; poster?: string; website?: string },
     abstract: "People increasingly turn to large language models for everyday advice, making ethically charged interpersonal problems a practical moral-advisory context. Most prior work has studied this through single-turn judgments or pressure-laden rebuttals, assumptions that poorly match real-world guidance seeking. We introduce **narrative captivity**, a failure mode in which a model treats an unopposed one-sided account as complete and aligns with the narrator's interpretation without seeking missing perspectives. We build a benchmark of 5,078 interpersonal-conflict scenarios spanning six moral dimensions. Across 17 LLMs, narrative captivity is widespread: end-state judgments under multi-turn narration shift by 25 percentage points on average beyond the matched single-turn baseline. Stage-level analysis identifies preference optimization as a major contributor, while four inference-time strategies provide only partial mitigation.",
   },
 {
@@ -381,19 +396,58 @@ export const selectedPublications = [
     abstract: "Simulating information cascades, the traces formed as content propagates across networks, is central to understanding collective behavior online. Existing approaches either only predict aggregate cascade size or synthesize flat cascade sequences via Temporal Point Processes, which model each propagation action as an event. None can generate complete cascade structures or leverage root content. We propose **CasT\u00B2** (Cascade Simulation on Time-ordered Trees), a task that conditions on root content and jointly infers when each event occurs and how the propagation path unfolds, recovering the complete tree structure. We design a framework extending flow matching to tree space with a depth-aware probability path that first constructs the trunk and then expands peripheral branches, while a Transformer backbone iteratively refines cascades through insertions and deletions preserving tree validity. A large language model analyzes root content through established propagation theories, distilling structured semantic profiles that condition generation. We also contribute CasT\u00B2-1.4M, a benchmark comprising 1.4M cascades across commenting, reposting, and citation domains.",
   },
 {
-    id: "kdd-quantifying",
-    venue: "KDD 2026 (August Cycle)",
+    id: "tef",
+    venue: "ICASSP 2027",
     venueType: "conference" as const,
-    rating: "CCF A, CORE A*",
-    title: "Quantifying Public Value Orientations: A Distribution-Aware Framework for Computational Social Science",
-    authors: "Yuhe Wu, Guangyu Wang, Guang Zhang†, Zhuang Liu†",
-    badges: ["First Author"],
+    rating: "CCF B",
+    title: "Count Evidence, Not Sentences: Tempered Evidence Fusion of LLM Judgments for Long-Text Value Measurement",
+    authors: "Yuhe Wu*, Rui Qian*, Guangyu Wang*, Yuran Chen, Yuanchao Zhu, Junjie Yang, Zhengheng Li, Jiulin Cai, Tianyi Zhang, Zihan Dong, Jiaxin Liu, Yujie Chen, Guang Zhang†",
+    badges: ["Co-First Author"],
     extraBadges: [] as string[],
     status: "Under Review",
     statusColor: "blue" as const,
-    thumbnail: "/images/kdd_quantifying.png",
-    links: {} as { paper?: string; code?: string; project?: string; poster?: string; website?: string },
-    abstract: "**AI4Science** has produced breakthroughs like AlphaFold and AlphaEvolve in the natural sciences, but in social science, the methodology for using AI as a measurement tool remains far from mature. Quantifying latent social variables such as public value orientations and policy attitudes is a core challenge in computational social science, and text is the richest source of evidence. Yet text is inherently noisy: within the same passage, clear stance expressions coexist with rhetorical concessions, quoted opposing views, and background filler, each carrying vastly different *evidential value*. Existing LLM-based methods either compress an entire text into a single label or split it into segments and apply equal-weight voting, both discretizing continuous probability distributions too early and causing irreversible information loss. When numerous ambiguous segments outnumber a few decisive arguments, the final judgment is dominated by noise. We reformulate text-based measurement as an *uncertainty-aware evidence aggregation* problem: retaining each segment's full probability distribution, using entropy to assess evidence reliability, and aggregating through weighted pooling in log-odds space, so that a small number of high-confidence segments naturally drive the final decision.",
+    thumbnail: "/images/tef.png",
+    links: {
+      code: "https://github.com/Kzczc/ICASSP2027-TEF",
+    } as { paper?: string; code?: string; project?: string; poster?: string; website?: string },
+    abstract: "Large language models (LLMs) are increasingly used to measure public value orientations from long social media posts, yet such posts often mix background, quotations, concessions, and only a few stance-bearing sentences. Existing approaches either ask the model to predict a document-level label directly, which can be overconfident, or aggregate sentence-level predictions by majority or soft voting, which treat uncertain and decisive sentences as equally informative. We formulate long-text value measurement as a decision-fusion problem and propose **Tempered Evidence Fusion (TEF)**, a training-free rule that weights each sentence's log-odds by its normalized information gain, as derived from a generalized Bayesian posterior. This makes the fused score nearly vanish for uncertain sentences while preserving the Bayes-optimal weight of decisive evidence. We further introduce **Multi-event Insight Network Dimensions (MIND)**, a benchmark of 8,358 Chinese and English posts spanning five years of public events and six value dimensions. On MIND, TEF outperforms the strongest baseline among Direct, Majority Vote, and Soft Vote by an average of 4.5 accuracy points and 4.6 macro-F1 points across five LLMs and two languages.",
+  },
+{
+    id: "medgen",
+    venue: "arXiv preprint",
+    venueType: "conference" as const,
+    rating: "",
+    title: "MedGEN-Bench: A Contextually Entangled Benchmark for Open-ended Multimodal Medical Generation",
+    authors: "Junjie Yang, Yuhao Yan, Gang Wu, Rui Qian, Zhisheng Chen, Haijiang Li, Yuhe Wu, Qichao Zhao, Dawen Tian, Xiang Wan, Fenglei Fan, Wenjian Qin, Yongquan Zhang, Feiwei Qin, Changmiao Wang",
+    badges: [] as string[],
+    extraBadges: [] as string[],
+    status: "Preprint",
+    statusColor: "gray" as const,
+    thumbnail: "/images/medgen.png",
+    links: {
+      paper: "https://arxiv.org/abs/2511.13135",
+      code: "https://github.com/yangjj007/MedGEN-Bench-eval",
+      website: "https://yangjj007.github.io/medgen",
+    } as { paper?: string; code?: string; project?: string; poster?: string; website?: string },
+    abstract: "Medical vision-language models (VLMs) are increasingly expected to support clinical workflows through diagnostic text and relevant medical images. However, current medical visual benchmarks have three recurring limitations: query-image misalignment from queries weakly grounded in specific image instances, closed-ended formats that narrow answer space and encourage shortcut-based prediction, and text-centric output paradigms that limit evaluation of image-generation and image-editing capabilities. We introduce **MedGEN-Bench**, a benchmark for open-ended multimodal medical generation. The evaluation snapshot comprises 6,422 image-text pairs reviewed by clinical experts and models, spanning 6 canonical imaging modalities, 15 clinical tasks, and 27 named subtasks. It includes 1,100 Visual Question Answering (VQA) pairs, 3,872 Image Editing pairs, and 1,450 Contextual Multimodal Generation pairs. MedGEN-Bench centers on *contextual entanglement*: the intended output of an instruction depends on the particular image instance rather than on task wording alone. We evaluate 10 compositional frameworks, 2 dedicated image-editing models, 3 unified models, and 5 VLMs. Image-output tasks remain unsaturated; contextual augmentation increases mean image-instruction similarity from 0.273 to 0.372.",
+  },
+{
+    id: "nacf",
+    venue: "Applied Energy",
+    venueType: "journal" as const,
+    rating: "JCR Q1",
+    title: "Counterfactual Load Forecasting with LLM-Structured Events and Representation Learning",
+    authors: "Yujie Chen, Yifei Gao, Runyao Yu, Yuhe Wu, Guangyu Wang, Yue Chen, Tongxin Li",
+    badges: [] as string[],
+    extraBadges: [] as string[],
+    status: "Accepted",
+    statusColor: "green" as const,
+    thumbnail: "/images/nacf.png",
+    links: {
+      paper: "https://www.sciencedirect.com/science/article/pii/S0306261926012109",
+      project: "https://yujiechen8888.github.io/counterfactual-load-forecasting-web/",
+    } as { paper?: string; code?: string; project?: string; poster?: string; website?: string },
+    abstract: "News-reported social, environmental, and grid events can substantially reshape electricity demand, yet quantifying how such events perturb forecasted load trajectories remains largely unaddressed. Existing news-augmented forecasting studies use news as auxiliary features to reduce prediction error but cannot answer counterfactual questions about demand under alternative event conditions. Guided by a generalization bound for continuous treatments, this paper proposes the **News-Aware Counterfactual Load Analysis Framework (NACF)**. NACF converts unstructured news into structured event streams via an offline large language model, encodes these as continuous semantic treatments with a no-news baseline, and estimates treatment-dependent load trajectories through a varying-coefficient response network with learned sample reweighting and IPM-based representation balance. Experiments on an Australian electricity-demand dataset show that NACF remains competitive in factual forecasting while providing evidence of treatment-intensity structure, improved representation balance, and interpretable demand perturbations in synthetic interventions and real event case studies.",
   },
 ];
 
@@ -403,9 +457,9 @@ export const journeyItems = [
     period: "2026.09 ~",
     org: "HKUST(GZ) · Fintech Thrust",
     icon: "/images/hkust_logo.png",
-    title: "Ph.D. Student (Incoming)",
+    title: "Ph.D. Student",
     description:
-      "Starting Ph.D. journey in Fintech at Hong Kong University of Science and Technology (Guangzhou), focusing on LLM Agents, evaluation, and finance applications.",
+      "Ph.D. student in Fintech at the Hong Kong University of Science and Technology (Guangzhou), focusing on LLM agents, evaluation, and finance applications.",
     isCurrent: true,
   },
   {

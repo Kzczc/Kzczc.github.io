@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://kzczc-github-io.vercel.app"),
   title: "Yuhe Wu (Kc.) | Homepage",
   description:
-    "Personal homepage of Yuhe Wu (Kc.). Research on Large Language Models in Finance, LLM evaluation, agent cognition, and applied AI. HKUST(GZ) Fintech PhD Incoming.",
+    "Personal homepage of Yuhe Wu (Kc.). Research on Large Language Models in Finance, LLM evaluation, agent cognition, and applied AI. Ph.D. student in Fintech at HKUST(GZ).",
   keywords: [
     "Yuhe Wu",
     "Kc.",
