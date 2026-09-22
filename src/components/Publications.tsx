@@ -44,7 +44,7 @@ const statusColors: Record<string, { text: string; bg: string }> = {
   gray:   { text: "#64748b", bg: "#64748b15" },
 };
 
-const FULL_ONLY_IDS = new Set(["tef", "joneses", "polluvcct", "anor", "medgen", "nacf"]);
+const FULL_ONLY_IDS = new Set(["tef", "joneses", "polluvcct", "anor", "medgen", "nacf", "iclr-ci", "aaai-cor2", "headwater", "notation"]);
 
 export default function Publications() {
   const [expandedId, setExpandedId] = useState<string | null>(null);
@@ -126,7 +126,8 @@ export default function Publications() {
               >
                 <div className="flex flex-col md:flex-row">
                   {/* ── Left column: thumbnail + mascot ── */}
-                  <div className="w-full md:w-[380px] lg:w-[440px] flex-shrink-0 flex flex-col">
+                  <div className={`${pub.thumbnail || isExpanded ? "w-full md:w-[380px] lg:w-[440px] flex" : "hidden"} flex-shrink-0 flex-col`}>
+                    {pub.thumbnail ? (
                     <div
                       className="relative overflow-hidden cursor-zoom-in group"
                       onClick={() => setLightboxSrc(pub.thumbnail)}
@@ -145,6 +146,7 @@ export default function Publications() {
                         </span>
                       </div>
                     </div>
+                    ) : null}
                     {isExpanded && (() => {
                       const m = mascots[i % 2];
                       return (

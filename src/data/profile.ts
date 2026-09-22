@@ -19,9 +19,9 @@ export const personalInfo = {
   avatar: "/images/my_picture.png",
   /** 打字机轮播文案 — 展示个人标签 */
   typewriterTexts: [
-    "understand how large language models reason and fail",
-    "design intelligent agents that transform financial research",
-    "advance computational approaches to social science",
+    "evaluate where a language model fails, beyond a leaderboard",
+    "post-train models so the capability that was gained stays",
+    "build generative agents that can be tested against real people",
   ],
   /** 一段有个人风格的 greeting */
   greeting:
@@ -32,15 +32,21 @@ export const personalInfo = {
 export const currentResearch = [
   {
     icon: "/images/llminfinance_logo.png",
-    title: "LLM in Finance",
+    title: "LLM Evaluation",
     subtitle: "Fintech Thrust @ HKUST(GZ)",
-    desc: "LLM evaluation, LLM self-evolution, and agent cognition for financial decision-making",
+    desc: "Evaluating and interpreting where factuality and reasoning fail, beyond traditional benchmarks",
   },
   {
     icon: "/images/fintech_logo.png",
-    title: "Fintech",
-    subtitle: "Fintech Lab @ DUFE",
-    desc: "Applied AI, time-series forecasting, and explainable models for financial systems",
+    title: "LLM Post-Training",
+    subtitle: "Fintech Thrust @ HKUST(GZ)",
+    desc: "Making models more capable without making them less reliable, under imperfect supervision",
+  },
+  {
+    icon: "/images/hkust_logo.png",
+    title: "Generative Agents",
+    subtitle: "Fintech Thrust @ HKUST(GZ)",
+    desc: "Agents that perceive, decide, and act, tested against how people actually do",
   },
 ];
 
@@ -85,7 +91,7 @@ export const mascots = [
 /** Brief Introduction */
 export const briefIntro = `I am a **Ph.D. student** in Fintech at the **Hong Kong University of Science and Technology (Guangzhou)**, supervised by [**Prof. Guang Zhang**](https://facultyprofiles.hkust-gz.edu.cn/faculty-personal-page/ZHANG-Guang/guangzhang). I received my B.S. in Economic Statistics from Dongbei University of Finance and Economics (DUFE), where I was supervised by [**Prof. Zhuang Liu**](https://sft.dufe.edu.cn/content_26950.html) and [**Prof. Xu Qiang**](https://www.dufe.edu.cn/yxsz/tjxy/).
 
-My research focuses on **Large Language Models (LLMs) in Finance and Social Sciences**, spanning LLM evaluation, LLM self-evolution, and agent cognition. I have published papers at venues including **ACL 2026**, **EMNLP 2026**, **KDD 2025**, and **Annals of Operations Research**, with additional manuscripts under review at **NeurIPS 2026**, **ICASSP 2027**, **AAAI 2027**, and **Management Science**. I also serve as a reviewer for leading venues such as **ACL**, **KDD**, **NeurIPS**, **AAAI**, and **IJOC**.`;
+My research focuses on **LLM capabilities**, spanning **LLM evaluation**, **LLM post-training**, and **generative agents**. I have published papers at venues including **ACL 2026**, **EMNLP 2026**, **KDD 2025**, and **Annals of Operations Research**, with additional manuscripts under review at **NeurIPS 2026**, **ICLR 2027**, **ICASSP 2027**, **AAAI 2027**, and **Management Science**. I also serve as a reviewer for leading venues such as **ACL**, **KDD**, **NeurIPS**, **AAAI**, and **IJOC**.`;
 
 /** 导航链接 */
 export const navLinks = [
@@ -415,6 +421,66 @@ export const selectedPublications = [
       code: "https://github.com/Kzczc/ICASSP2027-TEF",
     } as { paper?: string; code?: string; project?: string; poster?: string; website?: string },
     abstract: "Large language models (LLMs) are increasingly used to measure public value orientations from long social media posts, yet such posts often mix background, quotations, concessions, and only a few stance-bearing sentences. Existing approaches either ask the model to predict a document-level label directly, which can be overconfident, or aggregate sentence-level predictions by majority or soft voting, which treat uncertain and decisive sentences as equally informative. We formulate long-text value measurement as a decision-fusion problem and propose **Tempered Evidence Fusion (TEF)**, a training-free rule that weights each sentence's log-odds by its normalized information gain, as derived from a generalized Bayesian posterior. This makes the fused score nearly vanish for uncertain sentences while preserving the Bayes-optimal weight of decisive evidence. We further introduce **Multi-event Insight Network Dimensions (MIND)**, a benchmark of 8,358 Chinese and English posts spanning five years of public events and six value dimensions. On MIND, TEF outperforms the strongest baseline among Direct, Majority Vote, and Soft Vote by an average of 4.5 accuracy points and 4.6 macro-F1 points across five LLMs and two languages.",
+  },
+{
+    id: "iclr-ci",
+    venue: "ICLR 2027",
+    venueType: "conference" as const,
+    rating: "CORE A*",
+    title: "Continuous Integration for Self-Evolving Agents That Rewrite Their Own Skills",
+    authors: "Xinjian Yi, Rui Qian, Xutao Mao, Yingbo Zhou, Boxue Yang, Junming Liu, Jiulin Cai, Zhisheng Chen, Jingyu Sun, Yu Li, Yuhe Wu†",
+    badges: ["Corresponding Author"],
+    extraBadges: [] as string[],
+    status: "Under Review",
+    statusColor: "blue" as const,
+    thumbnail: "",
+    links: {} as { paper?: string; code?: string; project?: string; poster?: string; website?: string },
+    abstract: "Self-evolving agents rewrite their own skills, and a rewrite can discard a capability that already worked. We treat that loop as continuous integration: a change is kept only when the agent does not become less reliable at what it could already do.",
+  },
+{
+    id: "aaai-cor2",
+    venue: "AAAI 2027",
+    venueType: "conference" as const,
+    rating: "CCF A, CORE A*",
+    title: "Spend Reasoning Where It Counts: Concise LLM Operations Research Modeling",
+    authors: "Yuhe Wu, Guang Zhang, et al.",
+    badges: ["First Author"],
+    extraBadges: [] as string[],
+    status: "Under Review",
+    statusColor: "blue" as const,
+    thumbnail: "",
+    links: {} as { paper?: string; code?: string; project?: string; poster?: string; website?: string },
+    abstract: "Post-training for operations-research modeling should be precisely steerable when the supervision is imperfect. **COR²** shapes the reward around the structure of the optimization model rather than its outcome, so the model becomes more capable without becoming less reliable.",
+  },
+{
+    id: "headwater",
+    venue: "ACL 2027",
+    venueType: "conference" as const,
+    rating: "CCF A, CORE A*",
+    title: "What's in the Water: Auditing Faults in LLM Social Simulations",
+    authors: "Yuhe Wu, Guang Zhang, et al.",
+    badges: ["First Author"],
+    extraBadges: [] as string[],
+    status: "Target",
+    statusColor: "orange" as const,
+    thumbnail: "",
+    links: {} as { paper?: string; code?: string; project?: string; poster?: string; website?: string },
+    abstract: "A social simulation can look plausible in aggregate while the process that produced it is faulty. **Headwater** audits a running simulation for who failed, by which pathology, and from which round, so the aggregate can no longer conceal the fault.",
+  },
+{
+    id: "notation",
+    venue: "ACL 2027",
+    venueType: "conference" as const,
+    rating: "CCF A, CORE A*",
+    title: "Notation, Not Narration: Compressing Chain-of-Thought into Solver-Checkable Assertions",
+    authors: "Yuhe Wu, Guang Zhang, et al.",
+    badges: ["First Author"],
+    extraBadges: [] as string[],
+    status: "Target",
+    statusColor: "orange" as const,
+    thumbnail: "",
+    links: {} as { paper?: string; code?: string; project?: string; poster?: string; website?: string },
+    abstract: "Answer-level filtering cannot tell whether the steps of a rewritten reasoning trace still hold. We compress chain-of-thought into assertions a solver can check, and keep only those steps, so a small model stays steerable rather than merely short.",
   },
 {
     id: "medgen",
