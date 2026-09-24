@@ -150,6 +150,7 @@ export const recentUpdates = [
     venue: "EMNLP 2026 Findings",
     title: "BizSage: A Self-Evolving Multi-Agent Framework for Business Research",
     linkIcons: [
+      { type: "paper", url: "https://arxiv.org/abs/2609.22235" },
       { type: "github", url: "https://github.com/Kzczc/EMNLP2026-BizSage" },
     ] as { type: string; url: string }[],
   },
@@ -333,6 +334,7 @@ export const selectedPublications = [
     statusColor: "green" as const,
     thumbnail: "/images/bizsage_logo.png",
     links: {
+      paper: "https://arxiv.org/abs/2609.22235",
       code: "https://github.com/Kzczc/EMNLP2026-BizSage",
     } as { paper?: string; code?: string; project?: string; poster?: string; website?: string },
     abstract: "While multi-agent systems based on large language models have shown promise in automating the progressive workflow of academic research, extending them to economics and business research presents two challenges. First, existing methods mostly retrieve at the paper level, yet the evidence needed for research tasks is often distributed across different sections, creating a granularity mismatch that hinders retrieval coverage and precision. Second, these fields demand strict empirical rigor, yet current systems provide limited mechanisms for learning from evaluation feedback. We present **BizSage**, a multi-agent framework combining corpus-level fine-grained retrieval with quality-driven self-evolution. We build a *Lateral Knowledge Graph* (LKG) by merging section-level knowledge graphs and apply *Personalized PageRank* (PPR) to surface semantically relevant and structurally important sections. Seven specialized agents collaborate under a *Meta-Review self-evolution* mechanism that distills failure modes from evaluation traces into reusable strategies. On a benchmark spanning four domains and three tasks, BizSage ranks first on the majority of metrics, achieves pairwise win-rates above 60% against six baselines, and produces zero hallucinated citations.",
@@ -418,6 +420,7 @@ export const selectedPublications = [
     statusColor: "blue" as const,
     thumbnail: "/images/tef.png",
     links: {
+      paper: "https://arxiv.org/abs/2609.27165",
       code: "https://github.com/Kzczc/ICASSP2027-TEF",
     } as { paper?: string; code?: string; project?: string; poster?: string; website?: string },
     abstract: "Large language models (LLMs) are increasingly used to measure public value orientations from long social media posts, yet such posts often mix background, quotations, concessions, and only a few stance-bearing sentences. Existing approaches either ask the model to predict a document-level label directly, which can be overconfident, or aggregate sentence-level predictions by majority or soft voting, which treat uncertain and decisive sentences as equally informative. We formulate long-text value measurement as a decision-fusion problem and propose **Tempered Evidence Fusion (TEF)**, a training-free rule that weights each sentence's log-odds by its normalized information gain, as derived from a generalized Bayesian posterior. This makes the fused score nearly vanish for uncertain sentences while preserving the Bayes-optimal weight of decisive evidence. We further introduce **Multi-event Insight Network Dimensions (MIND)**, a benchmark of 8,358 Chinese and English posts spanning five years of public events and six value dimensions. On MIND, TEF outperforms the strongest baseline among Direct, Majority Vote, and Soft Vote by an average of 4.5 accuracy points and 4.6 macro-F1 points across five LLMs and two languages.",
