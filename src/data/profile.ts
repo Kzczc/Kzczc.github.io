@@ -19,9 +19,9 @@ export const personalInfo = {
   avatar: "/images/my_picture.png",
   /** 打字机轮播文案 — 展示个人标签 */
   typewriterTexts: [
-    "evaluate where a language model fails, beyond a leaderboard",
-    "post-train models so the capability that was gained stays",
-    "build generative agents that can be tested against real people",
+    "understand how large language models reason and fail",
+    "design intelligent agents that transform financial research",
+    "advance computational approaches to social science",
   ],
   /** 一段有个人风格的 greeting */
   greeting:
@@ -32,21 +32,15 @@ export const personalInfo = {
 export const currentResearch = [
   {
     icon: "/images/llminfinance_logo.png",
-    title: "LLM Evaluation",
+    title: "LLM in Finance",
     subtitle: "Fintech Thrust @ HKUST(GZ)",
-    desc: "Evaluating and interpreting where factuality and reasoning fail, beyond traditional benchmarks",
+    desc: "LLM evaluation, LLM self-evolution, and agent cognition for financial decision-making",
   },
   {
     icon: "/images/fintech_logo.png",
-    title: "LLM Post-Training",
-    subtitle: "Fintech Thrust @ HKUST(GZ)",
-    desc: "Making models more capable without making them less reliable, under imperfect supervision",
-  },
-  {
-    icon: "/images/hkust_logo.png",
-    title: "Generative Agents",
-    subtitle: "Fintech Thrust @ HKUST(GZ)",
-    desc: "Agents that perceive, decide, and act, tested against how people actually do",
+    title: "Fintech",
+    subtitle: "Fintech Lab @ DUFE",
+    desc: "Applied AI, time-series forecasting, and explainable models for financial systems",
   },
 ];
 
@@ -446,10 +440,10 @@ export const selectedPublications = [
     venueType: "conference" as const,
     rating: "CCF A, CORE A*",
     title: "Spend Reasoning Where It Counts: Concise LLM Operations Research Modeling",
-    authors: "Yuhe Wu, Guang Zhang, et al.",
+    authors: "Yuhe Wu, Guangyu Wang, Jiatong Zhang, Rui Qian, Linmingxuan Li, Mingda Li, Yujie Chen, Jiaxin Liu, Xu Zihan, Shanding Han, Zixuan Yuan, Guang Zhang†",
     badges: ["First Author"],
     extraBadges: [] as string[],
-    status: "Under Review",
+    status: "Under Review (Phase 2)",
     statusColor: "blue" as const,
     thumbnail: "",
     links: {} as { paper?: string; code?: string; project?: string; poster?: string; website?: string },
