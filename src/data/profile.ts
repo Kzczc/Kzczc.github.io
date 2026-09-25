@@ -126,6 +126,15 @@ export const socialLinks = [
  */
 export const recentUpdates = [
   {
+    date: "Sep 2026",
+    type: "PUBLICATION" as const,
+    hex: "0x000D",
+    status: "under_review",
+    venue: "AAAI 2027",
+    title: "Two papers advanced to Phase 2 of AAAI 2027",
+    linkIcons: [] as { type: string; url: string }[],
+  },
+  {
     date: "Aug 2026",
     type: "PUBLICATION" as const,
     hex: "0x000A",
@@ -445,7 +454,7 @@ export const selectedPublications = [
     extraBadges: [] as string[],
     status: "Under Review (Phase 2)",
     statusColor: "blue" as const,
-    thumbnail: "",
+    thumbnail: "/images/cor2_teaser.png",
     links: {} as { paper?: string; code?: string; project?: string; poster?: string; website?: string },
     abstract: "Post-training for operations-research modeling should be precisely steerable when the supervision is imperfect. **COR²** shapes the reward around the structure of the optimization model rather than its outcome, so the model becomes more capable without becoming less reliable.",
   },
@@ -460,7 +469,7 @@ export const selectedPublications = [
     extraBadges: [] as string[],
     status: "Target",
     statusColor: "orange" as const,
-    thumbnail: "",
+    thumbnail: "/images/headwater_teaser.png",
     links: {} as { paper?: string; code?: string; project?: string; poster?: string; website?: string },
     abstract: "A social simulation can look plausible in aggregate while the process that produced it is faulty. **Headwater** audits a running simulation for who failed, by which pathology, and from which round, so the aggregate can no longer conceal the fault.",
   },
