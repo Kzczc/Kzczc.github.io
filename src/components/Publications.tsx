@@ -129,15 +129,15 @@ export default function Publications() {
                   <div className={`${pub.thumbnail || isExpanded ? "w-full md:w-[380px] lg:w-[440px] flex" : "hidden"} flex-shrink-0 flex-col`}>
                     {pub.thumbnail ? (
                     <div
-                      className="relative overflow-hidden cursor-zoom-in group"
+                      className="relative aspect-[16/9] overflow-hidden bg-white cursor-zoom-in group"
                       onClick={() => setLightboxSrc(pub.thumbnail)}
                     >
                       <Image
                         src={pub.thumbnail}
                         alt={pub.title}
-                        width={1200}
-                        height={600}
-                        className="w-full h-auto transition-transform duration-300 group-hover:scale-105"
+                        fill
+                        sizes="(min-width: 1024px) 440px, (min-width: 768px) 380px, 100vw"
+                        className="object-contain transition-transform duration-300 group-hover:scale-105"
                         unoptimized
                       />
                       <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100">
