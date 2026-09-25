@@ -19,9 +19,9 @@ export const personalInfo = {
   avatar: "/images/my_picture.png",
   /** 打字机轮播文案 — 展示个人标签 */
   typewriterTexts: [
-    "understand how large language models reason and fail",
-    "design intelligent agents that transform financial research",
-    "advance computational approaches to social science",
+    "diagnose why language models fail, not just where",
+    "teach models to spend reasoning where it counts",
+    "build generative agents that behave like real people",
   ],
   /** 一段有个人风格的 greeting */
   greeting:
