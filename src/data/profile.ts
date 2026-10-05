@@ -318,7 +318,7 @@ export const selectedPublications = [
     extraBadges: [] as string[],
     status: "Accepted",
     statusColor: "green" as const,
-    thumbnail: "/images/sedm_fig1.png",
+    thumbnail: "/images/sedm-1006.webp",
     links: {
       code: "https://github.com/saaranLiu/SEDM-alignment",
     } as { paper?: string; code?: string; project?: string; poster?: string; website?: string },
