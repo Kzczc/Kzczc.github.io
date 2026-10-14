@@ -44,7 +44,8 @@ const statusColors: Record<string, { text: string; bg: string }> = {
   gray:   { text: "#64748b", bg: "#64748b15" },
 };
 
-const FULL_ONLY_IDS = new Set(["tef", "joneses", "polluvcct", "anor", "medgen", "nacf", "iclr-ci", "aaai-cor2", "headwater", "notation"]);
+const FULL_ONLY_IDS = new Set(["tef", "joneses", "polluvcct", "anor", "medgen", "nacf", "iclr-ci", "aaai-cor2", "dnd", "benchmarking-time-graphs", "luck-recruits", "packrank", "blueprint-eae", "where-conditions", "dont-guess-user", "skilllaundry", "praetor", "visalloc", "vis-mcts"]);
+const FEATURED_FIRST_IDS = ["headwater", "generative-agent", "cast2"];
 
 export default function Publications() {
   const [expandedId, setExpandedId] = useState<string | null>(null);
@@ -54,7 +55,16 @@ export default function Publications() {
 
   const visiblePubs = showAll
     ? selectedPublications
-    : selectedPublications.filter((p) => !FULL_ONLY_IDS.has(p.id));
+    : selectedPublications
+        .filter((p) => !FULL_ONLY_IDS.has(p.id))
+        .sort((a, b) => {
+          const aIndex = FEATURED_FIRST_IDS.indexOf(a.id);
+          const bIndex = FEATURED_FIRST_IDS.indexOf(b.id);
+          if (aIndex < 0 && bIndex < 0) return 0;
+          if (aIndex < 0) return 1;
+          if (bIndex < 0) return -1;
+          return aIndex - bIndex;
+        });
 
   return (
     <section id="publications" className="relative py-10">
@@ -68,7 +78,7 @@ export default function Publications() {
           className="flex items-center gap-3 mb-8"
         >
           <span className="section-dash text-[1.4rem] font-bold tracking-tight" style={{ color: "var(--foreground)" }}>
-            Selected Publications
+            Featured Papers
           </span>
         </motion.div>
 
@@ -78,32 +88,33 @@ export default function Publications() {
             onClick={() => setShowAll(false)}
             className="text-[12.5px] px-4 py-1.5 rounded-full transition-all"
             style={{
-              color: !showAll ? "#fff" : "#7c3aed",
+              color: !showAll ? "#fff" : "var(--muted)",
               fontFamily: "var(--font-sans)",
               fontWeight: 600,
-              background: !showAll ? "#7c3aed" : "transparent",
-              border: "1px solid #7c3aed",
+              background: !showAll ? "var(--accent)" : "transparent",
+              border: "1px solid var(--card-border)",
             }}
           >
-            Core Publications
+            Featured Papers
           </button>
           <button
             onClick={() => setShowAll(true)}
             className="text-[12.5px] px-4 py-1.5 rounded-full transition-all"
             style={{
-              color: showAll ? "#fff" : "#0891b2",
+              color: showAll ? "#fff" : "var(--muted)",
               fontFamily: "var(--font-sans)",
               fontWeight: 600,
-              background: showAll ? "#0891b2" : "transparent",
-              border: "1px solid #0891b2",
+              background: showAll ? "var(--accent)" : "transparent",
+              border: "1px solid var(--card-border)",
             }}
           >
-            Full Publications List
+            Full List
           </button>
         </div>
-        <p className="text-[12.5px] mb-5" style={{ color: "var(--foreground)", fontFamily: "var(--font-sans)" }}>
-          (* equal contribution · † corresponding author)
-        </p>
+        <div className="flex items-center justify-between gap-4 mb-5 flex-wrap" style={{ color: "var(--muted)", fontFamily: "var(--font-sans)" }}>
+          <p className="text-[12.5px]">* equal contribution · † corresponding author</p>
+          <span className="text-[12px] tabular-nums">{visiblePubs.length} {showAll ? "papers" : "featured papers"}</span>
+        </div>
 
         {/* Cards */}
         <div className="flex flex-col gap-6">

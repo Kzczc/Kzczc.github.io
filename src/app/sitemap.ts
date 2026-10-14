@@ -5,7 +5,7 @@ import type { MetadataRoute } from "next";
  * 自动在 /sitemap.xml 提供站点地图
  */
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://kzczc.github.io";
+  const baseUrl = "https://kzczc-github-io.vercel.app";
 
   return [
     {
