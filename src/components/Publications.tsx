@@ -45,7 +45,8 @@ const statusColors: Record<string, { text: string; bg: string }> = {
 };
 
 const FULL_ONLY_IDS = new Set(["tef", "joneses", "polluvcct", "anor", "medgen", "nacf", "iclr-ci", "aaai-cor2", "dnd", "benchmarking-time-graphs", "luck-recruits", "packrank", "blueprint-eae", "where-conditions", "dont-guess-user", "skilllaundry", "praetor", "visalloc", "vis-mcts"]);
-const FEATURED_FIRST_IDS = ["headwater", "generative-agent", "cast2"];
+const FEATURED_FIRST_IDS = ["headwater", "generative-agent"];
+const FEATURED_LAST_IDS = ["cast2"];
 
 export default function Publications() {
   const [expandedId, setExpandedId] = useState<string | null>(null);
@@ -54,12 +55,23 @@ export default function Publications() {
   const [showAll, setShowAll] = useState(false);
 
   const visiblePubs = showAll
-    ? selectedPublications
+    ? [...selectedPublications].sort((a, b) => {
+        const statusOrder = (status: string) => {
+          if (status === "Accepted" || status === "Published") return 0;
+          if (status.startsWith("Under Review")) return 1;
+          if (status === "Preprint") return 2;
+          return 3;
+        };
+        return statusOrder(a.status) - statusOrder(b.status);
+      })
     : selectedPublications
         .filter((p) => !FULL_ONLY_IDS.has(p.id))
         .sort((a, b) => {
           const aIndex = FEATURED_FIRST_IDS.indexOf(a.id);
           const bIndex = FEATURED_FIRST_IDS.indexOf(b.id);
+          const aIsLast = FEATURED_LAST_IDS.includes(a.id);
+          const bIsLast = FEATURED_LAST_IDS.includes(b.id);
+          if (aIsLast !== bIsLast) return aIsLast ? 1 : -1;
           if (aIndex < 0 && bIndex < 0) return 0;
           if (aIndex < 0) return 1;
           if (bIndex < 0) return -1;
