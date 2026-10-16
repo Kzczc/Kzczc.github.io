@@ -168,7 +168,8 @@ export default function Hero() {
   };
 
   return (
-    <section id="home" className="relative pt-20 pb-6 overflow-hidden">
+    <section id="home" data-ambient className="hero-section relative pt-20 pb-6 overflow-hidden">
+      <div aria-hidden="true" className="hero-atmosphere"><span /><span /></div>
       <div className="halftone-overlay absolute inset-0 pointer-events-none" />
 
       <div className="relative z-10 site-container mx-auto max-w-[1280px] px-8 lg:px-12">
@@ -214,7 +215,7 @@ export default function Hero() {
                         <div className="min-w-0">
                           <p className="text-[15px] font-medium leading-snug" style={{ color: "var(--foreground)" }}>{r.title}</p>
                           <p className="text-[13px] leading-snug mt-0.5" style={{ color: "var(--muted)" }}>{r.subtitle}</p>
-                          <p className="text-[12px] leading-snug mt-1 italic" style={{ color: "var(--muted)", opacity: 0.7 }}>{r.desc}</p>
+                          <p className="text-[12px] leading-snug mt-1 italic" style={{ color: "var(--muted)", opacity: 0.85 }}>{r.desc}</p>
                         </div>
                       </div>
                     ))}
@@ -233,7 +234,7 @@ export default function Hero() {
                         <div className="min-w-0">
                           <p className="text-[15px] font-medium leading-snug" style={{ color: "var(--foreground)" }}>{e.title}</p>
                           <p className="text-[13px] leading-snug mt-0.5" style={{ color: "var(--muted)" }}>{e.subtitle}</p>
-                          <p className="text-[12px] leading-snug mt-1 italic" style={{ color: "var(--muted)", opacity: 0.7 }}>{e.desc}</p>
+                          <p className="text-[12px] leading-snug mt-1 italic" style={{ color: "var(--muted)", opacity: 0.85 }}>{e.desc}</p>
                         </div>
                       </div>
                     ))}
@@ -249,7 +250,7 @@ export default function Hero() {
                 <div className="flex items-center gap-2.5 flex-shrink-0 pt-0.5">
                   <a
                     href={`mailto:${personalInfo.email}`}
-                    className="inline-flex items-center gap-1.5 text-[13px] rounded-lg px-4 py-2 border transition-colors hover:bg-[var(--accent)]/10 hover:border-[var(--accent)]/40"
+                    className="contact-action inline-flex items-center gap-1.5 text-[13px] rounded-lg px-4 py-2 border transition-colors hover:bg-[var(--accent)]/10 hover:border-[var(--accent)]/40"
                     style={{ borderColor: "var(--card-border)", color: "var(--muted)" }}
                   >
                     <Mail size={14} /> Email
@@ -258,7 +259,7 @@ export default function Hero() {
                     href="/images/CV.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-[13px] rounded-lg px-4 py-2 border transition-colors hover:bg-[var(--accent)]/10 hover:border-[var(--accent)]/40"
+                    className="contact-action inline-flex items-center gap-1.5 text-[13px] rounded-lg px-4 py-2 border transition-colors hover:bg-[var(--accent)]/10 hover:border-[var(--accent)]/40"
                     style={{ borderColor: "var(--card-border)", color: "var(--muted)" }}
                   >
                     <FileText size={14} /> CV
@@ -270,18 +271,20 @@ export default function Hero() {
             {/* ── RIGHT ── */}
             <motion.div variants={fadeUp} className="flex flex-col items-center gap-5 lg:pt-0">
               {/* avatar */}
-              <div
-                className="hero-avatar relative h-48 w-48 sm:h-56 sm:w-56 rounded-2xl border-2 shadow-lg overflow-hidden"
-                style={{ borderColor: "var(--accent)" }}
-              >
+              <div className="avatar-aura">
                 <div
-                  className="absolute inset-0 opacity-10 z-10 pointer-events-none"
-                  style={{
-                    background: "radial-gradient(circle, var(--accent) 1px, transparent 1px)",
-                    backgroundSize: "5px 5px",
-                  }}
-                />
-                <Image src={personalInfo.avatar} alt={personalInfo.name} fill className="object-cover" priority unoptimized />
+                  className="hero-avatar relative h-48 w-48 sm:h-56 sm:w-56 rounded-2xl border-2 shadow-lg overflow-hidden"
+                  style={{ borderColor: "var(--accent)" }}
+                >
+                  <div
+                    className="absolute inset-0 opacity-10 z-10 pointer-events-none"
+                    style={{
+                      background: "radial-gradient(circle, var(--accent) 1px, transparent 1px)",
+                      backgroundSize: "5px 5px",
+                    }}
+                  />
+                  <Image src={personalInfo.avatar} alt={personalInfo.name} fill className="object-cover" priority unoptimized />
+                </div>
               </div>
 
               {/* social icons: bilibili + rednote + wechat */}
@@ -348,7 +351,8 @@ export default function Hero() {
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.15 }}
-              className="interactive-surface lg:col-span-2 rounded-xl border px-5 sm:px-6 py-5"
+              data-glow
+              className="glow-surface interactive-surface lg:col-span-2 rounded-xl border px-5 sm:px-6 py-5"
               style={{ borderColor: "var(--card-border)", background: "var(--card-bg)" }}
               onMouseEnter={handleBioEnter}
               onMouseLeave={handleBioLeave}
@@ -368,7 +372,8 @@ export default function Hero() {
           {/* ═══════ FULL-WIDTH: brief intro ═══════ */}
           <motion.div
             variants={fadeUp}
-            className="interactive-surface lg:col-span-2 rounded-xl border px-5 sm:px-6 py-5"
+            data-glow
+            className="glow-surface interactive-surface lg:col-span-2 rounded-xl border px-5 sm:px-6 py-5"
             style={{ borderColor: "var(--card-border)", background: "var(--card-bg)" }}
           >
             <div className="flex items-center gap-3 mb-4 flex-wrap">

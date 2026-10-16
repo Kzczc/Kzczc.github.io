@@ -6,7 +6,7 @@ import { journeyItems } from "@/data/profile";
 
 export default function Journey() {
   return (
-    <section id="journey" className="relative py-10">
+    <section id="journey" data-ambient className="relative py-10">
       <div className="site-container mx-auto max-w-[1280px] px-8 lg:px-12">
         {/* Section Title */}
         <motion.div
@@ -45,7 +45,7 @@ export default function Journey() {
                   }}
                 >
                   {item.isCurrent && (
-                    <div className="absolute inset-0 rounded-full animate-ping" style={{ background: "var(--accent)", opacity: 0.3 }} />
+                    <div className="journey-pulse absolute inset-0 rounded-full" style={{ background: "var(--accent)", opacity: 0.3 }} />
                   )}
                 </div>
 

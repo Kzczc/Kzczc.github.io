@@ -89,7 +89,7 @@ export default function RecentUpdates() {
           <span className="section-dash text-[1.4rem] font-bold tracking-tight" style={{ color: "var(--foreground)" }}>
             Recent Updates
           </span>
-          <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded animate-pulse" style={{ color: "#fff", background: "#ef4444" }}>
+          <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded news-badge" style={{ color: "#fff", background: "#ef4444" }}>
             NEWS
           </span>
         </motion.div>
@@ -100,11 +100,13 @@ export default function RecentUpdates() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="terminal-card rounded-xl overflow-hidden border relative"
+          data-ambient
+          data-glow
+          className="glow-surface terminal-card rounded-xl overflow-hidden border relative"
           style={{ borderColor: "var(--card-border)" }}
         >
           {/* ══ Rainbow gradient bar (animated) ══ */}
-          <div className="h-[3px] w-full rainbow-bar" />
+          <div className="terminal-spectrum h-[3px] w-full rainbow-bar" />
 
           {/* ══ Title bar ══ */}
           <div className="flex items-center justify-between px-4 py-2.5 terminal-titlebar">
@@ -123,7 +125,7 @@ export default function RecentUpdates() {
               <span className="terminal-yellow">PAPER.GRINDING</span>
               <span className="terminal-muted">✓</span>
               <span className="terminal-text">{clock}</span>
-              <span className="terminal-green">●</span>
+              <span className="terminal-green terminal-heartbeat">●</span>
               <span className="terminal-green">FLOW_STATE</span>
             </div>
           </div>
@@ -203,7 +205,7 @@ export default function RecentUpdates() {
                       )}
                       <span className="text-[12.5px] font-semibold terminal-venue">{item.venue}</span>
                     </div>
-                    <span className="text-[11.5px] leading-snug terminal-desc mt-0.5 block" style={{ opacity: 0.75 }}>
+                    <span className="text-[11.5px] leading-snug terminal-desc mt-0.5 block" style={{ opacity: 0.9 }}>
                       {item.title}
                     </span>
                   </div>

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import FigureLightbox from "@/components/FigureLightbox";
 import { selectedPublications } from "@/data/profile";
@@ -60,6 +60,7 @@ export default function Publications() {
   const [collapsedCoreIds, setCollapsedCoreIds] = useState<Set<string>>(() => new Set(SELECTED_MANUSCRIPT_IDS));
   const [lightbox, setLightbox] = useState<{ src: string; title: string } | null>(null);
   const [showAll, setShowAll] = useState(false);
+  const reducedMotion = useReducedMotion();
 
   const visiblePubs = showAll
     ? [...selectedPublications].sort((a, b) => {
@@ -144,7 +145,8 @@ export default function Publications() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: Math.min(i, 3) * 0.04 }}
-                className="paper-card rounded-xl border overflow-hidden card-hover"
+                data-glow
+                className="glow-surface paper-card rounded-xl border overflow-hidden card-hover"
                 style={{ borderColor: "var(--card-border)", background: "var(--card-bg)" }}
               >
                 <div className="flex flex-col lg:flex-row">
@@ -199,7 +201,7 @@ export default function Publications() {
                             />
                           </div>
                           <motion.div
-                            animate={{ y: [0, -5, 0] }}
+                            animate={reducedMotion ? undefined : { y: [0, -5, 0] }}
                             transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
                             className="relative z-0"
                           >

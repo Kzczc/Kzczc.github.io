@@ -1,3 +1,4 @@
+import VisualEffects from "@/components/VisualEffects";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import RecentUpdates from "@/components/RecentUpdates";
@@ -11,6 +12,7 @@ import ScrollToTop from "@/components/ScrollToTop";
 export default function Home() {
   return (
     <>
+      <VisualEffects />
       <LoadingScreen />
       <Navbar />
       <main className="min-h-screen">

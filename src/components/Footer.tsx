@@ -8,7 +8,7 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="relative py-10 mt-6" style={{ borderTop: "1px solid var(--card-border)" }}>
+    <footer data-ambient className="relative py-10 mt-6" style={{ borderTop: "1px solid var(--card-border)" }}>
       <div className="site-container mx-auto max-w-[1280px] px-8 lg:px-12">
         {/* ── 上排：Credit + 兴趣 + 版权 ── */}
         <div className="flex flex-col lg:flex-row flex-wrap items-center justify-between gap-4">

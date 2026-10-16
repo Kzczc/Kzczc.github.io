@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback, useRef, useSyncExternalStore } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll } from "framer-motion";
 import { useTheme } from "next-themes";
 import {
   Moon, Sun, Menu, X,
@@ -90,16 +90,18 @@ export default function Navbar() {
   };
 
   const isDark = resolvedTheme === "dark";
+  const { scrollYProgress } = useScroll();
 
   return (
     <nav
-      className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md transition-all duration-300"
+      className="site-nav fixed top-0 left-0 right-0 z-50 backdrop-blur-md transition-all duration-300"
       style={{
         background: "var(--nav-bg)",
         borderBottom: "1.5px solid var(--card-border)",
         boxShadow: scrolled ? "0 1px 8px rgba(0,0,0,0.04)" : "none",
       }}
     >
+      <motion.div aria-hidden="true" className="reading-progress" style={{ scaleX: scrollYProgress }} />
       <div className="site-container mx-auto flex max-w-[1280px] items-center justify-between px-8 lg:px-12 py-5">
         {/* ── 左侧 Logo: Kc. ── */}
         <a
@@ -130,7 +132,7 @@ export default function Navbar() {
                   href={link.href}
                   aria-current={activeHash === link.href ? "location" : undefined}
                   onClick={() => handleNav(link.href)}
-                  className={`relative px-5 py-2 text-[16px] tracking-[-0.01em] transition-colors rounded-lg ${
+                  className={`nav-item relative px-5 py-2 text-[16px] tracking-[-0.01em] transition-colors rounded-lg ${
                     isActive
                       ? "font-semibold"
                       : "font-normal hover:text-[var(--foreground)]"
@@ -143,7 +145,7 @@ export default function Navbar() {
                   {isActive && (
                     <motion.span
                       layoutId="nav-underline"
-                      className="absolute bottom-1 left-5 right-5 h-[2px] rounded-full"
+                      className="nav-active-line absolute bottom-1 left-5 right-5 h-[2px] rounded-full"
                       style={{ background: "var(--accent)" }}
                       transition={{ type: "spring", stiffness: 380, damping: 30 }}
                     />
