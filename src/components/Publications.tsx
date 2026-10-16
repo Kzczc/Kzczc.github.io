@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { ChevronRight, FileText, Github, Globe, X, Presentation } from "lucide-react";
+import FigureLightbox from "@/components/FigureLightbox";
 import { selectedPublications } from "@/data/profile";
 
 /* ── highlight "Yuhe Wu" (with optional * or † suffix) ── */
@@ -38,8 +38,8 @@ const mascots = [
 ];
 
 const statusColors: Record<string, { text: string; bg: string }> = {
-  green:  { text: "#16a34a", bg: "#16a34a15" },
-  blue:   { text: "#2563eb", bg: "#2563eb15" },
+  green:  { text: "var(--status-green)", bg: "#16a34a15" },
+  blue:   { text: "var(--status-blue)", bg: "#2563eb15" },
   orange: { text: "#ea580c", bg: "#ea580c15" },
   gray:   { text: "#64748b", bg: "#64748b15" },
 };
@@ -58,7 +58,7 @@ const SELECTED_MANUSCRIPT_IDS = [
 export default function Publications() {
   const [expandedId, setExpandedId] = useState<string | null>(null);
   const [collapsedCoreIds, setCollapsedCoreIds] = useState<Set<string>>(() => new Set(SELECTED_MANUSCRIPT_IDS));
-  const [lightboxSrc, setLightboxSrc] = useState<string | null>(null);
+  const [lightbox, setLightbox] = useState<{ src: string; title: string } | null>(null);
   const [showAll, setShowAll] = useState(false);
 
   const visiblePubs = showAll
@@ -77,7 +77,7 @@ export default function Publications() {
 
   return (
     <section id="publications" className="relative py-10">
-      <div className="mx-auto max-w-[1280px] px-8 lg:px-12">
+      <div className="site-container mx-auto max-w-[1280px] px-8 lg:px-12">
         {/* Section Title */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -92,12 +92,13 @@ export default function Publications() {
         </motion.div>
 
         {/* Tabs */}
-        <div className="flex items-center gap-2 mb-3 -mt-3">
+        <div className="flex flex-wrap items-center gap-2 mb-3 -mt-3">
           <button
+            aria-pressed={!showAll}
             onClick={() => setShowAll(false)}
             className="pub-tab text-[12.5px] px-4 py-1.5 rounded-full transition-all"
             style={{
-              color: !showAll ? "#fff" : "var(--muted)",
+              color: !showAll ? "var(--on-accent)" : "var(--muted)",
               fontFamily: "var(--font-sans)",
               fontWeight: 600,
               background: !showAll ? "var(--accent)" : "transparent",
@@ -107,10 +108,11 @@ export default function Publications() {
             Selected Manuscripts
           </button>
           <button
+            aria-pressed={showAll}
             onClick={() => setShowAll(true)}
             className="pub-tab text-[12.5px] px-4 py-1.5 rounded-full transition-all"
             style={{
-              color: showAll ? "#fff" : "var(--muted)",
+              color: showAll ? "var(--on-accent)" : "var(--muted)",
               fontFamily: "var(--font-sans)",
               fontWeight: 600,
               background: showAll ? "var(--accent)" : "transparent",
@@ -137,37 +139,39 @@ export default function Publications() {
             return (
               <motion.div
                 key={pub.id}
+                id={`paper-${pub.id}`}
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.06 }}
-                className="rounded-xl border overflow-hidden card-hover"
+                transition={{ duration: 0.4, delay: Math.min(i, 3) * 0.04 }}
+                className="paper-card rounded-xl border overflow-hidden card-hover"
                 style={{ borderColor: "var(--card-border)", background: "var(--card-bg)" }}
               >
-                <div className="flex flex-col md:flex-row">
+                <div className="flex flex-col lg:flex-row">
                   {/* ── Left column: thumbnail + mascot ── */}
-                  <div className={`${pub.thumbnail || isExpanded ? "w-full md:w-[48%] flex" : "hidden"} flex-shrink-0 flex-col`}>
+                  <div className={`${pub.thumbnail || isExpanded ? "w-full lg:w-[46%] flex" : "hidden"} flex-shrink-0 flex-col`}>
                     {pub.thumbnail ? (
-                    <div
-                      className={`pub-figure-frame relative overflow-hidden bg-white cursor-zoom-in group ${pub.id === "aaai-cor2" ? "pub-figure-tall" : "aspect-[16/9]"}`}
-                      onClick={() => setLightboxSrc(pub.thumbnail)}
+                    <button
+                      type="button"
+                      aria-haspopup="dialog"
+                      aria-label={`Enlarge figure: ${pub.title}`}
+                      className={`pub-figure-frame relative w-full cursor-zoom-in group ${pub.id === "aaai-cor2" ? "pub-figure-tall" : "aspect-[16/10]"}`}
+                      onClick={() => setLightbox({ src: pub.thumbnail, title: pub.title })}
                     >
                       <Image
                         src={pub.thumbnail}
                         alt={pub.title}
                         fill
-                        sizes="(min-width: 1280px) 568px, (min-width: 768px) 48vw, 100vw"
-                        className={`object-contain transition-transform duration-500 ${
-                          pub.id === "iclr-ci" || pub.id === "where-conditions" ? "pub-figure-wide" : "group-hover:scale-[1.02]"
-                        }`}
+                        sizes="(min-width: 1280px) 544px, (min-width: 1024px) 46vw, 100vw"
+                        className="object-contain p-2.5"
                         unoptimized
                       />
-                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100">
-                        <span className="text-[11px] font-mono px-2 py-1 rounded bg-black/60 text-white">
+                      <span className="figure-zoom-hint">
+                        <span className="text-[11px] font-mono">
                           Click to zoom
                         </span>
-                      </div>
-                    </div>
+                      </span>
+                    </button>
                     ) : null}
                     {isExpanded && (() => {
                       const m = mascots[i % 2];
@@ -176,7 +180,7 @@ export default function Publications() {
                           initial={{ opacity: 0, scale: 0.9 }}
                           animate={{ opacity: 1, scale: 1 }}
                           transition={{ duration: 0.35, delay: 0.2 }}
-                          className="hidden md:flex flex-1 flex-col items-center justify-center relative p-4 pub-mascot-panel"
+                          className="hidden lg:flex flex-1 flex-col items-center justify-center relative p-4 pub-mascot-panel"
                         >
                           <div
                             className="absolute inset-0"
@@ -214,14 +218,14 @@ export default function Publications() {
                   </div>
 
                   {/* ── Right: content ── */}
-                  <div className="flex-1 px-6 py-4 flex flex-col justify-between">
+                  <div className="paper-content min-w-0 flex-1 px-5 py-5 sm:px-6 flex flex-col justify-center gap-3">
                     {/* title */}
                     <h3 className="text-[16.5px] font-bold leading-snug" style={{ color: "var(--foreground)", fontFamily: "var(--font-sans)" }}>
                       {pub.title}
                     </h3>
 
                     {/* authors */}
-                    <p className="text-[13.5px] leading-relaxed italic" style={{ color: "var(--foreground)", opacity: 0.65, fontFamily: "var(--font-sans)" }}>
+                    <p className="text-[13.5px] leading-relaxed italic" style={{ color: "var(--muted)", fontFamily: "var(--font-sans)" }}>
                       {renderAuthors(pub.authors)}
                     </p>
 
@@ -267,7 +271,7 @@ export default function Publications() {
                         return (
                           <span key={idx} className="text-[10px] px-1.5 py-0.5 rounded-sm not-italic font-semibold"
                             style={{
-                              color: isTop ? "#a78bfa" : "#c4b5fd",
+                              color: "var(--violet-text)",
                               background: isTop ? "rgba(167,139,250,0.08)" : "rgba(196,181,253,0.06)",
                               border: isTop ? "1px solid rgba(167,139,250,0.2)" : "1px solid rgba(196,181,253,0.15)",
                             }}>
@@ -277,25 +281,25 @@ export default function Publications() {
                       })}
                       {pub.links?.paper && (
                         <a href={pub.links.paper} target="_blank" rel="noopener noreferrer"
-                          className="inline-action hover:underline text-[12.5px]" style={{ color: "#e09040", fontFamily: "var(--font-sans)" }}>
+                          className="inline-action hover:underline text-[12.5px]" style={{ color: "var(--action-text)", fontFamily: "var(--font-sans)" }}>
                           [{pub.links.paper.includes("arxiv") ? "ArXiv" : "Paper"}]
                         </a>
                       )}
                       {pub.links?.poster && (
                         <a href={pub.links.poster} target="_blank" rel="noopener noreferrer"
-                          className="inline-action hover:underline text-[12.5px]" style={{ color: "#e09040", fontFamily: "var(--font-sans)" }}>[Poster]</a>
+                          className="inline-action hover:underline text-[12.5px]" style={{ color: "var(--action-text)", fontFamily: "var(--font-sans)" }}>[Poster]</a>
                       )}
                       {pub.links?.code && (
                         <a href={pub.links.code} target="_blank" rel="noopener noreferrer"
-                          className="inline-action hover:underline text-[12.5px]" style={{ color: "#e09040", fontFamily: "var(--font-sans)" }}>[Code]</a>
+                          className="inline-action hover:underline text-[12.5px]" style={{ color: "var(--action-text)", fontFamily: "var(--font-sans)" }}>[Code]</a>
                       )}
                       {pub.links?.website && (
                         <a href={pub.links.website} target="_blank" rel="noopener noreferrer"
-                          className="inline-action hover:underline text-[12.5px]" style={{ color: "#e09040", fontFamily: "var(--font-sans)" }}>[Website]</a>
+                          className="inline-action hover:underline text-[12.5px]" style={{ color: "var(--action-text)", fontFamily: "var(--font-sans)" }}>[Website]</a>
                       )}
                       {pub.links?.project && (
                         <a href={pub.links.project} target="_blank" rel="noopener noreferrer"
-                          className="inline-action hover:underline text-[12.5px]" style={{ color: "#e09040", fontFamily: "var(--font-sans)" }}>[Project]</a>
+                          className="inline-action hover:underline text-[12.5px]" style={{ color: "var(--action-text)", fontFamily: "var(--font-sans)" }}>[Project]</a>
                       )}
                       <button
                         onClick={() => {
@@ -310,7 +314,9 @@ export default function Publications() {
                             setExpandedId(expandedId === pub.id ? null : pub.id);
                           }
                         }}
-                        className="inline-action hover:underline cursor-pointer text-[12.5px]" style={{ color: "#e09040", fontFamily: "var(--font-sans)" }}
+                        aria-expanded={isExpanded}
+                        aria-controls={`abstract-${pub.id}`}
+                        className="inline-action hover:underline cursor-pointer text-[12.5px]" style={{ color: "var(--action-text)", fontFamily: "var(--font-sans)" }}
                       >
                         [{isExpanded ? "Hide Abstract" : "Abstract"}]
                       </button>
@@ -320,6 +326,7 @@ export default function Publications() {
                     <AnimatePresence>
                       {isExpanded && (
                         <motion.div
+                          id={`abstract-${pub.id}`}
                           initial={{ opacity: 0, height: 0 }}
                           animate={{ opacity: 1, height: "auto" }}
                           exit={{ opacity: 0, height: 0 }}
@@ -354,44 +361,7 @@ export default function Publications() {
 
       </div>
 
-      {/* ══ Lightbox overlay ══ */}
-      <AnimatePresence>
-        {lightboxSrc && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm cursor-zoom-out p-8"
-            onClick={() => setLightboxSrc(null)}
-          >
-            {/* close button */}
-            <button
-              className="lightbox-close absolute top-6 right-6 text-white/70 hover:text-white transition-colors"
-              onClick={() => setLightboxSrc(null)}
-            >
-              <X size={28} />
-            </button>
-            {/* full image */}
-            <motion.div
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.8, opacity: 0 }}
-              transition={{ type: "spring", stiffness: 300, damping: 25 }}
-              className="relative max-w-[90vw] max-h-[85vh]"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <Image
-                src={lightboxSrc}
-                alt="Paper figure"
-                width={1200}
-                height={675}
-                className="object-contain w-[85vw] h-auto max-h-[85vh] rounded-lg shadow-2xl"
-                unoptimized
-              />
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {lightbox && <FigureLightbox {...lightbox} onClose={() => setLightbox(null)} />}
     </section>
   );
 }

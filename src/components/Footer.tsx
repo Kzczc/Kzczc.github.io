@@ -9,9 +9,9 @@ export default function Footer() {
 
   return (
     <footer className="relative py-10 mt-6" style={{ borderTop: "1px solid var(--card-border)" }}>
-      <div className="mx-auto max-w-[1280px] px-8 lg:px-12">
+      <div className="site-container mx-auto max-w-[1280px] px-8 lg:px-12">
         {/* ── 上排：Credit + 兴趣 + 版权 ── */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="flex flex-col lg:flex-row flex-wrap items-center justify-between gap-4">
           {/* left: credit — ☮️ = peace & love (hip-hop) */}
           <div className="flex items-center gap-2 text-[13px]" style={{ color: "var(--muted)" }}>
             <span>Built with</span>
@@ -40,7 +40,7 @@ export default function Footer() {
           </div>
 
           {/* right: copyright */}
-          <p className="text-[12px] font-mono" style={{ color: "var(--muted)", opacity: 0.6 }}>
+          <p className="text-[12px] font-mono" style={{ color: "var(--muted)", opacity: 0.85 }}>
             © {year} {personalInfo.name}. All rights reserved.
           </p>
         </div>
@@ -62,7 +62,7 @@ export default function Footer() {
           {/* 出处 — 咒术回战 + 个人感言 */}
           <span
             className="text-[11px] tracking-[0.08em]"
-            style={{ color: "var(--muted)", opacity: 0.35, fontFamily: "var(--font-zen), serif" }}
+            style={{ color: "var(--muted)", opacity: 0.8, fontFamily: "var(--font-zen), serif" }}
           >
             —— 呪術廻戦
             <span className="ml-2" style={{ opacity: 0.7 }}>

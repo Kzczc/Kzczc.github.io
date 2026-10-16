@@ -76,8 +76,8 @@ export default function RecentUpdates() {
     : `find ./brain -type f -name "*.memory" | sort -r | head -10`;
 
   return (
-    <section className="relative py-8">
-      <div className="mx-auto max-w-[1280px] px-8 lg:px-12">
+    <section id="updates" className="relative py-8">
+      <div className="site-container mx-auto max-w-[1280px] px-8 lg:px-12">
         {/* ── Section Title ── */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -158,8 +158,8 @@ export default function RecentUpdates() {
 
           {/* ══ Column headers ══ */}
           <div
-            className="grid font-mono text-[9.5px] font-bold uppercase tracking-widest px-4 py-2 terminal-header"
-            style={{ gridTemplateColumns: "100px 120px 1fr auto", letterSpacing: "0.12em" }}
+            className="updates-grid font-mono text-[9.5px] font-bold uppercase tracking-widest px-4 py-2 terminal-header"
+            style={{ letterSpacing: "0.12em" }}
           >
             <span>TIME</span>
             <span>CAT</span>
@@ -168,7 +168,7 @@ export default function RecentUpdates() {
           </div>
 
           {/* ══ Scrollable rows ══ */}
-          <div className="overflow-y-auto terminal-scroll" style={{ maxHeight: `${maxVisible * 72}px` }}>
+          <div className="overflow-y-auto terminal-scroll" tabIndex={0} aria-label="Recent Updates" style={{ maxHeight: `${maxVisible * 72}px` }}>
             {recentUpdates.map((item, i) => {
               const tc = typeConfig[item.type] || typeConfig.PUBLICATION;
               const sc = statusConfig[item.status];
@@ -177,11 +177,12 @@ export default function RecentUpdates() {
                   key={item.hex}
                   onMouseEnter={() => setHoveredIdx(i)}
                   onMouseLeave={() => setHoveredIdx(null)}
-                  className={`grid items-start px-4 py-3.5 font-mono text-[12.5px] terminal-row transition-colors cursor-default group ${hoveredIdx === i ? "terminal-row-selected" : ""}`}
-                  style={{ gridTemplateColumns: "100px 120px 1fr auto" }}
+                  onFocus={() => setHoveredIdx(i)}
+                  onBlur={event => { if (!event.currentTarget.contains(event.relatedTarget)) setHoveredIdx(null); }}
+                  className={`updates-grid items-start px-4 py-3.5 font-mono text-[12.5px] terminal-row transition-colors cursor-default group ${hoveredIdx === i ? "terminal-row-selected" : ""}`}
                 >
                   <span className="terminal-type-date text-[12px]">{item.date}</span>
-                  <span className="flex items-center gap-1.5">
+                  <span className="update-category flex items-center gap-1.5">
                     <span className="text-[13px]">{tc.icon}</span>
                     <span
                       className="text-[9px] font-bold uppercase tracking-wider px-1.5 py-[2px] rounded terminal-type-text"
@@ -190,7 +191,7 @@ export default function RecentUpdates() {
                       {tc.label}
                     </span>
                   </span>
-                  <div className="min-w-0">
+                  <div className="update-content min-w-0">
                     <div className="flex items-center gap-1.5 flex-wrap">
                       {sc && (
                         <span
@@ -207,7 +208,7 @@ export default function RecentUpdates() {
                     </span>
                   </div>
                   {/* ── Right-side link icons ── */}
-                  <div className="flex items-center gap-1.5 min-w-[40px] justify-end">
+                  <div className="update-links flex items-center gap-1.5 min-w-[40px] justify-end">
                     {item.linkIcons.length > 0 ? (
                       item.linkIcons.map((linkItem) => {
                         const ic = linkIconComponents[linkItem.type];
@@ -256,7 +257,7 @@ export default function RecentUpdates() {
               <span className="animate-blink ml-0.5 terminal-blue">█</span>
             </div>
             <span className="hidden sm:inline text-[10px] italic terminal-dim flex-shrink-0 ml-4">
-              // still scrolling? respect. 🎤
+              {"// still scrolling? respect. 🎤"}
             </span>
           </div>
         </motion.div>

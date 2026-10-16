@@ -21,11 +21,15 @@ export default function LoadingScreen() {
 
   useEffect(() => {
     /* 仅首次访问时显示 */
-    if (typeof window !== "undefined") {
-      const hasVisited = sessionStorage.getItem("kc-loaded");
+    if (typeof window !== "undefined" && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      let hasVisited = true;
+      try { hasVisited = !!sessionStorage.getItem("kc-loaded"); } catch { return; }
       if (!hasVisited) {
-        setShow(true);
-        sessionStorage.setItem("kc-loaded", "1");
+        const timer = setTimeout(() => {
+          setShow(true);
+          try { sessionStorage.setItem("kc-loaded", "1"); } catch { /* Optional session preference. */ }
+        }, 0);
+        return () => clearTimeout(timer);
       }
     }
   }, []);

@@ -7,7 +7,7 @@ import { journeyItems } from "@/data/profile";
 export default function Journey() {
   return (
     <section id="journey" className="relative py-10">
-      <div className="mx-auto max-w-[1280px] px-8 lg:px-12">
+      <div className="site-container mx-auto max-w-[1280px] px-8 lg:px-12">
         {/* Section Title */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -24,7 +24,7 @@ export default function Journey() {
         {/* Timeline */}
         <div className="relative ml-4">
           {/* vertical line */}
-          <div className="absolute left-[7px] top-2 bottom-2 w-[2px]" style={{ background: "var(--card-border)" }} />
+          <div className="journey-rail absolute left-[7px] top-2 bottom-2 w-[2px]" style={{ background: "var(--card-border)" }} />
 
           <div className="flex flex-col gap-8">
             {journeyItems.map((item, i) => (
@@ -38,7 +38,7 @@ export default function Journey() {
               >
                 {/* dot */}
                 <div
-                  className="absolute left-0 top-1.5 w-4 h-4 rounded-full border-2 z-10"
+                  className="journey-dot absolute left-0 top-1.5 w-4 h-4 rounded-full border-2 z-10"
                   style={{
                     borderColor: item.isCurrent ? "var(--accent)" : "var(--card-border)",
                     background: item.isCurrent ? "var(--accent)" : "var(--card-bg)",

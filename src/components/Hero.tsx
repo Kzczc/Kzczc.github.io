@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef, useCallback } from "react";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { Mail, FileText } from "lucide-react";
 import Image from "next/image";
 import {
@@ -19,12 +19,14 @@ function useTypewriter(
   deletingSpeed = 30,
   pause = 2200
 ) {
+  const reducedMotion = useReducedMotion();
   const [display, setDisplay] = useState("");
   const [textIdx, setTextIdx] = useState(0);
   const [charIdx, setCharIdx] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
+    if (reducedMotion) return;
     const current = texts[textIdx];
     let timeout: ReturnType<typeof setTimeout>;
 
@@ -41,14 +43,16 @@ function useTypewriter(
         setCharIdx((c) => c - 1);
       }, deletingSpeed);
     } else if (isDeleting && charIdx === 0) {
-      setIsDeleting(false);
-      setTextIdx((i) => (i + 1) % texts.length);
+      timeout = setTimeout(() => {
+        setIsDeleting(false);
+        setTextIdx((i) => (i + 1) % texts.length);
+      }, deletingSpeed);
     }
 
     return () => clearTimeout(timeout);
-  }, [charIdx, isDeleting, textIdx, texts, typingSpeed, deletingSpeed, pause]);
+  }, [charIdx, isDeleting, textIdx, texts, typingSpeed, deletingSpeed, pause, reducedMotion]);
 
-  return display;
+  return reducedMotion ? texts[0] : display;
 }
 
 /* ─── Markdown renderer: **bold** + [link](url) ─── */
@@ -108,6 +112,7 @@ function renderBold(text: string, keyOffset: number): React.ReactNode[] {
    Hero
    ═══════════════════════════════════════════════════════════════ */
 export default function Hero() {
+  const reducedMotion = useReducedMotion();
   const typed = useTypewriter(personalInfo.typewriterTexts);
   const [hoveredMascot, setHoveredMascot] = useState<number | null>(null);
 
@@ -166,7 +171,7 @@ export default function Hero() {
     <section id="home" className="relative pt-20 pb-6 overflow-hidden">
       <div className="halftone-overlay absolute inset-0 pointer-events-none" />
 
-      <div className="relative z-10 mx-auto max-w-[1280px] px-8 lg:px-12">
+      <div className="relative z-10 site-container mx-auto max-w-[1280px] px-8 lg:px-12">
         <motion.div
           variants={container}
           initial="hidden"
@@ -188,7 +193,7 @@ export default function Hero() {
               </motion.div>
 
               {/* typewriter */}
-              <motion.p variants={fadeUp} className="font-mono text-[15px]" style={{ color: "var(--muted)" }}>
+              <motion.p variants={fadeUp} className="hero-typewriter font-mono text-[15px]" style={{ color: "var(--muted)" }}>
                 <span style={{ color: "var(--accent)" }}>$</span> Sometimes I{" "}
                 <span style={{ color: "var(--accent-warm)" }}>{typed}</span>
                 <span className="animate-blink" style={{ color: "var(--accent)" }}>█</span>
@@ -237,7 +242,7 @@ export default function Hero() {
               </motion.div>
 
               {/* greeting + contact */}
-              <motion.div variants={fadeUp} className="flex items-start gap-4 mt-2">
+              <motion.div variants={fadeUp} className="flex flex-col sm:flex-row items-start gap-4 mt-2">
                 <p className="text-[14px] leading-relaxed text-justify flex-1" style={{ color: "var(--muted)" }}>
                   {personalInfo.greeting}
                 </p>
@@ -266,7 +271,7 @@ export default function Hero() {
             <motion.div variants={fadeUp} className="flex flex-col items-center gap-5 lg:pt-0">
               {/* avatar */}
               <div
-                className="relative h-48 w-48 sm:h-56 sm:w-56 rounded-2xl border-2 shadow-lg overflow-hidden"
+                className="hero-avatar relative h-48 w-48 sm:h-56 sm:w-56 rounded-2xl border-2 shadow-lg overflow-hidden"
                 style={{ borderColor: "var(--accent)" }}
               >
                 <div
@@ -303,17 +308,23 @@ export default function Hero() {
                   <motion.div
                     key={m.name}
                     className="flex flex-col items-center gap-2 cursor-pointer"
-                    animate={{ y: [0, -6, 0] }}
+                    animate={reducedMotion ? undefined : { y: [0, -6, 0] }}
                     transition={{ duration: 2.5, repeat: Infinity, delay: i * 0.5, ease: "easeInOut" }}
                   >
-                    <div
-                      className="relative h-20 w-20 overflow-hidden rounded-full border-2 sm:h-[88px] sm:w-[88px] transition-all duration-200"
+                    <button
+                      type="button"
+                      aria-label={m.name}
+                      aria-expanded={hoveredMascot === i}
+                      onFocus={() => handleMascotEnter(i)}
+                      onBlur={handleMascotLeave}
+                      onClick={() => handleMascotEnter(i)}
+                      className="mascot-trigger relative h-20 w-20 overflow-hidden rounded-full border-2 sm:h-[88px] sm:w-[88px] transition-all duration-200"
                       style={{ borderColor: hoveredMascot === i ? m.roleColor : "var(--card-border)" }}
                       onMouseEnter={() => handleMascotEnter(i)}
                       onMouseLeave={handleMascotLeave}
                     >
                       <Image src={m.image} alt={m.name} fill className="object-cover" unoptimized />
-                    </div>
+                    </button>
                     <div className="flex items-center gap-2">
                       <span
                         className="text-[16px] font-semibold"
@@ -337,7 +348,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.15 }}
-              className="lg:col-span-2 rounded-xl border px-6 py-5"
+              className="interactive-surface lg:col-span-2 rounded-xl border px-5 sm:px-6 py-5"
               style={{ borderColor: "var(--card-border)", background: "var(--card-bg)" }}
               onMouseEnter={handleBioEnter}
               onMouseLeave={handleBioLeave}
@@ -357,7 +368,7 @@ export default function Hero() {
           {/* ═══════ FULL-WIDTH: brief intro ═══════ */}
           <motion.div
             variants={fadeUp}
-            className="lg:col-span-2 rounded-xl border px-6 py-5"
+            className="interactive-surface lg:col-span-2 rounded-xl border px-5 sm:px-6 py-5"
             style={{ borderColor: "var(--card-border)", background: "var(--card-bg)" }}
           >
             <div className="flex items-center gap-3 mb-4 flex-wrap">

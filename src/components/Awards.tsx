@@ -17,7 +17,7 @@ export default function Awards() {
 
   return (
     <section id="awards" className="relative py-10">
-      <div className="mx-auto max-w-[1280px] px-8 lg:px-12">
+      <div className="site-container mx-auto max-w-[1280px] px-8 lg:px-12">
         {/* Section Title */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -65,7 +65,7 @@ export default function Awards() {
                     </p>
                   </div>
                 </div>
-                <div className="flex items-center gap-3 flex-shrink-0">
+                <div className="award-meta flex items-center gap-3 flex-shrink-0">
                   <span className="text-[12px]" style={{ color: "var(--muted)" }}>
                     {award.date}
                   </span>
@@ -101,7 +101,7 @@ export default function Awards() {
                   className="reviewer-chip text-[12px] px-3 py-1.5 rounded-lg border"
                   style={{
                     fontFamily: "var(--font-sans)",
-                    color: isTop ? "#a78bfa" : "var(--muted)",
+                    color: isTop ? "var(--violet-text)" : "var(--muted)",
                     borderColor: isTop ? "rgba(167,139,250,0.25)" : "var(--card-border)",
                     background: isTop ? "rgba(167,139,250,0.06)" : "var(--card-bg)",
                   }}

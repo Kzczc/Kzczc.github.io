@@ -18,7 +18,7 @@ export default function ScrollToTop() {
   }, []);
 
   const scrollToTop = useCallback(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({ top: 0, behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth" });
   }, []);
 
   return (
@@ -30,7 +30,7 @@ export default function ScrollToTop() {
           exit={{ opacity: 0, scale: 0.8, y: 10 }}
           transition={{ duration: 0.25 }}
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 z-40 w-11 h-11 rounded-xl border flex items-center justify-center transition-colors cursor-pointer group"
+          className="back-to-top fixed bottom-5 right-5 sm:bottom-8 sm:right-8 z-40 w-11 h-11 rounded-xl border flex items-center justify-center transition-colors cursor-pointer group"
           style={{
             borderColor: "var(--card-border)",
             background: "var(--card-bg)",

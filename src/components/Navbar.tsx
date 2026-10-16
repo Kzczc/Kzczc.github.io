@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef, useSyncExternalStore } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "next-themes";
 import {
@@ -16,15 +16,34 @@ const iconMap: Record<string, React.ComponentType<{ size?: number; className?: s
 /* ── Section IDs for IntersectionObserver ── */
 const sectionIds = ["home", "publications", "journey", "awards"];
 
+const subscribe = () => () => {};
+
 export default function Navbar() {
-  const { theme, setTheme, resolvedTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
+  const { setTheme, resolvedTheme } = useTheme();
+  const mounted = useSyncExternalStore(subscribe, () => true, () => false);
+  const menuButton = useRef<HTMLButtonElement>(null);
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeHash, setActiveHash] = useState("#home");
 
   /* ── Mount guard (避免 SSR 水合不匹配) ── */
-  useEffect(() => setMounted(true), []);
+  useEffect(() => {
+    if (!mobileOpen) return;
+    const wideScreen = window.matchMedia("(min-width: 1024px)");
+    const closeOnResize = () => { if (wideScreen.matches) setMobileOpen(false); };
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setMobileOpen(false);
+        menuButton.current?.focus();
+      }
+    };
+    wideScreen.addEventListener("change", closeOnResize);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      wideScreen.removeEventListener("change", closeOnResize);
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [mobileOpen]);
 
   /* ── Scroll shadow ── */
   useEffect(() => {
@@ -76,12 +95,12 @@ export default function Navbar() {
     <nav
       className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md transition-all duration-300"
       style={{
-        background: scrolled ? "var(--nav-bg)" : "transparent",
+        background: "var(--nav-bg)",
         borderBottom: "1.5px solid var(--card-border)",
         boxShadow: scrolled ? "0 1px 8px rgba(0,0,0,0.04)" : "none",
       }}
     >
-      <div className="mx-auto flex max-w-[1280px] items-center justify-between px-8 lg:px-12 py-5">
+      <div className="site-container mx-auto flex max-w-[1280px] items-center justify-between px-8 lg:px-12 py-5">
         {/* ── 左侧 Logo: Kc. ── */}
         <a
           href="#home"
@@ -102,13 +121,14 @@ export default function Navbar() {
         {/* ── 右侧：导航 + 社交 + 暗色切换 ── */}
         <div className="flex items-center gap-3">
           {/* ── 导航链接 ── */}
-          <div className="hidden items-center gap-1 md:flex">
+          <div className="hidden items-center gap-1 lg:flex">
             {navLinks.map((link) => {
               const isActive = activeHash === link.href;
               return (
                 <a
                   key={link.href}
                   href={link.href}
+                  aria-current={activeHash === link.href ? "location" : undefined}
                   onClick={() => handleNav(link.href)}
                   className={`relative px-5 py-2 text-[16px] tracking-[-0.01em] transition-colors rounded-lg ${
                     isActive
@@ -135,12 +155,12 @@ export default function Navbar() {
 
           {/* ── 分隔线 ── */}
           <div
-            className="hidden md:block h-6 w-px mx-2"
+            className="hidden lg:block h-6 w-px mx-2"
             style={{ background: "var(--card-border)" }}
           />
 
           {/* ── 社交图标 ── */}
-          <div className="hidden items-center gap-1 md:flex">
+          <div className="hidden items-center gap-1 lg:flex">
             {socialLinks.map((link) => {
               const Icon = iconMap[link.icon];
               return (
@@ -173,8 +193,11 @@ export default function Navbar() {
 
           {/* ── 移动端菜单 ── */}
           <button
+            ref={menuButton}
+            aria-expanded={mobileOpen}
+            aria-controls="mobile-navigation"
             onClick={() => setMobileOpen((o) => !o)}
-            className="rounded-lg p-2.5 md:hidden"
+            className="rounded-lg p-2.5 lg:hidden"
             style={{ color: "var(--muted)" }}
             aria-label="Toggle menu"
           >
@@ -187,10 +210,11 @@ export default function Navbar() {
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
+            id="mobile-navigation"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="overflow-hidden border-t border-[var(--card-border)] md:hidden"
+            className="overflow-hidden border-t border-[var(--card-border)] lg:hidden"
             style={{ background: "var(--nav-bg)" }}
           >
             <div className="flex flex-col gap-1 px-8 py-4">
@@ -198,6 +222,7 @@ export default function Navbar() {
                 <a
                   key={link.href}
                   href={link.href}
+                  aria-current={activeHash === link.href ? "location" : undefined}
                   onClick={() => handleNav(link.href)}
                   className="text-[16px] py-2.5 rounded-lg px-3"
                   style={{
@@ -217,6 +242,7 @@ export default function Navbar() {
                       href={link.href}
                       target="_blank"
                       rel="noopener noreferrer"
+                      aria-label={link.label}
                       className="p-2.5"
                       style={{ color: "var(--muted)" }}
                     >
