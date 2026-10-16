@@ -232,7 +232,8 @@ button:focus-visible, a:focus-visible {
     radial-gradient(ellipse at 50% 50%, color-mix(in srgb, var(--accent) 5%, var(--thumb-bg)), var(--thumb-bg) 72%);
 }
 .pub-figure-frame:focus-visible { outline-offset: -4px; }
-.pub-figure-wide { transform: scale(1.055); }
+.pub-figure-wide { transform: none; }
+.pub-figure-tall { aspect-ratio: 1 / 1.02; }
 .pub-mascot-panel { overflow: hidden; }
 .pub-mascot-panel::before {
   content: "";

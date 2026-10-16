@@ -149,7 +149,7 @@ export default function Publications() {
                   <div className={`${pub.thumbnail || isExpanded ? "w-full md:w-[48%] flex" : "hidden"} flex-shrink-0 flex-col`}>
                     {pub.thumbnail ? (
                     <div
-                      className="pub-figure-frame relative aspect-[16/9] overflow-hidden bg-white cursor-zoom-in group"
+                      className={`pub-figure-frame relative overflow-hidden bg-white cursor-zoom-in group ${pub.id === "aaai-cor2" ? "pub-figure-tall" : "aspect-[16/9]"}`}
                       onClick={() => setLightboxSrc(pub.thumbnail)}
                     >
                       <Image
