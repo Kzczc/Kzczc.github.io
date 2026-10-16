@@ -44,13 +44,20 @@ const statusColors: Record<string, { text: string; bg: string }> = {
   gray:   { text: "#64748b", bg: "#64748b15" },
 };
 
-const FULL_ONLY_IDS = new Set(["tef", "joneses", "polluvcct", "anor", "medgen", "nacf", "iclr-ci", "aaai-cor2", "dnd", "benchmarking-time-graphs", "luck-recruits", "packrank", "blueprint-eae", "where-conditions", "dont-guess-user", "skilllaundry", "praetor", "visalloc", "vis-mcts"]);
-const FEATURED_FIRST_IDS = ["headwater", "generative-agent"];
-const FEATURED_LAST_IDS = ["cast2"];
+const SELECTED_MANUSCRIPT_IDS = [
+  "prism",
+  "bizsage",
+  "narrative-captivity",
+  "bizcompass",
+  "headwater",
+  "aaai-cor2",
+  "generative-agent",
+  "dnd",
+];
 
 export default function Publications() {
   const [expandedId, setExpandedId] = useState<string | null>(null);
-  const [collapsedCoreIds, setCollapsedCoreIds] = useState<Set<string>>(new Set());
+  const [collapsedCoreIds, setCollapsedCoreIds] = useState<Set<string>>(() => new Set(SELECTED_MANUSCRIPT_IDS));
   const [lightboxSrc, setLightboxSrc] = useState<string | null>(null);
   const [showAll, setShowAll] = useState(false);
 
@@ -65,18 +72,8 @@ export default function Publications() {
         return statusOrder(a.status) - statusOrder(b.status);
       })
     : selectedPublications
-        .filter((p) => !FULL_ONLY_IDS.has(p.id))
-        .sort((a, b) => {
-          const aIndex = FEATURED_FIRST_IDS.indexOf(a.id);
-          const bIndex = FEATURED_FIRST_IDS.indexOf(b.id);
-          const aIsLast = FEATURED_LAST_IDS.includes(a.id);
-          const bIsLast = FEATURED_LAST_IDS.includes(b.id);
-          if (aIsLast !== bIsLast) return aIsLast ? 1 : -1;
-          if (aIndex < 0 && bIndex < 0) return 0;
-          if (aIndex < 0) return 1;
-          if (bIndex < 0) return -1;
-          return aIndex - bIndex;
-        });
+        .filter((p) => SELECTED_MANUSCRIPT_IDS.includes(p.id))
+        .sort((a, b) => SELECTED_MANUSCRIPT_IDS.indexOf(a.id) - SELECTED_MANUSCRIPT_IDS.indexOf(b.id));
 
   return (
     <section id="publications" className="relative py-10">
@@ -90,7 +87,7 @@ export default function Publications() {
           className="flex items-center gap-3 mb-8"
         >
           <span className="section-dash text-[1.4rem] font-bold tracking-tight" style={{ color: "var(--foreground)" }}>
-            Featured Papers
+            Selected Manuscripts
           </span>
         </motion.div>
 
@@ -98,7 +95,7 @@ export default function Publications() {
         <div className="flex items-center gap-2 mb-3 -mt-3">
           <button
             onClick={() => setShowAll(false)}
-            className="text-[12.5px] px-4 py-1.5 rounded-full transition-all"
+            className="pub-tab text-[12.5px] px-4 py-1.5 rounded-full transition-all"
             style={{
               color: !showAll ? "#fff" : "var(--muted)",
               fontFamily: "var(--font-sans)",
@@ -107,11 +104,11 @@ export default function Publications() {
               border: "1px solid var(--card-border)",
             }}
           >
-            Featured Papers
+            Selected Manuscripts
           </button>
           <button
             onClick={() => setShowAll(true)}
-            className="text-[12.5px] px-4 py-1.5 rounded-full transition-all"
+            className="pub-tab text-[12.5px] px-4 py-1.5 rounded-full transition-all"
             style={{
               color: showAll ? "#fff" : "var(--muted)",
               fontFamily: "var(--font-sans)",
@@ -120,12 +117,12 @@ export default function Publications() {
               border: "1px solid var(--card-border)",
             }}
           >
-            Full List
+            Full Publications List
           </button>
         </div>
         <div className="flex items-center justify-between gap-4 mb-5 flex-wrap" style={{ color: "var(--muted)", fontFamily: "var(--font-sans)" }}>
           <p className="text-[12.5px]">* equal contribution · † corresponding author</p>
-          <span className="text-[12px] tabular-nums">{visiblePubs.length} {showAll ? "papers" : "featured papers"}</span>
+          <span className="text-[12px] tabular-nums">{visiblePubs.length} {showAll ? "papers" : "selected manuscripts"}</span>
         </div>
 
         {/* Cards */}
@@ -144,23 +141,25 @@ export default function Publications() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.06 }}
-                className="rounded-lg border overflow-hidden card-hover"
+                className="rounded-xl border overflow-hidden card-hover"
                 style={{ borderColor: "var(--card-border)", background: "var(--card-bg)" }}
               >
                 <div className="flex flex-col md:flex-row">
                   {/* ── Left column: thumbnail + mascot ── */}
-                  <div className={`${pub.thumbnail || isExpanded ? "w-full md:w-[380px] lg:w-[440px] flex" : "hidden"} flex-shrink-0 flex-col`}>
+                  <div className={`${pub.thumbnail || isExpanded ? "w-full md:w-[48%] flex" : "hidden"} flex-shrink-0 flex-col`}>
                     {pub.thumbnail ? (
                     <div
-                      className="relative aspect-[16/9] overflow-hidden bg-white cursor-zoom-in group"
+                      className="pub-figure-frame relative aspect-[16/9] overflow-hidden bg-white cursor-zoom-in group"
                       onClick={() => setLightboxSrc(pub.thumbnail)}
                     >
                       <Image
                         src={pub.thumbnail}
                         alt={pub.title}
                         fill
-                        sizes="(min-width: 1024px) 440px, (min-width: 768px) 380px, 100vw"
-                        className="object-contain transition-transform duration-300 group-hover:scale-105"
+                        sizes="(min-width: 1280px) 568px, (min-width: 768px) 48vw, 100vw"
+                        className={`object-contain transition-transform duration-500 ${
+                          pub.id === "iclr-ci" || pub.id === "where-conditions" ? "pub-figure-wide" : "group-hover:scale-[1.02]"
+                        }`}
                         unoptimized
                       />
                       <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100">
@@ -177,7 +176,7 @@ export default function Publications() {
                           initial={{ opacity: 0, scale: 0.9 }}
                           animate={{ opacity: 1, scale: 1 }}
                           transition={{ duration: 0.35, delay: 0.2 }}
-                          className="hidden md:flex flex-1 flex-col items-center justify-center relative p-4"
+                          className="hidden md:flex flex-1 flex-col items-center justify-center relative p-4 pub-mascot-panel"
                         >
                           <div
                             className="absolute inset-0"
@@ -278,25 +277,25 @@ export default function Publications() {
                       })}
                       {pub.links?.paper && (
                         <a href={pub.links.paper} target="_blank" rel="noopener noreferrer"
-                          className="hover:underline text-[12.5px]" style={{ color: "#e09040", fontFamily: "var(--font-sans)" }}>
+                          className="inline-action hover:underline text-[12.5px]" style={{ color: "#e09040", fontFamily: "var(--font-sans)" }}>
                           [{pub.links.paper.includes("arxiv") ? "ArXiv" : "Paper"}]
                         </a>
                       )}
                       {pub.links?.poster && (
                         <a href={pub.links.poster} target="_blank" rel="noopener noreferrer"
-                          className="hover:underline text-[12.5px]" style={{ color: "#e09040", fontFamily: "var(--font-sans)" }}>[Poster]</a>
+                          className="inline-action hover:underline text-[12.5px]" style={{ color: "#e09040", fontFamily: "var(--font-sans)" }}>[Poster]</a>
                       )}
                       {pub.links?.code && (
                         <a href={pub.links.code} target="_blank" rel="noopener noreferrer"
-                          className="hover:underline text-[12.5px]" style={{ color: "#e09040", fontFamily: "var(--font-sans)" }}>[Code]</a>
+                          className="inline-action hover:underline text-[12.5px]" style={{ color: "#e09040", fontFamily: "var(--font-sans)" }}>[Code]</a>
                       )}
                       {pub.links?.website && (
                         <a href={pub.links.website} target="_blank" rel="noopener noreferrer"
-                          className="hover:underline text-[12.5px]" style={{ color: "#e09040", fontFamily: "var(--font-sans)" }}>[Website]</a>
+                          className="inline-action hover:underline text-[12.5px]" style={{ color: "#e09040", fontFamily: "var(--font-sans)" }}>[Website]</a>
                       )}
                       {pub.links?.project && (
                         <a href={pub.links.project} target="_blank" rel="noopener noreferrer"
-                          className="hover:underline text-[12.5px]" style={{ color: "#e09040", fontFamily: "var(--font-sans)" }}>[Project]</a>
+                          className="inline-action hover:underline text-[12.5px]" style={{ color: "#e09040", fontFamily: "var(--font-sans)" }}>[Project]</a>
                       )}
                       <button
                         onClick={() => {
@@ -311,7 +310,7 @@ export default function Publications() {
                             setExpandedId(expandedId === pub.id ? null : pub.id);
                           }
                         }}
-                        className="hover:underline cursor-pointer text-[12.5px]" style={{ color: "#e09040", fontFamily: "var(--font-sans)" }}
+                        className="inline-action hover:underline cursor-pointer text-[12.5px]" style={{ color: "#e09040", fontFamily: "var(--font-sans)" }}
                       >
                         [{isExpanded ? "Hide Abstract" : "Abstract"}]
                       </button>
@@ -367,7 +366,7 @@ export default function Publications() {
           >
             {/* close button */}
             <button
-              className="absolute top-6 right-6 text-white/70 hover:text-white transition-colors"
+              className="lightbox-close absolute top-6 right-6 text-white/70 hover:text-white transition-colors"
               onClick={() => setLightboxSrc(null)}
             >
               <X size={28} />

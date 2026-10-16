@@ -34,7 +34,7 @@ export default function Journey() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.08 }}
-                className="relative pl-10"
+                className="journey-entry relative"
               >
                 {/* dot */}
                 <div

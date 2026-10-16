@@ -51,7 +51,7 @@ export default function Awards() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.3, delay: i * 0.03 }}
-                className="flex items-start justify-between py-3 gap-4"
+                className="award-row flex items-start justify-between py-3 gap-4"
                 style={{ borderBottom: "1px solid var(--card-border)" }}
               >
                 <div className="flex items-start gap-3 min-w-0">
@@ -98,7 +98,7 @@ export default function Awards() {
               return (
                 <span
                   key={venue}
-                  className="text-[12px] px-3 py-1.5 rounded-lg border"
+                  className="reviewer-chip text-[12px] px-3 py-1.5 rounded-lg border"
                   style={{
                     fontFamily: "var(--font-sans)",
                     color: isTop ? "#a78bfa" : "var(--muted)",

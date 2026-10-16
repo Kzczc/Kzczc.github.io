@@ -150,7 +150,7 @@ export default function Navbar() {
                   target="_blank"
                   rel="noopener noreferrer"
                   title={link.label}
-                  className="rounded-lg p-2.5 transition-colors hover:text-[var(--accent)] hover:bg-[var(--accent)]/5"
+                  className="nav-social-link rounded-lg p-2.5 transition-colors hover:text-[var(--accent)] hover:bg-[var(--accent)]/5"
                   style={{ color: "var(--muted)" }}
                 >
                   {Icon && <Icon size={20} />}
@@ -163,7 +163,7 @@ export default function Navbar() {
           {mounted && (
             <button
               onClick={toggleDark}
-              className="rounded-lg p-2.5 transition-colors hover:text-[var(--accent)] hover:bg-[var(--accent)]/5"
+              className="nav-icon-button rounded-lg p-2.5 transition-colors hover:text-[var(--accent)] hover:bg-[var(--accent)]/5"
               style={{ color: "var(--muted)" }}
               aria-label="Toggle dark mode"
             >

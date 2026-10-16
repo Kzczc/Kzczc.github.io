@@ -58,6 +58,25 @@ body {
   letter-spacing: 0;
 }
 
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 12% 10%, color-mix(in srgb, var(--accent) 5%, transparent), transparent 36rem),
+    radial-gradient(ellipse at 88% 46%, color-mix(in srgb, var(--accent-warm) 3%, transparent), transparent 34rem);
+}
+
+html { scroll-padding-top: 5.5rem; }
+
+a, button { -webkit-tap-highlight-color: transparent; }
+button:focus-visible, a:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--accent) 78%, white);
+  outline-offset: 3px;
+}
+
 /* ── Scrollbar ── */
 ::-webkit-scrollbar {
   width: 6px;
@@ -153,11 +172,120 @@ body {
 
 /* ── Card hover effect ── */
 .card-hover {
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+  isolation: isolate;
+  transition: transform 0.28s cubic-bezier(.2,.8,.2,1), box-shadow 0.28s ease, border-color 0.28s ease;
 }
 .card-hover:hover {
+  transform: translateY(-3px);
+  border-color: color-mix(in srgb, var(--accent) 42%, var(--card-border)) !important;
+  box-shadow: 0 14px 36px color-mix(in srgb, var(--accent) 9%, transparent), 0 2px 8px rgba(0,0,0,.06);
+}
+
+.card-hover::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(ellipse at 8% 0%, color-mix(in srgb, var(--accent) 8%, transparent), transparent 54%);
+  transition: opacity .3s ease;
+}
+.card-hover:hover::after { opacity: 1; }
+
+.interactive-surface {
+  transition: border-color .24s ease, box-shadow .24s ease, background-color .24s ease, transform .24s ease;
+}
+.interactive-surface:hover {
+  border-color: color-mix(in srgb, var(--accent) 35%, var(--card-border));
+  box-shadow: 0 8px 24px color-mix(in srgb, var(--accent) 7%, transparent);
+}
+
+.inline-action {
+  text-decoration-color: transparent;
+  text-underline-offset: 3px;
+  transition: color .18s ease, text-decoration-color .18s ease, text-shadow .18s ease;
+}
+.inline-action:hover {
+  color: var(--accent) !important;
+  text-decoration-color: currentColor;
+  text-shadow: 0 0 14px color-mix(in srgb, var(--accent) 32%, transparent);
+}
+
+.pub-tab { position: relative; overflow: hidden; }
+.pub-tab::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  pointer-events: none;
+  opacity: 0;
+  background: linear-gradient(115deg, transparent 20%, rgba(255,255,255,.2) 50%, transparent 80%);
+  transform: translateX(-110%);
+}
+.pub-tab:hover::after { opacity: 1; animation: tab-sheen .7s ease both; }
+@keyframes tab-sheen { to { transform: translateX(110%); } }
+
+.pub-figure-frame {
+  background:
+    radial-gradient(ellipse at 50% 50%, color-mix(in srgb, var(--accent) 5%, var(--thumb-bg)), var(--thumb-bg) 72%);
+}
+.pub-figure-frame:focus-visible { outline-offset: -4px; }
+.pub-figure-wide { transform: scale(1.055); }
+.pub-mascot-panel { overflow: hidden; }
+.pub-mascot-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: .8;
+  background: radial-gradient(ellipse at 50% 70%, color-mix(in srgb, var(--accent) 5%, transparent), transparent 68%);
+}
+
+.journey-entry {
+  border: 1px solid transparent;
+  border-radius: 14px;
+  padding: 10px 14px 10px 40px;
+  margin-left: -14px;
+  transition: background .25s ease, border-color .25s ease, box-shadow .25s ease, transform .25s ease;
+}
+.journey-entry:hover {
+  transform: translateX(3px);
+  border-color: color-mix(in srgb, var(--accent) 18%, transparent);
+  background: color-mix(in srgb, var(--accent) 3%, transparent);
+  box-shadow: 0 8px 22px color-mix(in srgb, var(--accent) 5%, transparent);
+}
+
+.award-row { transition: background .22s ease, padding .22s ease; }
+.award-row:hover {
+  padding-left: 10px;
+  padding-right: 10px;
+  background: color-mix(in srgb, var(--accent) 3%, transparent);
+}
+
+.reviewer-chip { transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
+.reviewer-chip:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(6, 182, 212, 0.1);
+  border-color: color-mix(in srgb, var(--accent) 42%, var(--card-border)) !important;
+  box-shadow: 0 6px 18px color-mix(in srgb, var(--accent) 9%, transparent);
+}
+
+.nav-social-link, .nav-icon-button {
+  transition: color .2s ease, background-color .2s ease, transform .2s ease, box-shadow .2s ease;
+}
+.nav-social-link:hover, .nav-icon-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px color-mix(in srgb, var(--accent) 10%, transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
 }
 
 /* ── Section title decoration (matching freax style) ── */
