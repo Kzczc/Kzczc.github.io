@@ -640,6 +640,47 @@ button:focus-visible, a:focus-visible {
   box-shadow: 0 4px 20px color-mix(in srgb, var(--accent) 11%, transparent);
 }
 .contact-action:active, .pub-tab:active { translate: 0 1px; }
+.email-dialog {
+  width: min(420px, calc(100vw - 32px)); max-height: calc(100dvh - 32px);
+  margin: auto; padding: 0; overflow: auto; color: var(--foreground);
+  background: var(--card-bg); border: 1px solid color-mix(in srgb, var(--accent) 24%, var(--card-border));
+  border-radius: 20px;
+  box-shadow: 0 24px 80px #00000024, 0 0 36px color-mix(in srgb, var(--accent) 8%, transparent);
+}
+.email-dialog::backdrop { background: #0b142b70; backdrop-filter: blur(6px); }
+.email-card {
+  padding: clamp(20px, 5vw, 28px);
+  background: radial-gradient(ellipse at 0 0, color-mix(in srgb, var(--accent) 7%, transparent), transparent 70%);
+}
+.email-card-icon {
+  display: grid; place-items: center; width: 44px; height: 44px; border-radius: 13px;
+  color: var(--accent); background: color-mix(in srgb, var(--accent) 9%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent) 16%, transparent);
+}
+.email-close { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 10px; color: var(--muted); cursor: pointer; }
+.email-close:hover { color: var(--foreground); background: color-mix(in srgb, var(--muted) 10%, transparent); }
+.email-address {
+  display: block; width: 100%; min-width: 0; padding: 12px 10px;
+  font-family: var(--font-mono), monospace; font-size: clamp(11px, 3.1vw, 13px);
+  letter-spacing: -.02em; color: var(--foreground); text-align: center;
+  background: var(--background); border: 1px solid var(--card-border); border-radius: 10px;
+}
+.email-address:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.email-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+.email-copy, .email-compose {
+  display: inline-flex; flex: 1 1 auto; align-items: center; justify-content: center; gap: 8px;
+  min-height: 44px; padding: 10px 12px; border-radius: 10px; font-size: 12px;
+  font-weight: 600; cursor: pointer; transition: background-color .2s, box-shadow .2s;
+}
+.email-copy { color: var(--on-accent); background: var(--accent); border: 1px solid var(--accent); }
+.email-copy:hover { box-shadow: 0 4px 18px color-mix(in srgb, var(--accent) 22%, transparent); }
+.email-compose { color: var(--muted); border: 1px solid var(--card-border); }
+.email-compose:hover { color: var(--accent); background: color-mix(in srgb, var(--accent) 7%, transparent); }
+.email-status { margin-top: 14px; min-height: 36px; color: var(--muted); font-size: 11px; line-height: 1.6; }
+@media (prefers-reduced-motion: no-preference) {
+  .email-dialog[open] { animation: email-reveal .2s ease-out; }
+  @keyframes email-reveal { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+}
 .terminal-spectrum {
   position: relative; overflow: hidden;
   background: linear-gradient(90deg, #66c9d2, #b5a0e4, #91c8c0, #66c9d2);

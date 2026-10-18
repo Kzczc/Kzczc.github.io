@@ -2,8 +2,9 @@
 
 import { useState, useEffect, useRef, useCallback } from "react";
 import { motion, useReducedMotion } from "framer-motion";
-import { Mail, FileText } from "lucide-react";
+import { FileText } from "lucide-react";
 import Image from "next/image";
+import EmailContact from "@/components/EmailContact";
 import {
   personalInfo,
   currentResearch,
@@ -248,13 +249,9 @@ export default function Hero() {
                   {personalInfo.greeting}
                 </p>
                 <div className="flex items-center gap-2.5 flex-shrink-0 pt-0.5">
-                  <a
-                    href={`mailto:${personalInfo.email}`}
+                  <EmailContact
                     className="contact-action inline-flex items-center gap-1.5 text-[13px] rounded-lg px-4 py-2 border transition-colors hover:bg-[var(--accent)]/10 hover:border-[var(--accent)]/40"
-                    style={{ borderColor: "var(--card-border)", color: "var(--muted)" }}
-                  >
-                    <Mail size={14} /> Email
-                  </a>
+                  />
                   <a
                     href="/images/CV.pdf"
                     target="_blank"

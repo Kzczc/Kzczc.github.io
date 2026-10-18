@@ -99,7 +99,7 @@ export const navLinks = [
 export const socialLinks = [
   {
     label: "Email",
-    href: "mailto:yuhewu@hkust-gz.edu.cn",
+    href: `mailto:${personalInfo.email}`,
     icon: "Mail",
   },
   {

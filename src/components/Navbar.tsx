@@ -8,6 +8,7 @@ import {
   Mail, Github, Linkedin, GraduationCap, FileText,
 } from "lucide-react";
 import { navLinks, socialLinks } from "@/data/profile";
+import EmailContact from "@/components/EmailContact";
 
 const iconMap: Record<string, React.ComponentType<{ size?: number; className?: string }>> = {
   Mail, Github, Linkedin, GraduationCap, FileText,
@@ -32,6 +33,7 @@ export default function Navbar() {
     const wideScreen = window.matchMedia("(min-width: 1024px)");
     const closeOnResize = () => { if (wideScreen.matches) setMobileOpen(false); };
     const onKey = (event: KeyboardEvent) => {
+      if (document.querySelector("dialog[open]")) return;
       if (event.key === "Escape") {
         setMobileOpen(false);
         menuButton.current?.focus();
@@ -164,6 +166,9 @@ export default function Navbar() {
           {/* ── 社交图标 ── */}
           <div className="hidden items-center gap-1 lg:flex">
             {socialLinks.map((link) => {
+              if (link.icon === "Mail") return (
+                <EmailContact key={link.label} iconOnly className="nav-social-link rounded-lg p-2.5 transition-colors hover:text-[var(--accent)] hover:bg-[var(--accent)]/5" />
+              );
               const Icon = iconMap[link.icon];
               return (
                 <a
@@ -237,6 +242,9 @@ export default function Navbar() {
               ))}
               <div className="flex gap-3 pt-3 mt-2 border-t border-[var(--card-border)]">
                 {socialLinks.map((link) => {
+                  if (link.icon === "Mail") return (
+                    <EmailContact key={link.label} iconOnly className="nav-social-link rounded-lg p-2.5 transition-colors hover:text-[var(--accent)] hover:bg-[var(--accent)]/5" />
+                  );
                   const Icon = iconMap[link.icon];
                   return (
                     <a
