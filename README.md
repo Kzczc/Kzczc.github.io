@@ -40,7 +40,7 @@ Deployed on [Vercel](https://vercel.com). Every push to `main` triggers auto-dep
 
 ## Contact
 
-- 📧 Email: yuhewu@hkust-gz.edu.cn
+- 📧 Email: ywu724@connect.hkust-gz.edu.cn
 - 🐙 GitHub: [@Kzczc](https://github.com/Kzczc)
 - 🎓 [Google Scholar](https://scholar.google.com/citations?user=vm72Sj4AAAAJ&hl=en)
 

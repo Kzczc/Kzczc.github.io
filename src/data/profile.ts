@@ -12,7 +12,7 @@ export const siteConfig = {
 export const personalInfo = {
   name: "Yuhe Wu",
   nameCN: "吴宇赫",
-  email: "yuhewu@hkust-gz.edu.cn",
+  email: "ywu724@connect.hkust-gz.edu.cn",
   github: "Kzczc",
   linkedin: "Yuhe Wu",
   location: "Dalian → Hong Kong",
