@@ -415,7 +415,7 @@ export const selectedPublications = [
     status: "Under Review",
     statusColor: "blue" as const,
     thumbnail: "/images/dnd.webp",
-    links: { paper: "https://openreview.net/forum?id=rWkLkZrS4J" } as { paper?: string; code?: string; project?: string; poster?: string; website?: string },
+    links: {} as { paper?: string; code?: string; project?: string; poster?: string; website?: string },
     abstract: "**DND** assigns each node in a dynamic network an LLM agent that advocates for its needs, then uses a fairness-aware reward model to allocate shared resources. A graph neural reward model with concave aggregation encodes diminishing returns, and direct preference optimization feeds allocation outcomes back to agents. The accompanying FDE-Dyn benchmark captures 12 city networks across environmental conditions and public events; the paper reports higher fairness and utility than prior reinforcement-learning methods and human operators.",
   },
 {
@@ -430,7 +430,7 @@ export const selectedPublications = [
     status: "Under Review",
     statusColor: "blue" as const,
     thumbnail: "",
-    links: { paper: "https://openreview.net/forum?id=iPgbrWcCD5" } as { paper?: string; code?: string; project?: string; poster?: string; website?: string },
+    links: {} as { paper?: string; code?: string; project?: string; poster?: string; website?: string },
     abstract: "",
   },
 {
