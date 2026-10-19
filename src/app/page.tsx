@@ -8,6 +8,7 @@ import Awards from "@/components/Awards";
 import Footer from "@/components/Footer";
 import LoadingScreen from "@/components/LoadingScreen";
 import ScrollToTop from "@/components/ScrollToTop";
+import Companion from "@/components/Companion";
 
 export default function Home() {
   return (
@@ -24,6 +25,7 @@ export default function Home() {
       </main>
       <Footer />
       <ScrollToTop />
+      <Companion />
     </>
   );
 }
