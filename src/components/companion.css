@@ -75,6 +75,122 @@
 .companion-root[data-dragging="true"] .companion-pet {
   cursor: grabbing;
 }
+.companion-root[data-resizing="true"] .companion-body {
+  transition: none;
+}
+.companion-root[data-resizing="true"] .companion-breathe {
+  animation-play-state: paused;
+}
+.companion-body::after {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border: 1px dashed color-mix(in srgb, var(--pet-cyan) 38%, transparent);
+  border-radius: 18px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.16s;
+}
+.companion-body:has(.companion-resize:is(:hover, :focus-visible))::after,
+.companion-root[data-resizing="true"] .companion-body::after {
+  opacity: 1;
+}
+.companion-resize {
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 1px solid var(--pet-border);
+  border-radius: 9px;
+  color: var(--pet-cyan);
+  background: var(--pet-surface);
+  box-shadow: 0 3px 12px #00000014;
+  touch-action: none;
+  user-select: none;
+  cursor: nesw-resize;
+  opacity: 0.68;
+  transition:
+    opacity 0.16s,
+    background-color 0.16s;
+}
+.companion-root[data-resize-side="left"] .companion-resize {
+  left: -3px;
+  right: auto;
+  cursor: nwse-resize;
+}
+.companion-root[data-resize-side="left"] .companion-resize svg {
+  transform: rotate(90deg);
+}
+.companion-actor:hover .companion-resize,
+.companion-actor:focus-within .companion-resize,
+.companion-root[data-resizing="true"] .companion-resize {
+  opacity: 1;
+}
+.companion-resize:hover {
+  background: color-mix(in srgb, var(--pet-cyan) 8%, var(--pet-surface));
+}
+.companion-root .companion-resize[data-tip]::after {
+  left: 0;
+  right: auto;
+  bottom: calc(100% + 6px);
+  transform: translateY(3px);
+}
+.companion-root[data-resize-side="left"] .companion-resize[data-tip]::after {
+  left: auto;
+  right: 0;
+}
+.companion-root .companion-resize[data-tip]:is(:hover, :focus-visible)::after {
+  transform: translateY(0);
+}
+.companion-root[data-resizing="true"] [data-tip]::after {
+  display: none;
+}
+.companion-size-readout {
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  pointer-events: none;
+  padding: 3px 9px;
+  border-radius: 7px;
+  border: 1px solid var(--pet-border);
+  color: var(--pet-cyan);
+  background: var(--pet-surface);
+  font:
+    12px/1.6 "Comic Sans MS",
+    cursive;
+  opacity: 0;
+  font-variant-numeric: tabular-nums;
+  transition: opacity 0.15s;
+}
+.companion-root[data-resizing="true"] .companion-size-readout {
+  opacity: 1;
+}
+.companion-root[data-resizing="true"] {
+  pointer-events: auto;
+  cursor: nesw-resize;
+  user-select: none;
+}
+.companion-root[data-resizing="true"][data-resize-side="left"] {
+  cursor: nwse-resize;
+}
+@media (pointer: coarse) {
+  .companion-resize {
+    width: 40px;
+    height: 40px;
+    opacity: 0.9;
+    top: -4px;
+  }
+  .companion-size-readout {
+    top: 40px;
+  }
+}
 .companion-breathe {
   position: absolute;
   inset: 0;

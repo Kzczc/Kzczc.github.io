@@ -38,6 +38,7 @@ import {
   RotateCcw,
   House,
   ArrowLeft,
+  MoveDiagonal,
 } from "lucide-react";
 import {
   companionLines,
@@ -255,7 +256,7 @@ function Speech({
               type="range"
               min="70"
               max="150"
-              step="5"
+              step="1"
               value={preferences.size}
               onChange={(event) => onSize(Number(event.target.value))}
             />
@@ -357,6 +358,8 @@ export default function Companion() {
   const root = useRef<HTMLDivElement>(null);
   const actor = useRef<HTMLDivElement>(null);
   const trigger = useRef<HTMLButtonElement>(null);
+  const resizeHandle = useRef<HTMLButtonElement>(null);
+  const resizeReadout = useRef<HTMLOutputElement>(null);
   const focusOnReveal = useRef(false);
   const speech = useRef<HTMLDivElement | null>(null);
   const [ready, setReady] = useState(false);
@@ -365,6 +368,8 @@ export default function Companion() {
   const [pose, setPose] = useState<CompanionPose>("wave");
   const [bubble, setBubble] = useState<Bubble | null>(null);
   const [dragging, setDragging] = useState(false);
+  const [resizing, setResizing] = useState(false);
+  const [resizeSide, setResizeSide] = useState<"left" | "right">("left");
   const [reaction, setReaction] = useState(0);
   const x = useMotionValue(0),
     y = useMotionValue(0),
@@ -400,6 +405,19 @@ export default function Companion() {
       origin: Point;
       moved: boolean;
     },
+    resize: null as null | {
+      id: number;
+      start: Point;
+      origin: Point;
+      anchor: Point;
+      baseArt: number;
+      side: "left" | "right";
+      initialSize: number;
+      preferences: Preferences;
+      moved: boolean;
+    },
+    resizeFrame: 0,
+    resizePoint: null as Point | null,
     suppressClick: false,
     bounds: {
       left: 12,
@@ -482,6 +500,12 @@ export default function Companion() {
   const positionActor = useCallback(() => {
     if (actor.current)
       actor.current.style.translate = `${x.get()}px ${y.get()}px`;
+    if (!state.current.resize)
+      setResizeSide(
+        x.get() + state.current.size.width / 2 > state.current.bounds.width / 2
+          ? "left"
+          : "right",
+      );
     placeSpeech();
   }, [placeSpeech, x, y]);
   useMotionValueEvent(x, "change", positionActor);
@@ -522,10 +546,15 @@ export default function Companion() {
     const s = state.current;
     const width = document.documentElement.clientWidth;
     const height = window.visualViewport?.height || window.innerHeight;
-    s.size = {
+    const size = {
       width: actor.current?.offsetWidth || 128,
       height: actor.current?.offsetHeight || 166,
     };
+    if (width === s.bounds.width && height === s.bounds.height && size.width === s.size.width && size.height === s.size.height) {
+      positionActor();
+      return;
+    }
+    s.size = size;
     s.bounds = {
       left: 10,
       top: Math.min(92, height / 4),
@@ -534,11 +563,18 @@ export default function Companion() {
       width,
       height,
     };
+    if (s.resize || s.drag) {
+      const point = constrain({ x: x.get(), y: y.get() });
+      x.set(point.x);
+      y.set(point.y);
+      positionActor();
+      return;
+    }
     s.wander = { x: 0, y: 0 };
     s.target = { x: -1, y: -1 };
     move(basePoint(), true);
     positionActor();
-  }, [basePoint, move, positionActor]);
+  }, [basePoint, constrain, move, positionActor, x, y]);
   const changePose = useCallback(async (next: CompanionPose) => {
     const s = state.current;
     if (next === s.pose) return;
@@ -586,6 +622,54 @@ export default function Companion() {
     },
     [changePose, stop],
   );
+  const cancelGesture = useCallback(() => {
+    const s = state.current;
+    if (s.resize) {
+      const gesture = s.resize;
+      cancelAnimationFrame(s.resizeFrame);
+      s.resizeFrame = 0;
+      s.resizePoint = null;
+      s.preferences = gesture.preferences;
+      root.current?.style.setProperty(
+        "--pet-scale",
+        String(gesture.initialSize / 100),
+      );
+      resizeHandle.current?.setAttribute(
+        "aria-valuenow",
+        String(gesture.initialSize),
+      );
+      if (resizeReadout.current)
+        resizeReadout.current.textContent = `${gesture.initialSize}%`;
+      x.set(gesture.origin.x);
+      y.set(gesture.origin.y);
+      // Recalculate the bounds while the gesture still owns the position.
+      // An idle wander must not turn cancellation into a jump back home.
+      measure();
+      s.resize = null;
+      setResizing(false);
+      setPrefs(gesture.preferences);
+      if (resizeHandle.current?.hasPointerCapture(gesture.id))
+        resizeHandle.current.releasePointerCapture(gesture.id);
+      s.target = { ...gesture.origin };
+      s.holdUntil = s.elapsed + 1500;
+      root.current?.setAttribute("data-resizing", "false");
+      return true;
+    }
+    if (s.drag) {
+      const gesture = s.drag;
+      s.drag = null;
+      x.set(gesture.origin.x);
+      y.set(gesture.origin.y);
+      s.target = { ...gesture.origin };
+      s.suppressClick = true;
+      setDragging(false);
+      if (trigger.current?.hasPointerCapture(gesture.id))
+        trigger.current.releasePointerCapture(gesture.id);
+      s.holdUntil = s.elapsed + 1500;
+      return true;
+    }
+    return false;
+  }, [measure, x, y]);
   const discover = useCallback(
     (key: CompanionMemento, explicit = false) => {
       const s = state.current;
@@ -630,6 +714,7 @@ export default function Companion() {
       s.poseVersion++;
       clearTimeout(startup);
       clearTimeout(idle);
+      cancelAnimationFrame(s.resizeFrame);
       if (s.paperTimer) clearTimeout(s.paperTimer);
       s.highlightedPaper?.classList.remove("companion-paper-spotlight");
       stop();
@@ -675,6 +760,7 @@ export default function Companion() {
         'dialog[open], [aria-controls="mobile-navigation"][aria-expanded="true"]',
       );
       if (next === s.blocked) return;
+      if (next) cancelGesture();
       s.blocked = next;
       setBlocked(next);
       stop();
@@ -690,8 +776,10 @@ export default function Companion() {
     const onVisibility = () => {
       s.hidden = document.hidden;
       if (root.current) root.current.dataset.suspended = String(s.hidden);
-      if (s.hidden) stop();
-      else {
+      if (s.hidden) {
+        cancelGesture();
+        stop();
+      } else {
         s.nextMove = s.elapsed + 12000;
       }
     };
@@ -705,16 +793,24 @@ export default function Companion() {
       if (!root.current?.contains(event.target as Node)) closeBubble();
     };
     const onEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape" && cancelGesture()) {
+        event.preventDefault();
+        return;
+      }
       if (event.key === "Escape" && s.bubble && !s.blocked) {
         event.preventDefault();
         closeBubble(true);
       }
+    };
+    const onBlur = () => {
+      cancelGesture();
     };
     syncBlocked();
     document.addEventListener("visibilitychange", onVisibility);
     window.addEventListener("scroll", onScroll, { passive: true });
     document.addEventListener("pointerdown", onOutside);
     document.addEventListener("keydown", onEscape);
+    window.addEventListener("blur", onBlur);
     let previous = performance.now();
     const timer = setInterval(() => {
       const now = performance.now(),
@@ -749,7 +845,14 @@ export default function Companion() {
         else if (s.elapsed > s.expires || s.elapsed - s.lastScroll < 500)
           closeBubble();
       }
-      if (s.drag || reading || s.bubble || s.exiting || s.elapsed < s.holdUntil)
+      if (
+        s.drag ||
+        s.resize ||
+        reading ||
+        s.bubble ||
+        s.exiting ||
+        s.elapsed < s.holdUntil
+      )
         return;
       if (
         s.pendingMemento &&
@@ -834,9 +937,11 @@ export default function Companion() {
       window.removeEventListener("scroll", onScroll);
       document.removeEventListener("pointerdown", onOutside);
       document.removeEventListener("keydown", onEscape);
+      window.removeEventListener("blur", onBlur);
     };
   }, [
     basePoint,
+    cancelGesture,
     changePose,
     closeBubble,
     discover,
@@ -868,7 +973,7 @@ export default function Companion() {
     recordPosition();
     persist({
       ...s.preferences,
-      size: clamp(Math.round(size / 5) * 5, 70, 150),
+      size: clamp(Math.round(size), 70, 150),
     });
     s.holdUntil = s.elapsed + 2000;
   };
@@ -886,7 +991,7 @@ export default function Companion() {
     move(basePoint());
   };
   const pointerDown = (event: ReactPointerEvent<HTMLButtonElement>) => {
-    if (event.button !== 0) return;
+    if (event.button !== 0 || !event.isPrimary || state.current.resize) return;
     const s = state.current;
     stop();
     s.suppressClick = false;
@@ -918,12 +1023,110 @@ export default function Companion() {
     const s = state.current,
       drag = s.drag;
     if (!drag || drag.id !== event.pointerId) return;
+    if (event.type === "pointercancel") {
+      cancelGesture();
+      return;
+    }
     s.drag = null;
     setDragging(false);
     if (drag.moved) {
       s.suppressClick = true;
       recordPosition();
     }
+    if (event.currentTarget.hasPointerCapture(event.pointerId))
+      event.currentTarget.releasePointerCapture(event.pointerId);
+  };
+  const applyResize = (point: Point) => {
+    const s = state.current,
+      gesture = s.resize;
+    if (!gesture) return;
+    const dx = point.x - gesture.start.x,
+      dy = point.y - gesture.start.y;
+    if (!gesture.moved && Math.hypot(dx, dy) < 4) return;
+    if (!gesture.moved) {
+      gesture.moved = true;
+      closeBubble();
+      setResizing(true);
+      root.current?.setAttribute("data-resizing", "true");
+    }
+    const delta = ((gesture.side === "left" ? -dx : dx) - dy) / 2;
+    const size = clamp(
+      Math.round(gesture.initialSize + (delta / gesture.baseArt) * 100),
+      70,
+      150,
+    );
+    s.preferences = { ...s.preferences, size };
+    root.current?.style.setProperty("--pet-scale", String(size / 100));
+    const art = (gesture.baseArt * size) / 100;
+    s.size = {
+      width: actor.current!.offsetWidth,
+      height: actor.current!.offsetHeight,
+    };
+    const b = s.bounds;
+    b.right = Math.max(b.left, b.width - s.size.width - 12);
+    b.bottom = Math.max(b.top, b.height - s.size.height - 84);
+    const margin = (s.size.width - art) / 2;
+    const next = constrain({
+      x: gesture.anchor.x - margin - (gesture.side === "left" ? art : 0),
+      y: gesture.anchor.y - art,
+    });
+    x.set(next.x);
+    y.set(next.y);
+    s.target = next;
+    if (resizeReadout.current) resizeReadout.current.textContent = `${size}%`;
+    resizeHandle.current?.setAttribute("aria-valuenow", String(size));
+    positionActor();
+  };
+  const resizeDown = (event: ReactPointerEvent<HTMLButtonElement>) => {
+    if (event.button !== 0 || !event.isPrimary || state.current.drag) return;
+    const s = state.current;
+    stop();
+    const body = event.currentTarget.parentElement!.getBoundingClientRect();
+    const side =
+      x.get() + s.size.width / 2 > s.bounds.width / 2 ? "left" : "right";
+    setResizeSide(side);
+    s.resize = {
+      id: event.pointerId,
+      start: { x: event.clientX, y: event.clientY },
+      origin: { x: x.get(), y: y.get() },
+      anchor: { x: side === "left" ? body.right : body.left, y: body.bottom },
+      baseArt: body.width / (s.preferences.size / 100),
+      side,
+      initialSize: s.preferences.size,
+      preferences: { ...s.preferences },
+      moved: false,
+    };
+    event.currentTarget.setPointerCapture(event.pointerId);
+  };
+  const resizeMove = (event: ReactPointerEvent<HTMLButtonElement>) => {
+    const s = state.current;
+    if (s.resize?.id !== event.pointerId) return;
+    s.resizePoint = { x: event.clientX, y: event.clientY };
+    if (!s.resizeFrame)
+      s.resizeFrame = requestAnimationFrame(() => {
+        s.resizeFrame = 0;
+        if (s.resizePoint) applyResize(s.resizePoint);
+      });
+  };
+  const resizeEnd = (event: ReactPointerEvent<HTMLButtonElement>) => {
+    const s = state.current;
+    if (s.resize?.id !== event.pointerId) return;
+    if (event.type === "pointercancel") {
+      cancelGesture();
+      return;
+    }
+    cancelAnimationFrame(s.resizeFrame);
+    s.resizeFrame = 0;
+    if (s.resizePoint) applyResize(s.resizePoint);
+    const moved = s.resize.moved;
+    s.resize = null;
+    s.resizePoint = null;
+    if (moved) {
+      recordPosition();
+      positionActor();
+    }
+    setResizing(false);
+    root.current?.setAttribute("data-resizing", "false");
     if (event.currentTarget.hasPointerCapture(event.pointerId))
       event.currentTarget.releasePointerCapture(event.pointerId);
   };
@@ -997,6 +1200,8 @@ export default function Companion() {
       className="companion-root"
       data-blocked={blocked}
       data-dragging={dragging}
+      data-resizing={resizing}
+      data-resize-side={resizeSide}
       data-reduced={reduced}
       style={{ "--pet-scale": prefs.size / 100 } as CSSProperties}
       aria-label="网页小向导"
@@ -1086,7 +1291,8 @@ export default function Companion() {
             </AnimatePresence>
             <motion.div className="companion-body" style={{ rotate: lean }}>
               <span className="sr-only" id={`${id}-help`}>
-                拖动可移动位置；聚焦后也可用方向键移动。
+                拖动角色移动位置，拖动角落手柄改变大小；按 Esc
+                取消。也可用方向键操作。
               </span>
               <button
                 type="button"
@@ -1157,6 +1363,54 @@ export default function Companion() {
                   </AnimatePresence>
                 </span>
               </button>
+              <button
+                type="button"
+                role="slider"
+                ref={resizeHandle}
+                className="companion-resize"
+                aria-label="拖动调整大小"
+                aria-valuemin={70}
+                aria-valuemax={150}
+                aria-valuenow={prefs.size}
+                aria-describedby={`${id}-resize-help`}
+                data-tip="拖动缩放 · 双击还原"
+                onPointerDown={resizeDown}
+                onPointerMove={resizeMove}
+                onPointerUp={resizeEnd}
+                onPointerCancel={resizeEnd}
+                onLostPointerCapture={resizeEnd}
+                onDoubleClick={() => resizePet(100)}
+                onKeyDown={(event) => {
+                  if (["ArrowUp", "ArrowRight", "+", "="].includes(event.key)) {
+                    event.preventDefault();
+                    resizePet(state.current.preferences.size + 5);
+                  } else if (
+                    ["ArrowDown", "ArrowLeft", "-"].includes(event.key)
+                  ) {
+                    event.preventDefault();
+                    resizePet(state.current.preferences.size - 5);
+                  } else if (["Home", "0", "Enter"].includes(event.key)) {
+                    event.preventDefault();
+                    resizePet(100);
+                  } else if (event.key === "End") {
+                    event.preventDefault();
+                    resizePet(150);
+                  }
+                }}
+              >
+                <MoveDiagonal size={16} aria-hidden="true" />
+              </button>
+              <span className="sr-only" id={`${id}-resize-help`}>
+                拖动缩放，双击恢复默认大小。方向键每次调整百分之五，Home
+                恢复默认，Esc 取消拖动。
+              </span>
+              <output
+                ref={resizeReadout}
+                className="companion-size-readout"
+                aria-hidden={!resizing}
+              >
+                {prefs.size}%
+              </output>
               {reaction > 0 && !reduced && (
                 <span
                   className="companion-reaction"
