@@ -14,6 +14,9 @@
   --pet-ink: #36314e;
   --pet-muted: #716a86;
   --pet-border: #e3dced;
+  --pet-art: calc(120px * var(--pet-scale, 1));
+  --pet-controls-height: 46px;
+  --pet-min-width: 152px;
   position: fixed;
   inset: 0;
   z-index: 45;
@@ -40,16 +43,19 @@
   position: absolute;
   left: 0;
   top: 0;
-  width: 128px;
-  height: 166px;
+  width: max(var(--pet-min-width), calc(var(--pet-art) + 8px));
+  height: calc(var(--pet-art) + var(--pet-controls-height));
   pointer-events: auto;
   will-change: transform;
   color: var(--pet-ink);
 }
 .companion-body {
   position: relative;
-  width: 120px;
-  height: 120px;
+  width: var(--pet-art);
+  height: var(--pet-art);
+  transition:
+    width 0.22s ease,
+    height 0.22s ease;
   margin: 0 auto;
   transform-origin: 50% 85%;
 }
@@ -163,6 +169,9 @@
   pointer-events: auto;
   z-index: 3;
   isolation: isolate;
+  max-height: calc(100dvh - 115px);
+  overflow-y: auto;
+  scrollbar-width: thin;
 }
 .companion-bubble::before {
   content: "";
@@ -184,6 +193,10 @@
   pointer-events: none;
 }
 .companion-bubble-header {
+  position: sticky;
+  top: -11px;
+  z-index: 6;
+  background: var(--pet-surface);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -282,8 +295,16 @@
   right: 0;
   transform: translateY(3px);
 }
-.companion-controls button:is(:first-child, :last-child)[data-tip]:is(:hover, :focus-visible)::after,
-.companion-actions button:is(:first-child, :last-child)[data-tip]:is(:hover, :focus-visible)::after {
+.companion-controls
+  button:is(:first-child, :last-child)[data-tip]:is(
+    :hover,
+    :focus-visible
+  )::after,
+.companion-actions
+  button:is(:first-child, :last-child)[data-tip]:is(
+    :hover,
+    :focus-visible
+  )::after {
   transform: translateY(0);
 }
 .companion-root [data-tip]::after {
@@ -389,12 +410,8 @@
   }
 }
 @media (max-width: 767px) {
-  .companion-body {
-    width: 96px;
-    height: 96px;
-  }
-  .companion-actor {
-    height: 144px;
+  .companion-root {
+    --pet-art: calc(96px * var(--pet-scale, 1));
   }
   .companion-bubble {
     width: min(244px, calc(100vw - 24px));
@@ -409,17 +426,13 @@
     width: 44px;
     height: 44px;
   }
-  .companion-actor {
-    height: 182px;
+  .companion-root {
+    --pet-controls-height: 60px;
+    --pet-min-width: 166px;
   }
   .companion-bubble-header button {
     width: 32px;
     height: 32px;
-  }
-}
-@media (max-width: 767px) and (pointer: coarse) {
-  .companion-actor {
-    height: 158px;
   }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -434,5 +447,142 @@
 @media print {
   .companion-root {
     display: none;
+  }
+}
+
+.companion-settings {
+  font-size: 12px;
+  line-height: 1.6;
+}
+.companion-settings [data-tip] {
+  position: relative;
+}
+.companion-setting-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin: 8px 0;
+  color: var(--pet-muted);
+}
+.companion-setting-heading output {
+  color: var(--pet-cyan);
+  font-variant-numeric: tabular-nums;
+}
+.companion-size-control {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.companion-size-control input {
+  min-width: 0;
+  width: 100%;
+  accent-color: var(--pet-cyan);
+  cursor: ew-resize;
+}
+.companion-size-control button,
+.companion-setting-tools button {
+  flex: 0 0 32px;
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--pet-border);
+  color: var(--pet-cyan);
+  background: color-mix(in srgb, var(--pet-cyan) 5%, var(--pet-surface));
+  border-radius: 9px;
+  cursor: pointer;
+}
+.companion-size-control button:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+.companion-setting-tools {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 9px 0 14px;
+}
+.companion-mementos {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+.companion-mementos button {
+  flex: 1;
+  height: 44px;
+  border: 1px solid var(--pet-border);
+  border-radius: 11px;
+  background: var(--pet-surface);
+  color: var(--pet-muted);
+  cursor: help;
+}
+.companion-mementos button[data-found="true"] {
+  cursor: pointer;
+  border-color: color-mix(in srgb, var(--pet-pink) 42%, var(--pet-border));
+  background: color-mix(in srgb, var(--pet-pink) 5%, var(--pet-surface));
+}
+.companion-mementos span {
+  font:
+    21px/1 "Segoe UI Emoji",
+    "Apple Color Emoji",
+    sans-serif;
+}
+.companion-memento-hint {
+  margin: 9px 0 0;
+  color: var(--pet-muted);
+  text-wrap: balance;
+}
+.companion-mementos [data-tip]::after {
+  white-space: normal;
+  width: 156px;
+  max-width: 156px;
+}
+.companion-mementos button:first-child[data-tip]::after {
+  left: 0;
+  transform: translateY(3px);
+}
+.companion-mementos button:last-child[data-tip]::after {
+  left: auto;
+  right: 0;
+  transform: translateY(3px);
+}
+.companion-mementos
+  button:is(:first-child, :last-child)[data-tip]:is(
+    :hover,
+    :focus-visible
+  )::after {
+  transform: translateY(0);
+}
+.companion-setting-tools [data-tip] {
+  position: relative;
+}
+.companion-paper-spotlight {
+  outline: 2px solid color-mix(in srgb, var(--accent) 60%, transparent);
+  outline-offset: 4px;
+  animation: companion-paper-glow 2s ease-in-out 2;
+}
+@keyframes companion-paper-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 0 transparent;
+  }
+  50% {
+    box-shadow: 0 0 24px color-mix(in srgb, var(--accent) 15%, transparent);
+  }
+}
+@media (pointer: coarse) {
+  .companion-size-control button,
+  .companion-setting-tools button {
+    width: 40px;
+    height: 40px;
+    flex-basis: 40px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .companion-body {
+    transition: none;
+  }
+  .companion-paper-spotlight {
+    animation: none;
   }
 }

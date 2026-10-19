@@ -9,6 +9,7 @@ import {
   useState,
   type PointerEvent as ReactPointerEvent,
   type ReactNode,
+  type CSSProperties,
 } from "react";
 import {
   AnimatePresence,
@@ -31,6 +32,12 @@ import {
   Pin,
   Sparkles,
   X,
+  Settings2,
+  ZoomIn,
+  ZoomOut,
+  RotateCcw,
+  House,
+  ArrowLeft,
 } from "lucide-react";
 import {
   companionLines,
@@ -38,7 +45,11 @@ import {
   companionSections,
   poseSource,
   type CompanionPose,
+  companionMementos,
+  companionPaperIds,
+  type CompanionMemento,
 } from "@/data/companion";
+import { selectedPublications } from "@/data/profile";
 import "./companion.css";
 
 type Point = { x: number; y: number };
@@ -48,8 +59,10 @@ type Preferences = {
   quiet: boolean;
   minimized: boolean;
   placement: Point | null;
+  size: number;
+  mementos: CompanionMemento[];
 };
-type Bubble = { text: string; kind: "ambient" | "user" };
+type Bubble = { text: string; kind: "ambient" | "user" | "settings" };
 type Action = "papers" | "pat" | "coffee" | "idea";
 const storageKey = "kc-companion-v1";
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -61,6 +74,8 @@ const defaultPreferences: Preferences = {
   quiet: false,
   minimized: false,
   placement: null,
+  size: 100,
+  mementos: [],
 };
 
 function readPreferences(): Preferences {
@@ -81,6 +96,21 @@ function readPreferences(): Preferences {
         typeof stored.minimized === "boolean"
           ? stored.minimized
           : fallback.minimized,
+      size:
+        typeof stored.size === "number" && Number.isFinite(stored.size)
+          ? clamp(Math.round(stored.size), 70, 150)
+          : 100,
+      mementos: Array.isArray(stored.mementos)
+        ? [
+            ...new Set<CompanionMemento>(
+              stored.mementos.filter(
+                (key: unknown): key is CompanionMemento =>
+                  typeof key === "string" &&
+                  Object.hasOwn(companionMementos, key),
+              ),
+            ),
+          ]
+        : [],
       placement:
         p && Number.isFinite(p.x) && Number.isFinite(p.y)
           ? { x: clamp(p.x, 0, 1), y: clamp(p.y, 0, 1) }
@@ -137,6 +167,11 @@ function Speech({
   onMeasure,
   register,
   reduced,
+  preferences,
+  onSize,
+  onHome,
+  onMemento,
+  onBack,
 }: {
   bubble: Bubble;
   id: string;
@@ -146,8 +181,14 @@ function Speech({
   onMeasure: () => void;
   register: (element: HTMLDivElement | null) => void;
   reduced: boolean;
+  preferences: Preferences;
+  onSize: (size: number) => void;
+  onHome: (resetSize: boolean) => void;
+  onMemento: (key: CompanionMemento) => void;
+  onBack: () => void;
 }) {
   const ref = useRef<HTMLDivElement>(null);
+  const [hint, setHint] = useState<CompanionMemento | null>(null);
   const present = useIsPresent();
   useLayoutEffect(() => {
     register(ref.current);
@@ -165,7 +206,7 @@ function Speech({
       id={id}
       className="companion-bubble"
       role="region"
-      aria-label="小向导的对话"
+      aria-label={bubble.kind === "settings" ? "小向导设置" : "小向导的对话"}
       inert={!present}
       aria-hidden={!present}
       data-kind={bubble.kind}
@@ -179,19 +220,105 @@ function Speech({
       <div className="companion-bubble-header">
         <span>
           <i aria-hidden="true" />
-          COMPANION / {bubble.kind === "user" ? "LISTENING" : "WITH YOU"}
+          COMPANION /{" "}
+          {bubble.kind === "settings"
+            ? "MY LITTLE WORLD"
+            : bubble.kind === "user"
+              ? "LISTENING"
+              : "WITH YOU"}
         </span>
         <IconButton label="收起对话" onClick={onClose}>
           <X size={14} aria-hidden="true" />
         </IconButton>
       </div>
-      <p className="companion-speech" aria-live="polite" aria-atomic="true">
-        <ComicText text={bubble.text} />
-      </p>
+      {bubble.kind !== "settings" && (
+        <p className="companion-speech" aria-live="polite" aria-atomic="true">
+          <ComicText text={bubble.text} />
+        </p>
+      )}
+      {bubble.kind === "settings" && (
+        <div className="companion-settings">
+          <div className="companion-setting-heading">
+            <label htmlFor={`${id}-size`}>我的大小</label>
+            <output htmlFor={`${id}-size`}>{preferences.size}%</output>
+          </div>
+          <div className="companion-size-control">
+            <IconButton
+              label="缩小角色"
+              disabled={preferences.size <= 70}
+              onClick={() => onSize(preferences.size - 10)}
+            >
+              <ZoomOut size={17} aria-hidden="true" />
+            </IconButton>
+            <input
+              id={`${id}-size`}
+              type="range"
+              min="70"
+              max="150"
+              step="5"
+              value={preferences.size}
+              onChange={(event) => onSize(Number(event.target.value))}
+            />
+            <IconButton
+              label="放大角色"
+              disabled={preferences.size >= 150}
+              onClick={() => onSize(preferences.size + 10)}
+            >
+              <ZoomIn size={17} aria-hidden="true" />
+            </IconButton>
+          </div>
+          <div className="companion-setting-tools">
+            <IconButton label="回到右下角" onClick={() => onHome(false)}>
+              <House size={17} aria-hidden="true" />
+            </IconButton>
+            <IconButton label="恢复默认大小与位置" onClick={() => onHome(true)}>
+              <RotateCcw size={17} aria-hidden="true" />
+            </IconButton>
+            <IconButton label="回到聊天" onClick={onBack}>
+              <ArrowLeft size={17} aria-hidden="true" />
+            </IconButton>
+          </div>
+          <div className="companion-setting-heading">
+            <span>小小纪念册</span>
+            <span>{preferences.mementos.length} / 3</span>
+          </div>
+          <div className="companion-mementos">
+            {(Object.keys(companionMementos) as CompanionMemento[]).map(
+              (key) => {
+                const entry = companionMementos[key],
+                  found = preferences.mementos.includes(key);
+                return (
+                  <button
+                    key={key}
+                    type="button"
+                    data-memento={key}
+                    data-found={found}
+                    aria-label={
+                      found ? `回看${entry.title}` : `彩蛋提示：${entry.hint}`
+                    }
+                    data-tip={found ? entry.title : "点一下找线索"}
+                    onClick={() => {
+                      if (found) onMemento(key);
+                      else setHint(hint === key ? null : key);
+                    }}
+                  >
+                    <span aria-hidden="true">{found ? entry.emoji : "✧"}</span>
+                  </button>
+                );
+              },
+            )}
+          </div>
+          {hint && !preferences.mementos.includes(hint) && (
+            <p className="companion-memento-hint" role="status">
+              {companionMementos[hint].hint} ✨
+            </p>
+          )}
+        </div>
+      )}
       {bubble.kind === "user" && (
         <div className="companion-actions">
           <IconButton
-            label="看看论文"
+            label="论文盲盒"
             data-action="papers"
             onClick={() => onAction("papers")}
           >
@@ -288,6 +415,13 @@ export default function Companion() {
     decoded: new Map<CompanionPose, Promise<boolean>>(),
     poseVersion: 0,
     counts: { pat: 0, coffee: 0, idea: 0 },
+    paperBag: [] as string[],
+    lastPaper: "",
+    highlightedPaper: null as HTMLElement | null,
+    paperTimer: null as ReturnType<typeof setTimeout> | null,
+    visited: new Set<string>(),
+    dwell: 0,
+    pendingMemento: null as CompanionMemento | null,
     mounted: false,
   });
 
@@ -326,24 +460,32 @@ export default function Companion() {
     if (!panel) return;
     const s = state.current,
       b = s.bounds,
-      width = panel.offsetWidth,
-      height = panel.offsetHeight;
+      width = panel.offsetWidth;
     const left = clamp(
       x.get() + s.size.width / 2 - width / 2,
       b.left,
       b.width - width - 12,
     );
-    const above = y.get() - height - 10;
-    const top =
-      above >= b.top
-        ? above
-        : clamp(y.get() + s.size.height + 8, b.top, b.height - height - 16);
+    const aboveSpace = Math.max(0, y.get() - b.top - 10);
+    const belowSpace = Math.max(0, b.height - 16 - y.get() - s.size.height - 8);
+    const naturalHeight = panel.scrollHeight + 2;
+    const above = aboveSpace >= naturalHeight || aboveSpace >= belowSpace;
+    panel.style.maxHeight = `${Math.max(100, above ? aboveSpace : belowSpace)}px`;
+    const height = panel.offsetHeight;
+    const top = above
+      ? Math.max(b.top, y.get() - height - 10)
+      : Math.min(y.get() + s.size.height + 8, b.height - height - 16);
     panel.style.left = `${left - x.get()}px`;
     panel.style.top = `${top - y.get()}px`;
-    panel.style.transformOrigin = `${clamp(x.get() + s.size.width / 2 - left, 20, width - 20)}px ${above >= b.top ? "100%" : "0%"}`;
+    panel.style.transformOrigin = `${clamp(x.get() + s.size.width / 2 - left, 20, width - 20)}px ${above ? "100%" : "0%"}`;
   }, [x, y]);
-  useMotionValueEvent(x, "change", placeSpeech);
-  useMotionValueEvent(y, "change", placeSpeech);
+  const positionActor = useCallback(() => {
+    if (actor.current)
+      actor.current.style.translate = `${x.get()}px ${y.get()}px`;
+    placeSpeech();
+  }, [placeSpeech, x, y]);
+  useMotionValueEvent(x, "change", positionActor);
+  useMotionValueEvent(y, "change", positionActor);
   const registerSpeech = useCallback((element: HTMLDivElement | null) => {
     speech.current = element;
   }, []);
@@ -395,8 +537,8 @@ export default function Companion() {
     s.wander = { x: 0, y: 0 };
     s.target = { x: -1, y: -1 };
     move(basePoint(), true);
-    placeSpeech();
-  }, [basePoint, move, placeSpeech]);
+    positionActor();
+  }, [basePoint, move, positionActor]);
   const changePose = useCallback(async (next: CompanionPose) => {
     const s = state.current;
     if (next === s.pose) return;
@@ -444,6 +586,20 @@ export default function Companion() {
     },
     [changePose, stop],
   );
+  const discover = useCallback(
+    (key: CompanionMemento, explicit = false) => {
+      const s = state.current;
+      if (s.preferences.mementos.includes(key)) return false;
+      persist({ ...s.preferences, mementos: [...s.preferences.mementos, key] });
+      if (explicit) {
+        const entry = companionMementos[key];
+        showBubble(entry.text, "user", entry.pose);
+        if (!reduced) setReaction((value) => value + 1);
+      } else if (!s.preferences.quiet) s.pendingMemento = key;
+      return true;
+    },
+    [persist, reduced, showBubble],
+  );
 
   useEffect(() => {
     const s = state.current;
@@ -474,6 +630,8 @@ export default function Companion() {
       s.poseVersion++;
       clearTimeout(startup);
       clearTimeout(idle);
+      if (s.paperTimer) clearTimeout(s.paperTimer);
+      s.highlightedPaper?.classList.remove("companion-paper-spotlight");
       stop();
     };
   }, [stop]);
@@ -489,7 +647,11 @@ export default function Companion() {
       }
       measure();
       if (actor.current) observer.observe(actor.current);
-      if (actor.current && !state.current.preferences.minimized && focusOnReveal.current) {
+      if (
+        actor.current &&
+        !state.current.preferences.minimized &&
+        focusOnReveal.current
+      ) {
         focusOnReveal.current = false;
         trigger.current?.focus({ preventScroll: true });
       }
@@ -560,6 +722,21 @@ export default function Companion() {
       previous = now;
       if (s.hidden || s.blocked || s.preferences.minimized) return;
       s.elapsed += elapsed;
+      // Only count active reading time; a fast scroll past a section does not count.
+      if (
+        s.elapsed - s.lastScroll > 850 &&
+        !s.drag &&
+        s.bubble?.kind !== "settings"
+      ) {
+        s.dwell += elapsed;
+        if (s.dwell > 3500) s.visited.add(s.section);
+        if (
+          ["home", "publications", "journey", "awards"].every((section) =>
+            s.visited.has(section),
+          )
+        )
+          discover("explorer");
+      }
       const fine = matchMedia("(hover: hover) and (pointer: fine)").matches;
       s.hovered = fine && !!actor.current?.matches(":hover");
       s.bubbleHovered = fine && !!speech.current?.matches(":hover");
@@ -574,6 +751,17 @@ export default function Companion() {
       }
       if (s.drag || reading || s.bubble || s.exiting || s.elapsed < s.holdUntil)
         return;
+      if (
+        s.pendingMemento &&
+        !s.preferences.quiet &&
+        s.elapsed - s.lastSpeech > 25000 &&
+        s.elapsed - s.lastScroll > 1600
+      ) {
+        const entry = companionMementos[s.pendingMemento];
+        s.pendingMemento = null;
+        showBubble(entry.text, "ambient", entry.pose);
+        return;
+      }
       if (s.elapsed - s.lastScroll > 850 && s.pendingSection) {
         const section = s.pendingSection;
         s.pendingSection = null;
@@ -631,6 +819,7 @@ export default function Companion() {
         for (const entry of entries)
           if (entry.isIntersecting && entry.target.id !== s.section) {
             s.section = entry.target.id;
+            s.dwell = 0;
             s.pendingSection = entry.target.id;
           }
       },
@@ -650,6 +839,7 @@ export default function Companion() {
     basePoint,
     changePose,
     closeBubble,
+    discover,
     move,
     ready,
     reduced,
@@ -671,6 +861,29 @@ export default function Companion() {
         y: clamp((y.get() - b.top) / Math.max(1, b.bottom - b.top), 0, 1),
       },
     });
+  };
+  const resizePet = (size: number) => {
+    const s = state.current;
+    stop();
+    recordPosition();
+    persist({
+      ...s.preferences,
+      size: clamp(Math.round(size / 5) * 5, 70, 150),
+    });
+    s.holdUntil = s.elapsed + 2000;
+  };
+  const returnHome = (resetSize: boolean) => {
+    const s = state.current;
+    stop();
+    s.wander = { x: 0, y: 0 };
+    s.nextMove = s.elapsed + 32000;
+    persist({
+      ...s.preferences,
+      placement: null,
+      size: resetSize ? 100 : s.preferences.size,
+    });
+    s.target = { x: -1, y: -1 };
+    move(basePoint());
   };
   const pointerDown = (event: ReactPointerEvent<HTMLButtonElement>) => {
     if (event.button !== 0) return;
@@ -718,21 +931,54 @@ export default function Companion() {
     const s = state.current;
     s.nextPose = s.elapsed + 12000;
     if (action === "papers") {
-      document
-        .getElementById("publications")
-        ?.scrollIntoView({ behavior: reduced ? "instant" : "smooth" });
-      showBubble(companionLines.papers, "user", "point");
-    } else if (action === "pat") {
+      if (!s.paperBag.length) {
+        s.paperBag = [...companionPaperIds];
+        for (let i = s.paperBag.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [s.paperBag[i], s.paperBag[j]] = [s.paperBag[j], s.paperBag[i]];
+        }
+        if (s.paperBag[s.paperBag.length - 1] === s.lastPaper)
+          s.paperBag.reverse();
+      }
+      const paperId = s.paperBag.pop()!;
+      const paper = selectedPublications.find((p) => p.id === paperId)!;
+      s.lastPaper = paperId;
+      const target = document.getElementById(`paper-${paperId}`);
+      s.highlightedPaper?.classList.remove("companion-paper-spotlight");
+      if (s.paperTimer) clearTimeout(s.paperTimer);
+      if (target) {
+        target.scrollIntoView({
+          behavior: reduced ? "instant" : "smooth",
+          block: "center",
+        });
+        target.classList.add("companion-paper-spotlight");
+        s.highlightedPaper = target;
+        s.paperTimer = setTimeout(
+          () => target.classList.remove("companion-paper-spotlight"),
+          4800,
+        );
+      }
+      const title = paper.title.split(":")[0];
       showBubble(
-        companionLines.pat[s.counts.pat++ % companionLines.pat.length],
+        `这次抽到「${title}」📖 ${paper.status.startsWith("Under Review") ? "这项工作还在投稿评审中" : "这项工作已接收"}，点图片或摘要一起看看吧～`,
+        "user",
+        "point",
+      );
+    } else if (action === "pat") {
+      s.counts.pat++;
+      if (s.counts.pat === 5 && discover("kindness", true)) return;
+      showBubble(
+        companionLines.pat[(s.counts.pat - 1) % companionLines.pat.length],
         "user",
         "heart",
       );
       if (!reduced) setReaction((value) => value + 1);
     } else if (action === "coffee") {
       s.energyUntil = s.elapsed + 45000;
+      s.counts.coffee++;
+      if (s.counts.coffee === 3 && discover("tea", true)) return;
       showBubble(
-        companionLines.coffee[Math.min(s.counts.coffee++, 2)],
+        companionLines.coffee[Math.min(s.counts.coffee - 1, 2)],
         "user",
         s.counts.coffee > 2 ? "bear" : "thumb",
       );
@@ -752,6 +998,7 @@ export default function Companion() {
       data-blocked={blocked}
       data-dragging={dragging}
       data-reduced={reduced}
+      style={{ "--pet-scale": prefs.size / 100 } as CSSProperties}
       aria-label="网页小向导"
       inert={blocked}
     >
@@ -765,9 +1012,16 @@ export default function Companion() {
             exit={{ opacity: 0, scale: 0.9 }}
             transition={{ duration: reduced ? 0 : 0.2 }}
             onAnimationComplete={() => {
-              if (focusOnReveal.current && state.current.preferences.minimized) {
+              if (
+                focusOnReveal.current &&
+                state.current.preferences.minimized
+              ) {
                 focusOnReveal.current = false;
-                root.current?.querySelector<HTMLButtonElement>(".companion-launcher button")?.focus({ preventScroll: true });
+                root.current
+                  ?.querySelector<HTMLButtonElement>(
+                    ".companion-launcher button",
+                  )
+                  ?.focus({ preventScroll: true });
               }
             }}
           >
@@ -787,7 +1041,6 @@ export default function Companion() {
             key="actor"
             ref={actor}
             className="companion-actor"
-            style={{ x, y }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -812,6 +1065,19 @@ export default function Companion() {
                   onMeasure={placeSpeech}
                   onClose={() => closeBubble(true)}
                   onAction={onAction}
+                  preferences={prefs}
+                  onSize={resizePet}
+                  onHome={returnHome}
+                  onMemento={(key) =>
+                    showBubble(
+                      companionMementos[key].text,
+                      "user",
+                      companionMementos[key].pose,
+                    )
+                  }
+                  onBack={() =>
+                    showBubble(companionLines.hello, "user", "hand")
+                  }
                   onHover={(value) => {
                     state.current.bubbleHovered = value;
                   }}
@@ -841,7 +1107,11 @@ export default function Companion() {
                     state.current.suppressClick = false;
                     return;
                   }
-                  if (state.current.bubble?.kind === "user") closeBubble();
+                  if (
+                    state.current.bubble &&
+                    state.current.bubble.kind !== "ambient"
+                  )
+                    closeBubble();
                   else showBubble(companionLines.hello, "user", "hand");
                 }}
                 onKeyDown={(event) => {
@@ -934,6 +1204,16 @@ export default function Companion() {
                 }}
               >
                 <Moon size={16} aria-hidden="true" />
+              </IconButton>
+              <IconButton
+                label="大小与彩蛋"
+                aria-expanded={bubble?.kind === "settings"}
+                onClick={() => {
+                  if (state.current.bubble?.kind === "settings") closeBubble();
+                  else showBubble("", "settings");
+                }}
+              >
+                <Settings2 size={16} aria-hidden="true" />
               </IconButton>
               <IconButton
                 label="收起小向导"

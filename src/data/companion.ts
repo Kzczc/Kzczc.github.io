@@ -10,6 +10,50 @@ export const companionPoses = [
   "hand",
 ] as const;
 export type CompanionPose = (typeof companionPoses)[number];
+export const companionMementos = {
+  kindness: {
+    emoji: "💗",
+    title: "温柔收藏家",
+    hint: "多给小向导几次温柔的鼓励",
+    text: "第五次摸摸收到啦 💗 小熊决定送你一枚「温柔收藏家」，谢谢你认真回应每一个小小的我。",
+    pose: "heart",
+  },
+  tea: {
+    emoji: "🫖",
+    title: "茶歇搭子",
+    hint: "看看咖啡喝多了会发生什么",
+    text: "咖啡机休息啦 🫖 换杯温水，解锁「茶歇搭子」！灵感慢慢来，陪伴一直在。",
+    pose: "bear",
+  },
+  explorer: {
+    emoji: "🧭",
+    title: "纸间漫游者",
+    hint: "在主页、论文、经历和荣誉里各停留一会儿",
+    text: "你认真逛完了四个板块 🧭 送你一枚「纸间漫游者」！谢谢你看见成果，也看见来时的路。",
+    pose: "peace",
+  },
+} as const satisfies Record<
+  string,
+  {
+    emoji: string;
+    title: string;
+    hint: string;
+    text: string;
+    pose: CompanionPose;
+  }
+>;
+export type CompanionMemento = keyof typeof companionMementos;
+
+export const companionPaperIds = [
+  "prism",
+  "bizsage",
+  "narrative-captivity",
+  "bizcompass",
+  "headwater",
+  "aaai-cor2",
+  "generative-agent",
+  "dnd",
+];
 export const poseSource = (pose: CompanionPose) =>
   `/images/companion/${pose}.webp`;
 
