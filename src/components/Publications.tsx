@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import FigureLightbox from "@/components/FigureLightbox";
@@ -58,7 +58,8 @@ const SELECTED_MANUSCRIPT_IDS = [
 export default function Publications() {
   const [expandedId, setExpandedId] = useState<string | null>(null);
   const [collapsedCoreIds, setCollapsedCoreIds] = useState<Set<string>>(() => new Set(SELECTED_MANUSCRIPT_IDS));
-  const [lightbox, setLightbox] = useState<{ src: string; title: string } | null>(null);
+  const [lightbox, setLightbox] = useState<{ src: string; title: string; trigger: HTMLButtonElement } | null>(null);
+  const closeLightbox = useCallback(() => setLightbox(null), []);
   const [showAll, setShowAll] = useState(false);
   const reducedMotion = useReducedMotion();
 
@@ -158,7 +159,7 @@ export default function Publications() {
                       aria-haspopup="dialog"
                       aria-label={`Enlarge figure: ${pub.title}`}
                       className={`pub-figure-frame relative w-full cursor-zoom-in group ${pub.id === "aaai-cor2" ? "pub-figure-tall" : "aspect-[16/10]"}`}
-                      onClick={() => setLightbox({ src: pub.thumbnail, title: pub.title })}
+                      onClick={event => setLightbox({ src: pub.thumbnail, title: pub.title, trigger: event.currentTarget })}
                     >
                       <Image
                         src={pub.thumbnail}
@@ -363,7 +364,7 @@ export default function Publications() {
 
       </div>
 
-      {lightbox && <FigureLightbox {...lightbox} onClose={() => setLightbox(null)} />}
+      {lightbox && <FigureLightbox {...lightbox} onClose={closeLightbox} />}
     </section>
   );
 }

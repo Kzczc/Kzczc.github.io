@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useRef, useCallback, useSyncExternalStore } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { FileText } from "lucide-react";
 import Image from "next/image";
@@ -14,6 +14,8 @@ import {
 } from "@/data/profile";
 
 /* ─── Typewriter hook ─── */
+const subscribe = () => () => {};
+
 function useTypewriter(
   texts: string[],
   typingSpeed = 55,
@@ -21,6 +23,7 @@ function useTypewriter(
   pause = 2200
 ) {
   const reducedMotion = useReducedMotion();
+  const hydrated = useSyncExternalStore(subscribe, () => true, () => false);
   const [display, setDisplay] = useState("");
   const [textIdx, setTextIdx] = useState(0);
   const [charIdx, setCharIdx] = useState(0);
@@ -53,7 +56,7 @@ function useTypewriter(
     return () => clearTimeout(timeout);
   }, [charIdx, isDeleting, textIdx, texts, typingSpeed, deletingSpeed, pause, reducedMotion]);
 
-  return reducedMotion ? texts[0] : display;
+  return reducedMotion && hydrated ? texts[0] : display;
 }
 
 /* ─── Markdown renderer: **bold** + [link](url) ─── */
