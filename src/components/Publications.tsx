@@ -372,19 +372,22 @@ function PaperRowDetail({ pub, mascot, onZoom }: { pub: Publication; mascot: Mas
   );
 }
 
-/* Selected view: compact card that opens a full-width detail panel below its row. */
+/* Selected view: compact card. The figure opens the lightbox; the text opens a
+   full-width detail panel below the card's row. */
 function PaperCard({
   pub,
   wide,
   active,
   order,
   onToggle,
+  onZoom,
 }: {
   pub: Publication;
   wide: boolean;
   active: boolean;
   order: number;
   onToggle: () => void;
+  onZoom: ZoomHandler;
 }) {
   const tall = TALL_FIGURE_IDS.has(pub.id);
   return (
@@ -392,43 +395,50 @@ function PaperCard({
       id={`paper-${pub.id}`}
       data-glow
       data-active={active}
-      className={`glow-surface paper-card pub-card card-hover rounded-xl border overflow-hidden ${wide ? "md:col-span-2" : ""}`}
+      className={`glow-surface paper-card pub-card card-hover flex rounded-xl border overflow-hidden ${wide ? "md:col-span-2 flex-col lg:flex-row" : "flex-col"}`}
       style={{ borderColor: "var(--card-border)", background: "var(--card-bg)", order }}
     >
+      {pub.thumbnail && (
+        <button
+          type="button"
+          aria-haspopup="dialog"
+          aria-label={`Enlarge figure: ${pub.title}`}
+          onClick={(event) => onZoom(pub, event.currentTarget)}
+          className={`pub-figure-frame relative w-full cursor-zoom-in ${wide ? "aspect-[2/1] lg:aspect-auto lg:w-[46%] lg:min-h-[210px]" : "aspect-[2/1]"}`}
+        >
+          <Image
+            src={pub.thumbnail}
+            alt=""
+            fill
+            sizes={wide ? "(min-width: 1024px) 560px, 100vw" : "(min-width: 768px) 600px, 100vw"}
+            className={tall ? "object-cover object-top" : "object-contain p-2.5"}
+            unoptimized
+          />
+          <span className="figure-zoom-hint">
+            <span className="text-[11px] font-mono">Click to zoom</span>
+          </span>
+        </button>
+      )}
       <button
         type="button"
         onClick={onToggle}
         aria-expanded={active}
         aria-controls={`paper-detail-${pub.id}`}
         aria-label={`${pub.title}: ${active ? "hide" : "show"} details`}
-        className={`pub-card-summary flex h-full w-full text-left ${wide ? "flex-col lg:flex-row" : "flex-col"}`}
+        className="pub-card-summary flex min-w-0 flex-1 flex-col justify-center gap-2.5 px-5 py-4 sm:px-6 text-left"
       >
-        {pub.thumbnail && (
-          <span className={`pub-figure-frame relative block w-full ${wide ? "aspect-[2/1] lg:aspect-auto lg:w-[46%] lg:min-h-[210px]" : "aspect-[2/1]"}`}>
-            <Image
-              src={pub.thumbnail}
-              alt=""
-              fill
-              sizes={wide ? "(min-width: 1024px) 560px, 100vw" : "(min-width: 768px) 600px, 100vw"}
-              className={tall ? "object-cover object-top" : "object-contain p-2.5"}
-              unoptimized
-            />
-          </span>
-        )}
-        <span className="flex min-w-0 flex-1 flex-col gap-2.5 px-5 py-4 sm:px-6 justify-center">
-          <PaperVenue pub={pub} />
-          <span className="text-[15.5px] font-bold leading-snug" style={{ color: "var(--foreground)", fontFamily: "var(--font-sans)" }}>
-            {pub.title}
-          </span>
-          <span className="text-[12.5px] leading-relaxed italic line-clamp-2" style={{ color: "var(--muted)", fontFamily: "var(--font-sans)" }}>
-            {renderAuthors(pub.authors)}
-          </span>
-          <span className="mt-auto flex flex-wrap items-end justify-between gap-3 pt-1">
-            <PaperBadges pub={pub} />
-            <span className="pub-expand-hint">
-              {active ? "Close" : "Details"}
-              <ChevronDown size={14} aria-hidden />
-            </span>
+        <PaperVenue pub={pub} />
+        <span className="text-[15.5px] font-bold leading-snug" style={{ color: "var(--foreground)", fontFamily: "var(--font-sans)" }}>
+          {pub.title}
+        </span>
+        <span className="text-[12.5px] leading-relaxed italic line-clamp-2" style={{ color: "var(--muted)", fontFamily: "var(--font-sans)" }}>
+          {renderAuthors(pub.authors)}
+        </span>
+        <span className="mt-auto flex w-full flex-wrap items-end justify-between gap-3 pt-1">
+          <PaperBadges pub={pub} />
+          <span className="pub-expand-hint">
+            {active ? "Close" : "Details"}
+            <ChevronDown size={14} aria-hidden />
           </span>
         </span>
       </button>
@@ -651,7 +661,7 @@ export default function Publications() {
                     const rowEnd = wide ? i : i - (i % 2) + 1;
                     return (
                       <Fragment key={pub.id}>
-                        <PaperCard pub={pub} wide={wide} active={active} order={i * 2} onToggle={() => toggle(pub.id)} />
+                        <PaperCard pub={pub} wide={wide} active={active} order={i * 2} onToggle={() => toggle(pub.id)} onZoom={zoom} />
                         <AnimatePresence initial={false}>
                           {active && (
                             <motion.div

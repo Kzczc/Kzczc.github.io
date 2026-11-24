@@ -498,7 +498,7 @@ button:focus-visible, a:focus-visible {
   -webkit-background-clip: text; background-clip: text; color: transparent;
 }
 .pub-chip { font-size: 10.5px; font-weight: 600; line-height: 1.5; padding: 1px 8px; border-radius: 4px; }
-.pub-card-summary { cursor: pointer; border-radius: inherit; }
+.pub-card-summary { cursor: pointer; }
 .pub-card-summary:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
 .pub-expand-hint {
   display: inline-flex; align-items: center; gap: 4px; white-space: nowrap;
