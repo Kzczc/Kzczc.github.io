@@ -283,7 +283,7 @@ export const publicationThemes = [
   { id: "evaluation", label: "LLM Evaluation", tagline: "Find the Cracks in Convincing Answers", color: "var(--accent)", colorTo: "var(--violet-text)" },
   { id: "post-training", label: "LLM Post-Training", tagline: "Make Every Reasoning Token Earn Its Keep", color: "var(--accent-warm)", colorTo: "var(--pink-text)" },
   { id: "agents", label: "Generative Agents", tagline: "Build Tiny Societies, Then Audit the Drama", color: "var(--violet-text)", colorTo: "var(--fuchsia-text)" },
-  { id: "explorations", label: "More Explorations", tagline: "Side Quests in Finance, Forecasting, Vision, and Language", color: "var(--status-green)", colorTo: "var(--teal-text)" },
+  { id: "explorations", label: "More Explorations", tagline: "Swap Ideas with Brilliant Minds, Then Wander into New Fields", color: "var(--status-green)", colorTo: "var(--teal-text)" },
 ] as const;
 
 /** Selected Publications — 首页展示 */
