@@ -308,6 +308,10 @@ function PaperPanel({
 }) {
   return (
     <div id={`paper-detail-${pub.id}`} className="flex flex-col lg:flex-row">
+      {/* The mascots point to their right, so they sit left of the text they introduce. */}
+      <div className="hidden lg:flex lg:w-[300px] flex-shrink-0" style={{ borderRight: "1px dashed var(--card-border)" }}>
+        <MascotPanel mascot={mascot} />
+      </div>
       <div className="paper-content min-w-0 flex-1 px-5 py-5 sm:px-7 sm:py-6 flex flex-col gap-3.5">
         <div className="flex items-start justify-between gap-4">
           <p className="text-[13.5px] leading-relaxed italic" style={authorsStyle}>
@@ -323,19 +327,16 @@ function PaperPanel({
           <PaperAbstract pub={pub} />
         </div>
       </div>
-      <div className="hidden lg:flex lg:w-[300px] flex-shrink-0" style={{ borderLeft: "1px dashed var(--card-border)" }}>
-        <MascotPanel mascot={mascot} />
-      </div>
     </div>
   );
 }
 
 /* All view: the row already shows title and venue, so add figure, authors, links, abstract. */
-function PaperRowDetail({ pub, onZoom }: { pub: Publication; onZoom: ZoomHandler }) {
+function PaperRowDetail({ pub, mascot, onZoom }: { pub: Publication; mascot: Mascot; onZoom: ZoomHandler }) {
   return (
     <div id={`paper-detail-${pub.id}`} className="flex flex-col lg:flex-row">
-      {pub.thumbnail && (
-        <div className="w-full lg:w-[46%] flex flex-shrink-0 flex-col">
+      <div className="w-full lg:w-[46%] flex flex-shrink-0 flex-col">
+        {pub.thumbnail && (
           <button
             type="button"
             aria-haspopup="dialog"
@@ -355,8 +356,9 @@ function PaperRowDetail({ pub, onZoom }: { pub: Publication; onZoom: ZoomHandler
               <span className="text-[11px] font-mono">Click to zoom</span>
             </span>
           </button>
-        </div>
-      )}
+        )}
+        <MascotPanel mascot={mascot} />
+      </div>
       <div className="paper-content min-w-0 flex-1 px-5 py-5 sm:px-6 flex flex-col gap-3">
         <p className="text-[13.5px] leading-relaxed italic" style={authorsStyle}>
           {renderAuthors(pub.authors)}
@@ -439,12 +441,14 @@ function PaperRow({
   pub,
   theme,
   active,
+  mascot,
   onToggle,
   onZoom,
 }: {
   pub: Publication;
   theme: Theme;
   active: boolean;
+  mascot: Mascot;
   onToggle: () => void;
   onZoom: ZoomHandler;
 }) {
@@ -487,7 +491,7 @@ function PaperRow({
             className="overflow-hidden"
           >
             <div className="pub-row-detail">
-              <PaperRowDetail pub={pub} onZoom={onZoom} />
+              <PaperRowDetail pub={pub} mascot={mascot} onZoom={onZoom} />
             </div>
           </motion.div>
         )}
@@ -679,12 +683,13 @@ export default function Publications() {
                   className="glow-surface rounded-xl border overflow-hidden"
                   style={{ borderColor: "var(--card-border)", background: "var(--card-bg)" }}
                 >
-                  {group.papers.map((pub) => (
+                  {group.papers.map((pub, i) => (
                     <PaperRow
                       key={pub.id}
                       pub={pub}
                       theme={group.theme}
                       active={expandedId === pub.id}
+                      mascot={mascots[i % 2]}
                       onToggle={() => toggle(pub.id)}
                       onZoom={zoom}
                     />
