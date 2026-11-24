@@ -41,7 +41,7 @@ export default function Awards() {
         </motion.p>
 
         {/* Awards list */}
-        <div className="flex flex-col">
+        <div className="grid grid-cols-1 xl:grid-cols-2 xl:gap-x-10">
           {awards.map((award, i) => {
             const cat = catConfig[award.category] || catConfig.HONOR;
             return (

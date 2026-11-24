@@ -51,6 +51,7 @@ export const companionPaperIds = [
   "bizcompass",
   "headwater",
   "aaai-cor2",
+  "packrank",
   "identity-structure",
   "generative-agent",
   "iclr-ci",

@@ -278,10 +278,19 @@ export const recentUpdates = [
   },
 ];
 
+/** 论文按研究方向分组的顺序；三条主线的副标题直接复用首页打字机标语 */
+export const publicationThemes = [
+  { id: "evaluation", label: "LLM Evaluation", tagline: "Find the Cracks in Convincing Answers", color: "var(--accent)", colorTo: "var(--violet-text)" },
+  { id: "post-training", label: "LLM Post-Training", tagline: "Make Every Reasoning Token Earn Its Keep", color: "var(--accent-warm)", colorTo: "var(--pink-text)" },
+  { id: "agents", label: "Generative Agents", tagline: "Build Tiny Societies, Then Audit the Drama", color: "var(--violet-text)", colorTo: "var(--fuchsia-text)" },
+  { id: "explorations", label: "More Explorations", tagline: "Side Quests in Finance, Forecasting, Vision, and Language", color: "var(--status-green)", colorTo: "var(--teal-text)" },
+] as const;
+
 /** Selected Publications — 首页展示 */
 export const selectedPublications = [
 {
     id: "prism",
+    theme: "evaluation" as const,
     venue: "ACL 2026 Main Conference",
     venueType: "conference" as const,
     rating: "CCF A, CORE A*",
@@ -302,6 +311,7 @@ export const selectedPublications = [
   },
 {
     id: "bizcompass",
+    theme: "evaluation" as const,
     venue: "ACL 2026 Findings",
     venueType: "conference" as const,
     rating: "CCF A, CORE A*",
@@ -320,6 +330,7 @@ export const selectedPublications = [
   },
 {
     id: "joneses",
+    theme: "agents" as const,
     venue: "EMNLP 2026 Main Conference",
     venueType: "conference" as const,
     rating: "CCF B, CORE A",
@@ -337,6 +348,7 @@ export const selectedPublications = [
   },
 {
     id: "bizsage",
+    theme: "agents" as const,
     venue: "EMNLP 2026 Findings",
     venueType: "conference" as const,
     rating: "CCF B, CORE A",
@@ -356,6 +368,7 @@ export const selectedPublications = [
   },
 {
     id: "narrative-captivity",
+    theme: "evaluation" as const,
     venue: "EMNLP 2026 Findings",
     venueType: "conference" as const,
     rating: "CCF B, CORE A",
@@ -375,6 +388,7 @@ export const selectedPublications = [
   },
 {
     id: "anor",
+    theme: "explorations" as const,
     venue: "Annals of Operations Research",
     venueType: "journal" as const,
     rating: "ABS 3, JCR Q1",
@@ -392,6 +406,7 @@ export const selectedPublications = [
   },
 {
     id: "polluvcct",
+    theme: "explorations" as const,
     venue: "KDD-UMC 2025",
     venueType: "conference" as const,
     rating: "CCF A, CORE A*",
@@ -410,6 +425,7 @@ export const selectedPublications = [
   },
 {
     id: "cast2",
+    theme: "agents" as const,
     venue: "WWW 2027",
     venueType: "conference" as const,
     rating: "CCF A, CORE A*",
@@ -425,6 +441,7 @@ export const selectedPublications = [
   },
 {
     id: "fde",
+    theme: "agents" as const,
     venue: "WWW 2027",
     venueType: "conference" as const,
     rating: "CCF A, CORE A*",
@@ -440,6 +457,7 @@ export const selectedPublications = [
   },
 {
     id: "identity-structure",
+    theme: "evaluation" as const,
     venue: "WWW 2027",
     venueType: "conference" as const,
     rating: "CCF A, CORE A*",
@@ -455,6 +473,7 @@ export const selectedPublications = [
   },
 {
     id: "luck-recruits",
+    theme: "explorations" as const,
     venue: "WWW 2027 · Short Paper",
     venueType: "conference" as const,
     rating: "",
@@ -470,6 +489,7 @@ export const selectedPublications = [
   },
 {
     id: "tef",
+    theme: "evaluation" as const,
     venue: "ICASSP 2027",
     venueType: "conference" as const,
     rating: "CCF B",
@@ -488,6 +508,7 @@ export const selectedPublications = [
   },
 {
     id: "iclr-ci",
+    theme: "agents" as const,
     venue: "ICLR 2027",
     venueType: "conference" as const,
     rating: "CCF A, CORE A*",
@@ -503,6 +524,7 @@ export const selectedPublications = [
   },
 {
     id: "aaai-cor2",
+    theme: "post-training" as const,
     venue: "AAAI 2027",
     venueType: "conference" as const,
     rating: "CCF A, CORE A*",
@@ -518,6 +540,7 @@ export const selectedPublications = [
   },
 {
     id: "headwater",
+    theme: "agents" as const,
     venue: "ACL 2027",
     venueType: "conference" as const,
     rating: "CCF A, CORE A*",
@@ -533,6 +556,7 @@ export const selectedPublications = [
   },
 {
     id: "generative-agent",
+    theme: "agents" as const,
     venue: "ACL 2027",
     venueType: "conference" as const,
     rating: "CCF A, CORE A*",
@@ -548,6 +572,7 @@ export const selectedPublications = [
   },
 {
     id: "packrank",
+    theme: "post-training" as const,
     venue: "ACL 2027",
     venueType: "conference" as const,
     rating: "CCF A, CORE A*",
@@ -563,6 +588,7 @@ export const selectedPublications = [
   },
 {
     id: "blueprint-eae",
+    theme: "explorations" as const,
     venue: "ACL 2027",
     venueType: "conference" as const,
     rating: "CCF A, CORE A*",
@@ -578,6 +604,7 @@ export const selectedPublications = [
   },
 {
     id: "where-conditions",
+    theme: "agents" as const,
     venue: "ACL 2027",
     venueType: "conference" as const,
     rating: "CCF A, CORE A*",
@@ -593,6 +620,7 @@ export const selectedPublications = [
   },
 {
     id: "dont-guess-user",
+    theme: "agents" as const,
     venue: "ACL 2027",
     venueType: "conference" as const,
     rating: "CCF A, CORE A*",
@@ -608,6 +636,7 @@ export const selectedPublications = [
   },
 {
     id: "skilllaundry",
+    theme: "agents" as const,
     venue: "ACL 2027",
     venueType: "conference" as const,
     rating: "CCF A, CORE A*",
@@ -623,6 +652,7 @@ export const selectedPublications = [
   },
 {
     id: "praetor",
+    theme: "agents" as const,
     venue: "ACL 2027",
     venueType: "conference" as const,
     rating: "CCF A, CORE A*",
@@ -638,6 +668,7 @@ export const selectedPublications = [
   },
 {
     id: "visalloc",
+    theme: "post-training" as const,
     venue: "ACL 2027",
     venueType: "conference" as const,
     rating: "CCF A, CORE A*",
@@ -653,6 +684,7 @@ export const selectedPublications = [
   },
 {
     id: "order-flow",
+    theme: "explorations" as const,
     venue: "WWW 2027",
     venueType: "conference" as const,
     rating: "CCF A, CORE A*",
@@ -668,6 +700,7 @@ export const selectedPublications = [
   },
 {
     id: "iaom",
+    theme: "explorations" as const,
     venue: "CVPR 2027",
     venueType: "conference" as const,
     rating: "CCF A, CORE A*",
@@ -683,6 +716,7 @@ export const selectedPublications = [
   },
 {
     id: "ravec",
+    theme: "post-training" as const,
     venue: "CVPR 2027",
     venueType: "conference" as const,
     rating: "CCF A, CORE A*",
@@ -698,6 +732,7 @@ export const selectedPublications = [
   },
 {
     id: "pact",
+    theme: "post-training" as const,
     venue: "CVPR 2027",
     venueType: "conference" as const,
     rating: "CCF A, CORE A*",
@@ -713,6 +748,7 @@ export const selectedPublications = [
   },
 {
     id: "vis-mcts",
+    theme: "post-training" as const,
     venue: "ACL 2027",
     venueType: "conference" as const,
     rating: "CCF A, CORE A*",
@@ -728,6 +764,7 @@ export const selectedPublications = [
   },
 {
     id: "medgen",
+    theme: "evaluation" as const,
     venue: "arXiv preprint",
     venueType: "conference" as const,
     rating: "",
@@ -747,6 +784,7 @@ export const selectedPublications = [
   },
 {
     id: "nacf",
+    theme: "explorations" as const,
     venue: "Applied Energy",
     venueType: "journal" as const,
     rating: "JCR Q1",

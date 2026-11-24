@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Libre_Baskerville, Fira_Code, Zen_Old_Mincho, Caveat } from "next/font/google";
+import { Libre_Baskerville, Fira_Code, Zen_Old_Mincho, Caveat, Shantell_Sans } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { Providers } from "@/providers/ThemeProvider";
 import "./globals.css";
@@ -33,6 +33,14 @@ const caveat = Caveat({
   variable: "--font-comic",
   subsets: ["latin"],
   weight: ["400", "700"],
+  display: "swap",
+});
+
+/* Shantell Sans — 漫画马克笔风格，用于论文主题标语 */
+const shantellSans = Shantell_Sans({
+  variable: "--font-marker",
+  subsets: ["latin"],
+  weight: ["600"],
   display: "swap",
 });
 
@@ -75,7 +83,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${baskerville.variable} ${firaCode.variable} ${zenOldMincho.variable} ${caveat.variable} antialiased`}
+        className={`${baskerville.variable} ${firaCode.variable} ${zenOldMincho.variable} ${caveat.variable} ${shantellSans.variable} antialiased`}
       >
         <Providers>
           {children}
