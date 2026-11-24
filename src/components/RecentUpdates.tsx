@@ -22,6 +22,7 @@ const statusConfig: Record<string, { label: string; bg: string }> = {
   accepted:     { label: "Accepted",     bg: "#4ade8015" },
   published:    { label: "Published",    bg: "#4ade8015" },
   joined:       { label: "Joined",       bg: "#22d3ee15" },
+  attending:    { label: "Attending",    bg: "#22d3ee15" },
   offered:      { label: "Offered",      bg: "#22d3ee15" },
   granted:      { label: "Awarded",      bg: "#fb923c15" },
   released:     { label: "Released",     bg: "#34d39915" },

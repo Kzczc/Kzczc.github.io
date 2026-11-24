@@ -52,7 +52,7 @@ const SELECTED_MANUSCRIPT_IDS = [
   "headwater",
   "aaai-cor2",
   "generative-agent",
-  "dnd",
+  "fde",
 ];
 
 export default function Publications() {

@@ -52,7 +52,7 @@ export const companionPaperIds = [
   "headwater",
   "aaai-cor2",
   "generative-agent",
-  "dnd",
+  "fde",
 ];
 export const poseSource = (pose: CompanionPose) =>
   `/images/companion/${pose}.webp`;
