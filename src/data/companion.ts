@@ -51,8 +51,9 @@ export const companionPaperIds = [
   "bizcompass",
   "headwater",
   "aaai-cor2",
+  "identity-structure",
   "generative-agent",
-  "fde",
+  "iclr-ci",
 ];
 export const poseSource = (pose: CompanionPose) =>
   `/images/companion/${pose}.webp`;

@@ -51,8 +51,9 @@ const SELECTED_MANUSCRIPT_IDS = [
   "bizcompass",
   "headwater",
   "aaai-cor2",
+  "identity-structure",
   "generative-agent",
-  "fde",
+  "iclr-ci",
 ];
 
 export default function Publications() {
