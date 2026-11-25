@@ -13,7 +13,7 @@ type View = "selected" | "all";
 
 /* ── highlight "Yuhe Wu" (with optional * or † suffix) ── */
 function renderAuthors(authors: string) {
-  const parts = authors.split(/(Yuhe Wu[*†]*)/g);
+  const parts = authors.split(/(Yuhe Wu[*†‡]*)/g);
   return parts.map((part, i) =>
     part.startsWith("Yuhe Wu") ? (
       <span key={i} className="font-semibold not-italic" style={{ color: "var(--accent-warm)" }}>{part}</span>
@@ -79,7 +79,7 @@ function statusRank(status: string) {
 function roleRank(badges: readonly string[]) {
   if (badges.includes("First Author")) return 0;
   if (badges.includes("Co-First Author")) return 1;
-  if (badges.includes("Corresponding Author")) return 2;
+  if (badges.includes("Corresponding Author") || badges.includes("Project Leader")) return 2;
   return 3;
 }
 
@@ -372,6 +372,14 @@ function PaperRowDetail({ pub, mascot, onZoom }: { pub: Publication; mascot: Mas
   );
 }
 
+/* Cards clamp authors to two lines, so a long list skips the middle names to keep "Yuhe Wu" visible. */
+function cardAuthors(authors: string) {
+  const names = authors.split(", ");
+  const own = names.findIndex((name) => name.startsWith("Yuhe Wu"));
+  if (names.length <= 6 || own < 3) return authors;
+  return [...names.slice(0, 2), "…", ...names.slice(own)].join(", ");
+}
+
 /* Selected view: compact card. The figure opens the lightbox; the text opens a
    full-width detail panel below the card's row. */
 function PaperCard({
@@ -432,7 +440,7 @@ function PaperCard({
           {pub.title}
         </span>
         <span className="text-[12.5px] leading-relaxed italic line-clamp-2" style={{ color: "var(--muted)", fontFamily: "var(--font-sans)" }}>
-          {renderAuthors(pub.authors)}
+          {renderAuthors(cardAuthors(pub.authors))}
         </span>
         <span className="mt-auto flex w-full flex-wrap items-end justify-between gap-3 pt-1">
           <PaperBadges pub={pub} />
@@ -633,7 +641,7 @@ export default function Publications() {
         </AnimatePresence>
 
         <div className="flex items-center justify-between gap-4 mb-6 flex-wrap" style={{ color: "var(--muted)", fontFamily: "var(--font-sans)" }}>
-          <p className="text-[12.5px]">* equal contribution · † corresponding author</p>
+          <p className="text-[12.5px]">* equal contribution · † corresponding author · ‡ project leader</p>
           <span className="text-[12px] tabular-nums">
             {visibleCount} {view === "selected" ? "selected manuscripts" : visibleCount === 1 ? "paper" : "papers"}
           </span>
