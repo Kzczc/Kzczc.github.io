@@ -1342,17 +1342,18 @@ export default function Companion() {
                 }}
               >
                 <span className="companion-breathe">
-                  <AnimatePresence initial={false}>
+                  {/* Keep every pose mounted: an <img> inserted on a pose change stays
+                      blank until its request returns, so the companion would vanish. */}
+                  {companionPoses.map((layerPose) => (
                     <motion.span
                       className="companion-pose"
-                      key={pose}
-                      initial={{ opacity: 0, y: 2 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0 }}
+                      key={layerPose}
+                      initial={false}
+                      animate={layerPose === pose ? { opacity: 1, y: 0 } : { opacity: 0, y: 2 }}
                       transition={{ duration: reduced ? 0 : 0.25, ease }}
                     >
                       <Image
-                        src={poseSource(pose)}
+                        src={poseSource(layerPose)}
                         alt=""
                         width={384}
                         height={384}
@@ -1360,7 +1361,7 @@ export default function Companion() {
                         unoptimized
                       />
                     </motion.span>
-                  </AnimatePresence>
+                  ))}
                 </span>
               </button>
               <button
